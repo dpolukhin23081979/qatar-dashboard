@@ -422,12 +422,21 @@ with tab3:
         columns="scenario",
         values="normalized_score",
         aggfunc="mean"
-    ).fillna(0)
-    pivot2.index = [SECTOR_LABELS.get(i, i) for i in pivot2.index]
-    pivot2.columns = [SCENARIO_LABELS.get(c, c) for c in pivot2.columns]
+    ).fillna(0).reset_index()
+
+    pivot2["sector"] = pivot2["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+    pivot2 = pivot2.rename(columns=SCENARIO_LABELS)
+
+    scenario_cols = [SCENARIO_LABELS[s] for s in ["S1", "S2", "S3"] if SCENARIO_LABELS[s] in pivot2.columns]
+    pivot2_melted = pivot2.melt(
+        id_vars="sector",
+        value_vars=scenario_cols,
+        var_name="Scenario",
+        value_name="Demand Score"
+    )
 
     fig_demand = px.bar(
-        pivot2.reset_index().melt(id_vars="sector", var_name="Scenario", value_name="Demand Score"),
+        pivot2_melted,
         x="sector",
         y="Demand Score",
         color="Scenario",
