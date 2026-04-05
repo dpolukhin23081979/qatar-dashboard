@@ -20,35 +20,45 @@ st.markdown("""
 
 html, body, [class*="css"] {
     font-family: 'DM Sans', sans-serif;
+    color: #e8e4dc;
 }
 
 h1, h2, h3 {
     font-family: 'DM Serif Display', serif;
+    color: #f0ece4 !important;
 }
 
-.main { background-color: #f5f3ef; }
+.main { background-color: #0d0d14; }
+.stApp { background-color: #0d0d14; }
 
-.stApp { background-color: #f5f3ef; }
+section[data-testid="stMain"] { background-color: #0d0d14; }
+div[data-testid="stTabs"] { background-color: #0d0d14; }
+
+button[data-baseweb="tab"] { color: #a09a8e !important; }
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: #f0ece4 !important;
+    border-bottom-color: #c0392b !important;
+}
 
 .metric-card {
-    background: white;
+    background: #1a1a2e;
     border-radius: 12px;
     padding: 20px 24px;
-    border-left: 4px solid #8B0000;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    border-left: 4px solid #c0392b;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     margin-bottom: 8px;
 }
 
 .metric-value {
     font-size: 2rem;
     font-weight: 600;
-    color: #8B0000;
+    color: #e8513a;
     line-height: 1;
 }
 
 .metric-label {
     font-size: 0.8rem;
-    color: #666;
+    color: #8a8070;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-top: 4px;
@@ -57,16 +67,16 @@ h1, h2, h3 {
 .section-header {
     font-family: 'DM Serif Display', serif;
     font-size: 1.4rem;
-    color: #1a1a1a;
-    border-bottom: 2px solid #8B0000;
+    color: #f0ece4 !important;
+    border-bottom: 2px solid #c0392b;
     padding-bottom: 8px;
     margin: 24px 0 16px 0;
 }
 
 .source-tag {
     display: inline-block;
-    background: #f0e8e8;
-    color: #8B0000;
+    background: #2a1a1a;
+    color: #e8513a;
     border-radius: 4px;
     padding: 2px 8px;
     font-size: 0.75rem;
@@ -74,21 +84,39 @@ h1, h2, h3 {
     margin: 2px;
 }
 
-.scenario-s1 { color: #2196F3; font-weight: 600; }
-.scenario-s2 { color: #FF9800; font-weight: 600; }
-.scenario-s3 { color: #4CAF50; font-weight: 600; }
-
-div[data-testid="stSidebarContent"] {
-    background-color: #1a1a2e;
-    color: white;
+div[data-testid="stDataFrame"] {
+    background-color: #14141f;
+    border-radius: 8px;
 }
 
+div[data-baseweb="select"] { background-color: #1a1a2e !important; }
+input[type="text"] { background-color: #1a1a2e !important; color: #e8e4dc !important; }
+div[data-testid="stRadio"] label { color: #e8e4dc !important; }
+div[data-testid="stCaptionContainer"] p { color: #8a8070 !important; }
+
+div[data-testid="stSidebarContent"] {
+    background-color: #0a0a12;
+    color: #e8e4dc;
+}
+
+div[data-testid="stSidebarContent"] label { color: #e8e4dc !important; }
+div[data-testid="stSidebarContent"] p { color: #a09a8e !important; }
+
 .sidebar-title {
-    color: white;
+    color: #f0ece4;
     font-family: 'DM Serif Display', serif;
     font-size: 1.3rem;
     padding: 8px 0;
 }
+
+div[data-testid="stDownloadButton"] button {
+    background-color: #c0392b;
+    color: white;
+    border: none;
+}
+
+div[data-testid="stMarkdownContainer"] p { color: #e8e4dc; }
+hr { border-color: #2a2a3e; }
 </style>
 """, unsafe_allow_html=True)
 
