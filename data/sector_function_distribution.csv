@@ -1,0 +1,286 @@
+sector,jobFunction,count,pct
+construction_real_estate,Administrative,7,6.3
+construction_real_estate,"Business Development, Marketing, and General Business",1,0.9
+construction_real_estate,Consulting,2,1.8
+construction_real_estate,Consulting and Engineering,1,0.9
+construction_real_estate,Design,1,0.9
+construction_real_estate,"Design, Art/Creative, and Information Technology",1,0.9
+construction_real_estate,Engineering,24,21.6
+construction_real_estate,Engineering and Information Technology,8,7.2
+construction_real_estate,"Engineering, Project Management, and Administrative",2,1.8
+construction_real_estate,Finance and Sales,1,0.9
+construction_real_estate,General Business,2,1.8
+construction_real_estate,Health Care Provider,2,1.8
+construction_real_estate,Human Resources,7,6.3
+construction_real_estate,Information Technology,1,0.9
+construction_real_estate,Management,2,1.8
+construction_real_estate,Management and Manufacturing,16,14.4
+construction_real_estate,"Management, Purchasing, and Supply Chain",2,1.8
+construction_real_estate,Marketing,1,0.9
+construction_real_estate,Other,10,9.0
+construction_real_estate,Project Management,3,2.7
+construction_real_estate,Project Management and Engineering,1,0.9
+construction_real_estate,Project Management and Information Technology,1,0.9
+construction_real_estate,"Project Management, Business Development, and General Business",2,1.8
+construction_real_estate,Purchasing and Supply Chain,1,0.9
+construction_real_estate,Quality Assurance,5,4.5
+construction_real_estate,Quality Assurance and Engineering,2,1.8
+construction_real_estate,Sales,1,0.9
+construction_real_estate,Sales and Business Development,2,1.8
+construction_real_estate,Strategy/Planning,1,0.9
+construction_real_estate,Supply Chain,1,0.9
+cross_sector,Administrative,22,17.1
+cross_sector,Administrative and Human Resources,1,0.8
+cross_sector,"Administrative, Strategy/Planning, and Human Resources",1,0.8
+cross_sector,Business Development,13,10.1
+cross_sector,Business Development and Sales,5,3.9
+cross_sector,"Business Development, Sales, and General Business",1,0.8
+cross_sector,Consulting,2,1.6
+cross_sector,Customer Service,1,0.8
+cross_sector,Customer Service and Project Management,2,1.6
+cross_sector,Engineering,3,2.3
+cross_sector,"Engineering, Administrative, and Public Relations",2,1.6
+cross_sector,Human Resources,6,4.7
+cross_sector,Legal,3,2.3
+cross_sector,Management and Manufacturing,12,9.3
+cross_sector,Marketing,5,3.9
+cross_sector,Marketing and Sales,3,2.3
+cross_sector,"Marketing, Management, and Engineering",1,0.8
+cross_sector,"Marketing, Public Relations, and Writing/Editing",2,1.6
+cross_sector,Other,17,13.2
+cross_sector,Production,2,1.6
+cross_sector,Purchasing,2,1.6
+cross_sector,Purchasing and Supply Chain,2,1.6
+cross_sector,"Purchasing, Strategy/Planning, and Supply Chain",1,0.8
+cross_sector,Quality Assurance,2,1.6
+cross_sector,Sales and Business Development,8,6.2
+cross_sector,Sales and Management,1,0.8
+cross_sector,Science,4,3.1
+cross_sector,"Strategy/Planning, Management, and Project Management",1,0.8
+cross_sector,"Strategy/Planning, Marketing, and Project Management",2,1.6
+cross_sector,Supply Chain,2,1.6
+education,Accounting/Auditing and Finance,1,1.3
+education,Administrative,6,8.0
+education,Business Development,2,2.7
+education,Design and Research,1,1.3
+education,Education,4,5.3
+education,Education and Strategy/Planning,2,2.7
+education,Education and Training,34,45.3
+education,Engineering,1,1.3
+education,Finance,1,1.3
+education,Finance and Sales,1,1.3
+education,Human Resources,1,1.3
+education,Information Technology,6,8.0
+education,Management and Manufacturing,2,2.7
+education,Marketing,2,2.7
+education,Marketing and Sales,2,2.7
+education,"Marketing, Public Relations, and Writing/Editing",1,1.3
+education,Other,6,8.0
+education,Sales,2,2.7
+energy_lng,Accounting/Auditing and Finance,2,1.5
+energy_lng,"Accounting/Auditing, Finance, and Analyst",1,0.7
+energy_lng,Administrative,6,4.4
+energy_lng,Analyst,1,0.7
+energy_lng,Business Development and Sales,4,3.0
+energy_lng,Consulting,1,0.7
+energy_lng,Consulting and Engineering,4,3.0
+energy_lng,Design and Engineering,1,0.7
+energy_lng,Engineering,5,3.7
+energy_lng,Engineering and Finance,2,1.5
+energy_lng,Engineering and Information Technology,28,20.7
+energy_lng,"Engineering, Administrative, and Strategy/Planning",1,0.7
+energy_lng,"Engineering, Design, and Project Management",2,1.5
+energy_lng,"Engineering, Product Management, and Quality Assurance",1,0.7
+energy_lng,Finance,2,1.5
+energy_lng,Finance and Sales,1,0.7
+energy_lng,Human Resources,1,0.7
+energy_lng,"Human Resources, Strategy/Planning, and Quality Assurance",1,0.7
+energy_lng,Information Technology,10,7.4
+energy_lng,Legal,2,1.5
+energy_lng,Management and Manufacturing,11,8.1
+energy_lng,Manufacturing and Production,1,0.7
+energy_lng,Marketing,5,3.7
+energy_lng,Other,10,7.4
+energy_lng,Other and Engineering,2,1.5
+energy_lng,"Other, Information Technology, and Management",1,0.7
+energy_lng,Project Management,1,0.7
+energy_lng,Project Management and Information Technology,4,3.0
+energy_lng,"Project Management, Administrative, and Strategy/Planning",2,1.5
+energy_lng,"Project Management, Purchasing, and Supply Chain",3,2.2
+energy_lng,Purchasing and Supply Chain,5,3.7
+energy_lng,Quality Assurance,3,2.2
+energy_lng,Quality Assurance and Engineering,1,0.7
+energy_lng,Sales and Business Development,3,2.2
+energy_lng,"Sales, Marketing, and Business Development",1,0.7
+energy_lng,Strategy/Planning,2,1.5
+energy_lng,"Strategy/Planning, Project Management, and Management",2,1.5
+energy_lng,Supply Chain and Engineering,2,1.5
+finance_banking,Accounting/Auditing,2,1.9
+finance_banking,Accounting/Auditing and Finance,8,7.5
+finance_banking,Administrative,8,7.5
+finance_banking,Administrative and Customer Service,4,3.7
+finance_banking,Analyst,3,2.8
+finance_banking,"Analyst, Business Development, and Management",2,1.9
+finance_banking,Business Development and Sales,7,6.5
+finance_banking,Business Development and Strategy/Planning,1,0.9
+finance_banking,"Business Development, Sales, and Customer Service",2,1.9
+finance_banking,Customer Service,2,1.9
+finance_banking,Customer Service and Distribution,2,1.9
+finance_banking,Engineering and Information Technology,3,2.8
+finance_banking,Finance,9,8.4
+finance_banking,Finance and Sales,4,3.7
+finance_banking,"Finance, Accounting/Auditing, and Strategy/Planning",2,1.9
+finance_banking,Information Technology,13,12.1
+finance_banking,Information Technology and Engineering,1,0.9
+finance_banking,Management,1,0.9
+finance_banking,Management and Manufacturing,2,1.9
+finance_banking,Other,17,15.9
+finance_banking,Other and Management,2,1.9
+finance_banking,"Other, Information Technology, and Management",1,0.9
+finance_banking,Project Management and Information Technology,1,0.9
+finance_banking,"Project Management, Management, and Analyst",2,1.9
+finance_banking,Public Relations and Marketing,2,1.9
+finance_banking,Research,2,1.9
+finance_banking,Sales,1,0.9
+finance_banking,Sales and Business Development,3,2.8
+healthcare,Accounting/Auditing and Finance,53,7.7
+healthcare,Administrative,35,5.1
+healthcare,"Administrative, Public Relations, and Quality Assurance",1,0.1
+healthcare,Business Development and Sales,4,0.6
+healthcare,"Consulting, Information Technology, and Management",3,0.4
+healthcare,Customer Service,5,0.7
+healthcare,Customer Service and Other,1,0.1
+healthcare,"Design, Art/Creative, and Information Technology",12,1.8
+healthcare,Education and Training,1,0.1
+healthcare,Engineering,1,0.1
+healthcare,Engineering and Information Technology,47,6.9
+healthcare,Finance,2,0.3
+healthcare,Finance and Sales,3,0.4
+healthcare,Health Care Provider,29,4.2
+healthcare,Human Resources,101,14.7
+healthcare,Human Resources and Administrative,2,0.3
+healthcare,Information Technology,4,0.6
+healthcare,Legal,2,0.3
+healthcare,Management and Manufacturing,188,27.4
+healthcare,"Management, Customer Service, and Art/Creative",1,0.1
+healthcare,Marketing and Sales,8,1.2
+healthcare,"Marketing, Public Relations, and Writing/Editing",7,1.0
+healthcare,Other,151,22.0
+healthcare,"Other, Information Technology, and Management",3,0.4
+healthcare,"Public Relations, Research, and Sales",2,0.3
+healthcare,Purchasing and Supply Chain,2,0.3
+healthcare,Sales,6,0.9
+healthcare,Sales and Business Development,9,1.3
+healthcare,Supply Chain and Customer Service,2,0.3
+technology_digital,Accounting/Auditing,1,0.3
+technology_digital,Accounting/Auditing and Finance,5,1.4
+technology_digital,Administrative,12,3.4
+technology_digital,"Administrative, Business Development, and Sales",2,0.6
+technology_digital,"Administrative, Consulting, and Accounting/Auditing",2,0.6
+technology_digital,"Administrative, Human Resources, and Management",1,0.3
+technology_digital,"Administrative, Marketing, and Public Relations",1,0.3
+technology_digital,"Administrative, Project Management, and Customer Service",1,0.3
+technology_digital,Analyst,5,1.4
+technology_digital,"Analyst, Legal, and Quality Assurance",1,0.3
+technology_digital,Business Development,5,1.4
+technology_digital,Business Development and Sales,8,2.2
+technology_digital,"Business Development, General Business, and Other",2,0.6
+technology_digital,"Business Development, General Business, and Project Management",2,0.6
+technology_digital,Consulting,2,0.6
+technology_digital,"Consulting, Information Technology, and Sales",1,0.3
+technology_digital,"Consulting, Strategy/Planning, and Project Management",2,0.6
+technology_digital,Customer Service,1,0.3
+technology_digital,Customer Service and Analyst,2,0.6
+technology_digital,"Design, Art/Creative, and Information Technology",4,1.1
+technology_digital,Distribution,1,0.3
+technology_digital,Education,8,2.2
+technology_digital,Education and Training,3,0.8
+technology_digital,Engineering,8,2.2
+technology_digital,Engineering and Administrative,1,0.3
+technology_digital,Engineering and Information Technology,33,9.3
+technology_digital,"Engineering, Information Technology, and Management",2,0.6
+technology_digital,Finance,1,0.3
+technology_digital,Finance and Sales,2,0.6
+technology_digital,"Finance, Accounting/Auditing, and Analyst",1,0.3
+technology_digital,"Finance, Other, and Strategy/Planning",1,0.3
+technology_digital,General Business,5,1.4
+technology_digital,Health Care Provider,7,2.0
+technology_digital,Human Resources,5,1.4
+technology_digital,"Human Resources, Supply Chain, and Management",1,0.3
+technology_digital,Information Technology,58,16.3
+technology_digital,Information Technology and Project Management,1,0.3
+technology_digital,"Information Technology, Engineering, and Design",2,0.6
+technology_digital,"Information Technology, Engineering, and Strategy/Planning",2,0.6
+technology_digital,"Legal, Consulting, and Finance",1,0.3
+technology_digital,Management and Manufacturing,16,4.5
+technology_digital,Marketing and Product Management,1,0.3
+technology_digital,Marketing and Sales,4,1.1
+technology_digital,"Marketing, Business Development, and Art/Creative",2,0.6
+technology_digital,"Marketing, Public Relations, and Writing/Editing",1,0.3
+technology_digital,Other,56,15.7
+technology_digital,Other and Purchasing,1,0.3
+technology_digital,"Other, Information Technology, and Management",1,0.3
+technology_digital,Product Management and Marketing,1,0.3
+technology_digital,Product Management and Project Management,1,0.3
+technology_digital,"Product Management, Project Management, and Business Development",2,0.6
+technology_digital,"Production, Distribution, and Engineering",1,0.3
+technology_digital,Project Management,3,0.8
+technology_digital,Project Management and Information Technology,11,3.1
+technology_digital,"Public Relations, Human Resources, and Administrative",1,0.3
+technology_digital,Purchasing and Supply Chain,2,0.6
+technology_digital,Research,2,0.6
+technology_digital,"Research, Analyst, and Information Technology",5,1.4
+technology_digital,Sales,9,2.5
+technology_digital,Sales and Business Development,11,3.1
+technology_digital,Sales and Information Technology,1,0.3
+technology_digital,"Sales, Business Development, and Customer Service",2,0.6
+technology_digital,"Sales, General Business, and Customer Service",4,1.1
+technology_digital,"Sales, Research, and Marketing",2,0.6
+technology_digital,Strategy/Planning and Business Development,3,0.8
+technology_digital,Strategy/Planning and Marketing,2,0.6
+technology_digital,Strategy/Planning and Project Management,2,0.6
+technology_digital,Supply Chain,3,0.8
+technology_digital,Writing/Editing,2,0.6
+technology_digital,Writing/Editing and Strategy/Planning,1,0.3
+tourism_hospitality,Accounting/Auditing and Finance,3,1.2
+tourism_hospitality,Administrative,4,1.6
+tourism_hospitality,Administrative and Other,1,0.4
+tourism_hospitality,Business Development,2,0.8
+tourism_hospitality,"Business Development, Sales, and Customer Service",2,0.8
+tourism_hospitality,"Consulting, Engineering, and Management",1,0.4
+tourism_hospitality,"Consulting, Information Technology, and Sales",4,1.6
+tourism_hospitality,Customer Service and Management,1,0.4
+tourism_hospitality,Customer Service and Sales,1,0.4
+tourism_hospitality,Design,1,0.4
+tourism_hospitality,"Design, Art/Creative, and Information Technology",1,0.4
+tourism_hospitality,Education and Training,18,7.2
+tourism_hospitality,Engineering and Information Technology,4,1.6
+tourism_hospitality,Finance,1,0.4
+tourism_hospitality,Finance and Sales,2,0.8
+tourism_hospitality,General Business,1,0.4
+tourism_hospitality,General Business and Business Development,2,0.8
+tourism_hospitality,Human Resources,48,19.2
+tourism_hospitality,Information Technology,10,4.0
+tourism_hospitality,Management,2,0.8
+tourism_hospitality,Management and Manufacturing,44,17.6
+tourism_hospitality,"Management, Business Development, and Analyst",2,0.8
+tourism_hospitality,Manufacturing,1,0.4
+tourism_hospitality,Marketing,5,2.0
+tourism_hospitality,Marketing and Project Management,2,0.8
+tourism_hospitality,Marketing and Sales,5,2.0
+tourism_hospitality,"Marketing, Business Development, and Sales",1,0.4
+tourism_hospitality,"Marketing, Public Relations, and Writing/Editing",3,1.2
+tourism_hospitality,"Marketing, Strategy/Planning, and Management",1,0.4
+tourism_hospitality,Other,23,9.2
+tourism_hospitality,"Other, Information Technology, and Management",5,2.0
+tourism_hospitality,Product Management and Marketing,1,0.4
+tourism_hospitality,Public Relations,1,0.4
+tourism_hospitality,Purchasing and Supply Chain,8,3.2
+tourism_hospitality,Quality Assurance,2,0.8
+tourism_hospitality,Sales,9,3.6
+tourism_hospitality,Sales and Business Development,19,7.6
+tourism_hospitality,Sales and Management,2,0.8
+tourism_hospitality,"Sales, Customer Service, and Marketing",1,0.4
+tourism_hospitality,"Sales, Customer Service, and Other",2,0.8
+tourism_hospitality,Strategy/Planning,3,1.2
+tourism_hospitality,"Strategy/Planning, Sales, and Analyst",1,0.4
