@@ -1,121 +1,281 @@
 scenario,sector,skill_category,calibration_score,posting_freq,gap_score,demand_label,qatarization_relevance,time_horizon,supporting_sources,source_titles
-S3,technology_digital,digital transformation,1.0,0.0,1.0,↑↑ Strong increase,high,both,MDPS_LFS_2023; QNDS2,Qatar Labour Force Sample Survey 2023; Qatar Third National Development Strategy 2024-2030
-S2,energy_lng,LNG operations and engineering,1.0,0.0,1.0,↑↑ Strong increase,medium,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S1,technology_digital,digital transformation,0.9231,0.0,0.9231,↑↑ Strong increase,high,both,MDPS_LFS_2023; QNDS2,Qatar Labour Force Sample Survey 2023; Qatar Third National Development Strategy 2024-2030
-S1,healthcare,digital health technology,0.6923,0.0,0.6923,↑↑ Strong increase,high,both,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
-S1,tourism_hospitality,cultural tourism expertise,0.6923,0.0,0.6923,↑↑ Strong increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S1,tourism_hospitality,hospitality management,0.6923,0.0,0.6923,↑↑ Strong increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S1,healthcare,specialized clinical care,0.6923,0.0,0.6923,↑↑ Strong increase,medium,medium_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
-S1,tourism_hospitality,digital tourism services,0.6923,0.0,0.6923,↑↑ Strong increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S1,tourism_hospitality,business events management,0.6923,0.0,0.6923,↑↑ Strong increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S3,technology_digital,data analytics,0.6667,0.0,0.6667,↑↑ Strong increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S3,cross_sector,sustainability and green skills,0.6667,0.0,0.6667,↑↑ Strong increase,medium,medium_term,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S3,technology_digital,cybersecurity,0.6667,0.0,0.6667,↑↑ Strong increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S3,technology_digital,artificial intelligence and machine learning,0.6667,0.0,0.6667,↑↑ Strong increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S3,technology_digital,data analytics and big data,0.6667,0.0,0.6667,↑↑ Strong increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S3,technology_digital,fintech,0.6667,0.0,0.6667,↑↑ Strong increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S1,education,educational leadership and pedagogy,0.6154,0.0,0.6154,↑↑ Strong increase,high,both,QNV2030,Qatar National Vision 2030
-S1,healthcare,advanced medical services,0.6154,0.0,0.6154,↑↑ Strong increase,high,both,QNV2030,Qatar National Vision 2030
-S1,technology_digital,knowledge economy enablement,0.6154,0.0,0.6154,↑↑ Strong increase,high,both,QNV2030,Qatar National Vision 2030
-S1,technology_digital,fintech,0.6154,0.0,0.6154,↑↑ Strong increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S1,technology_digital,data analytics,0.6154,0.0,0.6154,↑↑ Strong increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S3,energy_lng,clean energy integration,0.5556,0.0,0.5556,↑ Moderate increase,medium,medium_term,QNDS2,Qatar Third National Development Strategy 2024-2030
-S3,cross_sector,sustainability management,0.5556,0.0,0.5556,↑ Moderate increase,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,finance_banking,fintech and digital finance,0.5385,0.0,0.5385,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,cross_sector,project management and governance,0.5385,0.0,0.5385,↑ Moderate increase,high,both,QNV2030; WB_QATAR_2024,Qatar National Vision 2030; World Bank — Qatar Economic Monitor 2024
-S1,education,STEM education delivery,0.5385,0.0,0.5385,↑ Moderate increase,high,both,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S1,cross_sector,research and development,0.5385,0.0,0.5385,↑ Moderate increase,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S1,cross_sector,sustainability and green skills,0.5385,0.0,0.5385,↑ Moderate increase,medium,medium_term,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,cross_sector,project management,0.5385,0.0,0.5385,↑ Moderate increase,high,both,QFZA_TECH_2024; QNDS2,Qatar Free Zones Authority — Technology Sector Investment Strategy; Qatar Third National Development Strategy 2024-2030
-S1,technology_digital,artificial intelligence and machine learning,0.5385,0.0,0.5385,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,technology_digital,data science and analytics,0.5385,0.0,0.5385,↑ Moderate increase,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S1,technology_digital,data analytics and big data,0.5385,0.0,0.5385,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,technology_digital,cybersecurity,0.5385,0.0,0.5385,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S2,cross_sector,regulatory and market analysis,0.5,0.0,0.5,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S2,energy_lng,digital energy systems,0.5,0.0,0.5,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S1,education,research and innovation facilitation,0.4615,0.0,0.4615,↑ Moderate increase,high,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
-S1,healthcare,advanced medical specialties,0.4615,0.0,0.4615,↑ Moderate increase,high,medium_term,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,education,skills development and training,0.4615,0.0,0.4615,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S1,education,multidisciplinary education delivery,0.4615,0.0,0.4615,↑ Moderate increase,high,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
-S1,cross_sector,future-focused problem solving,0.4615,0.0,0.4615,↑ Moderate increase,high,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
-S1,technology_digital,data analytics and AI,0.4615,0.0,0.4615,↑ Moderate increase,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S1,finance_banking,financial technology and regulation,0.4615,0.0,0.4615,↑ Moderate increase,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S1,cross_sector,data analytics and statistics,0.4615,0.0,0.4615,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S3,education,skills development and training,0.4444,0.0,0.4444,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S3,cross_sector,data analytics and statistics,0.4444,0.0,0.4444,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S3,education,educational leadership and pedagogy,0.4444,0.0,0.4444,↑ Moderate increase,high,both,QNV2030,Qatar National Vision 2030
-S3,technology_digital,knowledge economy enablement,0.4444,0.0,0.4444,↑ Moderate increase,high,both,QNV2030,Qatar National Vision 2030
-S2,cross_sector,data analytics and statistics,0.4286,0.0,0.4286,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S2,cross_sector,management leadership,0.4286,0.0,0.4286,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S2,energy_lng,technical operations,0.4286,0.0,0.4286,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S2,cross_sector,digital literacy,0.4286,0.0,0.4286,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,energy_lng,technical operations,0.3846,0.0,0.3846,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,cross_sector,digital literacy,0.3846,0.0,0.3846,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,healthcare,clinical specialization,0.3846,0.0,0.3846,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,cross_sector,management leadership,0.3846,0.0,0.3846,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,cross_sector,digital governance,0.359,0.0,0.359,↑ Moderate increase,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S1,healthcare,health system management,0.3462,0.0,0.3462,↑ Moderate increase,high,both,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
-S1,healthcare,medical education training,0.3462,0.0,0.3462,↑ Moderate increase,high,medium_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
-S1,tourism_hospitality,sustainable tourism practices,0.3462,0.0,0.3462,↑ Moderate increase,medium,medium_term,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S1,cross_sector,multilingual communication,0.3462,0.0,0.3462,↑ Moderate increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S1,healthcare,public health,0.3462,0.0,0.3462,↑ Moderate increase,high,near_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
-S3,technology_digital,digital infrastructure,0.3333,0.0,0.3333,↑ Moderate increase,medium,near_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S3,cross_sector,analytical and critical thinking,0.3333,0.0,0.3333,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S3,cross_sector,creative and design thinking,0.3333,0.0,0.3333,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,cross_sector,environmental management,0.3077,0.0,0.3077,↑ Moderate increase,medium,both,QNV2030,Qatar National Vision 2030
-S1,finance_banking,financial services and investment,0.3077,0.0,0.3077,↑ Moderate increase,high,medium_term,QNV2030,Qatar National Vision 2030
-S1,technology_digital,digital infrastructure,0.3077,0.0,0.3077,↑ Moderate increase,medium,near_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
-S3,cross_sector,digital governance,0.2963,0.0,0.2963,↑ Moderate increase,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S1,technology_digital,software development,1.0,0.071429,0.2857,↑↑ Strong increase,high,both,ILO_QATAR_LABOUR_2023; QFZA_TECH_2024,ILO — Qatar Labour Market and Skills Assessment; Qatar Free Zones Authority — Technology Sector Investment Strategy
-S2,energy_lng,clean energy integration,0.2857,0.0,0.2857,↑ Moderate increase,medium,medium_term,QNDS2,Qatar Third National Development Strategy 2024-2030
-S3,cross_sector,project management,0.2778,0.0,0.2778,↑ Moderate increase,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S3,cross_sector,project management and governance,0.2778,0.0,0.2778,↑ Moderate increase,high,both,QNV2030; WB_QATAR_2024,Qatar National Vision 2030; World Bank — Qatar Economic Monitor 2024
-S3,construction_real_estate,sustainable construction,0.2778,0.0,0.2778,↑ Moderate increase,medium,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S3,education,educational innovation,0.2778,0.0,0.2778,↑ Moderate increase,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,cross_sector,analytical and critical thinking,0.2692,0.0,0.2692,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,healthcare,digital health and telemedicine,0.2692,0.0,0.2692,↑ Moderate increase,medium,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,cross_sector,creative and design thinking,0.2692,0.0,0.2692,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
-S1,education,adult learning and workforce development,0.2692,0.0,0.2692,↑ Moderate increase,medium,near_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S1,finance_banking,fintech and islamic finance,0.2308,0.0,0.2308,↑ Moderate increase,high,near_term,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,education,digital education and research,0.2308,0.0,0.2308,↑ Moderate increase,high,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S1,education,educational innovation,0.2308,0.0,0.2308,↑ Moderate increase,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,education,global education partnerships,0.2308,0.0,0.2308,↑ Moderate increase,medium,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
-S1,finance_banking,economic analysis,0.2308,0.0,0.2308,↑ Moderate increase,medium,medium_term,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S1,cross_sector,human resources management,0.2308,0.0,0.2308,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S1,construction_real_estate,sustainable construction,0.2308,0.0,0.2308,↑ Moderate increase,medium,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S1,healthcare,specialized medical services,0.2308,0.0,0.2308,↑ Moderate increase,medium,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S3,energy_lng,energy transition planning,0.2222,0.0,0.2222,↑ Moderate increase,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S3,cross_sector,environmental management,0.2222,0.0,0.2222,↑ Moderate increase,medium,both,QNV2030,Qatar National Vision 2030
-S3,cross_sector,research and development,0.2222,0.0,0.2222,↑ Moderate increase,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S3,finance_banking,economic analysis,0.2222,0.0,0.2222,↑ Moderate increase,medium,medium_term,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S3,technology_digital,data science and analytics,0.2222,0.0,0.2222,↑ Moderate increase,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S3,healthcare,clinical specialization,0.2222,0.0,0.2222,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S3,energy_lng,digital energy systems,0.2222,0.0,0.2222,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S3,cross_sector,regulatory and market analysis,0.2222,0.0,0.2222,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S3,cross_sector,management leadership,0.2222,0.0,0.2222,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S3,education,STEM education delivery,0.2222,0.0,0.2222,↑ Moderate increase,high,both,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S3,cross_sector,digital literacy,0.2222,0.0,0.2222,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S2,construction_real_estate,project management,0.2143,0.0,0.2143,↑ Moderate increase,high,near_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S2,energy_lng,energy transition technologies,0.2143,0.0,0.2143,↑ Moderate increase,medium,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S2,cross_sector,project management and governance,0.2143,0.0,0.2143,↑ Moderate increase,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S2,cross_sector,human resources management,0.2143,0.0,0.2143,↑ Moderate increase,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
-S1,construction_real_estate,project management,0.1923,0.0,0.1923,→ Stable,high,near_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,finance_banking,financial analysis,0.1923,0.0,0.1923,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,education,educational delivery,0.1923,0.0,0.1923,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S1,cross_sector,institutional strengthening,0.1795,0.0,0.1795,→ Stable,high,medium_term,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S1,cross_sector,expenditure management,0.1795,0.0,0.1795,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S1,cross_sector,transparency and accountability,0.1795,0.0,0.1795,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S3,technology_digital,software development,0.8889,0.071429,0.1746,↑↑ Strong increase,high,both,ILO_QATAR_LABOUR_2023; QFZA_TECH_2024,ILO — Qatar Labour Market and Skills Assessment; Qatar Free Zones Authority — Technology Sector Investment Strategy
-S3,cross_sector,expenditure management,0.1481,0.0,0.1481,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S3,cross_sector,transparency and accountability,0.1481,0.0,0.1481,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
-S2,cross_sector,project management,0.1429,0.0,0.1429,→ Stable,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
-S3,tourism_hospitality,sustainable tourism practices,0.1111,0.0,0.1111,→ Stable,medium,medium_term,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
-S3,technology_digital,data analytics and AI,0.1111,0.0,0.1111,→ Stable,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S3,education,educational delivery,0.1111,0.0,0.1111,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
-S3,finance_banking,financial technology and regulation,0.1111,0.0,0.1111,→ Stable,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S3,education,adult learning and workforce development,0.1111,0.0,0.1111,→ Stable,medium,near_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
-S3,energy_lng,energy transition technologies,0.0556,0.0,0.0556,→ Stable,medium,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S3,education,digital education and research,0.0556,0.0,0.0556,→ Stable,high,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
-S2,energy_lng,carbon management and CCUS,1.0,0.1,0.0,↑↑ Strong increase,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S3,energy_lng,carbon management and CCUS,0.4444,0.1,-0.5556,↑ Moderate increase,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
-S1,technology_digital,digital infrastructure management,0.5385,0.267857,-2.1401,↑ Moderate increase,high,near_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,technology_digital,digital transformation,1.0,0.005456,0.9891,↑↑ Strong increase,high,both,KEARNEY_GCC_TALENT; MDPS_LFS_2023; QATARIZATION_POLICY; QNDS2; QNDS3; STRATEGY_AND_GCC_DIGITAL,Kearney — GCC Talent Competitiveness Report 2023; Qatar Labour Force Sample Survey 2023; Qatar Qatarization Policy and National Workforce Strategy; Qatar Third National Development Strategy 2024-2030; Strategy& — GCC Digital Economy: Workforce Implications 2024
+S3,technology_digital,digital transformation,0.7891,0.005456,0.7782,↑↑ Strong increase,high,both,KEARNEY_GCC_TALENT; MDPS_LFS_2023; QATARIZATION_POLICY; QNDS2; QNDS3; STRATEGY_AND_GCC_DIGITAL,Kearney — GCC Talent Competitiveness Report 2023; Qatar Labour Force Sample Survey 2023; Qatar Qatarization Policy and National Workforce Strategy; Qatar Third National Development Strategy 2024-2030; Strategy& — GCC Digital Economy: Workforce Implications 2024
+S3,cross_sector,digital literacy and data skills,0.4663,0.020659,0.425,↑ Moderate increase,high,near_term,MCK_FUTURE_WORK_GCC; OECD_AI_SKILLS_2023,McKinsey Global Institute — The Future of Work in the GCC; OECD — AI and the Future of Skills: Policy Perspectives
+S1,technology_digital,data analytics and AI,0.4615,0.033296,0.3949,↑ Moderate increase,high,both,GS_GULF_VISION_2024; OXFORD_ECONOMICS_GCC; WB_QATAR_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation; Oxford Economics — GCC Labour Market Outlook 2030; World Bank — Qatar Economic Monitor 2024
+S3,energy_lng,clean energy integration,0.3945,0.005024,0.3845,↑ Moderate increase,medium,medium_term,QNDS2; QNDS3,Qatar Third National Development Strategy 2024-2030
+S3,technology_digital,artificial intelligence and machine learning,0.4304,0.023963,0.3825,↑ Moderate increase,high,both,OECD_AI_SKILLS_2023; WEF_FUTURE_JOBS_2023,OECD — AI and the Future of Skills: Policy Perspectives; WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,cross_sector,research and development,0.3846,0.004369,0.3759,↑ Moderate increase,high,both,QF_HIGHER_ED_STRATEGY; RAND_QATAR_WORKFORCE,Higher Education in Qatar Foundation: Preparing Global Leaders; RAND — Building a Knowledge Economy in Qatar
+S1,finance_banking,fintech and digital banking,0.4103,0.018181,0.3739,↑ Moderate increase,medium,near_term,KEARNEY_GCC_TALENT; OXFORD_ECONOMICS_GCC; STRATEGY_AND_GCC_DIGITAL,Kearney — GCC Talent Competitiveness Report 2023; Oxford Economics — GCC Labour Market Outlook 2030; Strategy& — GCC Digital Economy: Workforce Implications 2024
+S1,technology_digital,cybersecurity,0.359,0.002055,0.3549,↑ Moderate increase,high,both,STRATEGY_AND_GCC_DIGITAL; WEF_FUTURE_JOBS_2023,Strategy& — GCC Digital Economy: Workforce Implications 2024; WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,cross_sector,digital literacy and data skills,0.3846,0.020659,0.3433,↑ Moderate increase,high,near_term,MCK_FUTURE_WORK_GCC; OECD_AI_SKILLS_2023,McKinsey Global Institute — The Future of Work in the GCC; OECD — AI and the Future of Skills: Policy Perspectives
+S5,cross_sector,logistics analytics,0.3365,0.002006,0.3325,↑ Moderate increase,medium,near_term,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S5,cross_sector,digital logistics,0.3365,0.003644,0.3292,↑ Moderate increase,medium,near_term,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S3,energy_lng,green hydrogen production,0.3228,0.004929,0.3129,↑ Moderate increase,high,medium_term,IRENA_ENERGY_TRANSITION,IRENA — Renewable Energy and Jobs: Annual Review 2023
+S1,technology_digital,artificial intelligence and machine learning,0.359,0.023963,0.3111,↑ Moderate increase,high,both,OECD_AI_SKILLS_2023; WEF_FUTURE_JOBS_2023,OECD — AI and the Future of Skills: Policy Perspectives; WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S4,education,digital literacy and AI competency training,0.3365,0.012764,0.311,↑ Moderate increase,high,both,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S2,energy_lng,LNG operations and engineering,0.4121,0.053036,0.306,↑ Moderate increase,medium,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S4,education,AI pedagogy and curriculum design,0.3365,0.01761,0.3013,↑ Moderate increase,high,both,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S1,technology_digital,software development,0.3333,0.023145,0.287,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023; QFZA_TECH_2024,ILO — Qatar Labour Market and Skills Assessment; Qatar Free Zones Authority — Technology Sector Investment Strategy
+S4,technology_digital,AI development and implementation,0.3365,0.025155,0.2862,↑ Moderate increase,medium,medium_term,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S3,technology_digital,cybersecurity,0.2869,0.002055,0.2828,↑ Moderate increase,high,both,STRATEGY_AND_GCC_DIGITAL; WEF_FUTURE_JOBS_2023,Strategy& — GCC Digital Economy: Workforce Implications 2024; WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,education,multidisciplinary education delivery,0.3077,0.013278,0.2811,↑ Moderate increase,high,both,QF_EDU_STRATEGY; QF_EDU_WEBSITE,Qatar Foundation — Education for a New Era
+S3,cross_sector,sustainability management,0.3945,0.066493,0.2615,↑ Moderate increase,high,both,QNDS2; QNDS3,Qatar Third National Development Strategy 2024-2030
+S4,cross_sector,innovation commercialization,0.2617,0.00041,0.2609,↑ Moderate increase,medium,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S3,energy_lng,renewable energy engineering,0.3228,0.031737,0.2593,↑ Moderate increase,high,both,IRENA_ENERGY_TRANSITION,IRENA — Renewable Energy and Jobs: Annual Review 2023
+S4,technology_digital,biotechnology research,0.2617,0.002347,0.257,↑ Moderate increase,high,medium_term,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S4,technology_digital,cybersecurity research,0.2617,0.004402,0.2529,↑ Moderate increase,high,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S4,technology_digital,artificial intelligence research,0.2617,0.004948,0.2518,↑ Moderate increase,high,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S4,cross_sector,data science analytics,0.2617,0.007237,0.2472,↑ Moderate increase,high,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S3,technology_digital,software development,0.2869,0.023145,0.2406,↑ Moderate increase,high,both,ILO_QATAR_LABOUR_2023; QFZA_TECH_2024,ILO — Qatar Labour Market and Skills Assessment; Qatar Free Zones Authority — Technology Sector Investment Strategy
+S3,technology_digital,artificial intelligence and automation,0.2511,0.00666,0.2378,↑ Moderate increase,high,both,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S2,energy_lng,carbon capture and storage,0.2355,0.001161,0.2332,↑ Moderate increase,medium,medium_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,tourism_hospitality,cultural tourism expertise,0.2308,0.001671,0.2275,↑ Moderate increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S1,technology_digital,educational technology,0.235,0.004197,0.2266,↑ Moderate increase,medium,near_term,HBKU_STRATEGY; QF_HIGHER_ED_STRATEGY,Hamad Bin Khalifa University — Research and Graduate Education Strategy; Higher Education in Qatar Foundation: Preparing Global Leaders
+S1,technology_digital,health informatics,0.2308,0.002312,0.2262,↑ Moderate increase,high,near_term,SIDRA_STRATEGY,Sidra Medicine — Research and Clinical Excellence Strategy 2030
+S2,energy_lng,hydrogen production,0.2355,0.004929,0.2256,↑ Moderate increase,high,medium_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S3,cross_sector,cognitive and creative skills,0.2511,0.013012,0.2251,↑ Moderate increase,high,medium_term,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S3,technology_digital,fintech,0.2152,0.0,0.2152,↑ Moderate increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
+S3,cross_sector,innovation and entrepreneurship,0.2152,0.00041,0.2144,↑ Moderate increase,high,both,QNDS3,Qatar Third National Development Strategy 2024-2030
+S3,finance_banking,sustainable finance,0.2152,0.001056,0.2131,↑ Moderate increase,high,near_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,tourism_hospitality,digital tourism services,0.2308,0.008957,0.2129,↑ Moderate increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S3,energy_lng,carbon capture and storage,0.2152,0.001161,0.2129,↑ Moderate increase,medium,medium_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S3,cross_sector,human-AI collaboration,0.2152,0.001502,0.2122,↑ Moderate increase,high,both,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,healthcare,clinical research,0.2308,0.009755,0.2113,↑ Moderate increase,medium,both,SIDRA_STRATEGY,Sidra Medicine — Research and Clinical Excellence Strategy 2030
+S1,healthcare,digital health technology,0.2308,0.010064,0.2107,↑ Moderate increase,high,both,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
+S1,healthcare,precision medicine,0.2308,0.010478,0.2098,↑ Moderate increase,high,both,SIDRA_STRATEGY,Sidra Medicine — Research and Clinical Excellence Strategy 2030
+S1,healthcare,pediatric specialty care,0.2308,0.011128,0.2085,↑ Moderate increase,medium,both,SIDRA_STRATEGY,Sidra Medicine — Research and Clinical Excellence Strategy 2030
+S2,cross_sector,leadership and management,0.3532,0.073209,0.2068,↑ Moderate increase,high,both,KEARNEY_GCC_TALENT; QATARIZATION_POLICY,Kearney — GCC Talent Competitiveness Report 2023; Qatar Qatarization Policy and National Workforce Strategy
+S3,cross_sector,research and development,0.2152,0.004369,0.2065,↑ Moderate increase,high,both,QF_HIGHER_ED_STRATEGY; RAND_QATAR_WORKFORCE,Higher Education in Qatar Foundation: Preparing Global Leaders; RAND — Building a Knowledge Economy in Qatar
+S3,energy_lng,hydrogen production,0.2152,0.004929,0.2053,↑ Moderate increase,high,medium_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,technology_digital,fintech,0.2051,0.0,0.2051,↑ Moderate increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
+S1,cross_sector,entrepreneurship education,0.2051,0.000478,0.2041,↑ Moderate increase,high,medium_term,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S5,cross_sector,supply chain management,0.3365,0.067039,0.2024,↑ Moderate increase,high,both,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S1,technology_digital,knowledge economy enablement,0.2051,0.005321,0.1945,↑ Moderate increase,high,both,QNV2030,Qatar National Vision 2030
+S1,healthcare,specialized clinical care,0.2308,0.018386,0.194,↑ Moderate increase,medium,medium_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
+S1,technology_digital,artificial intelligence and automation,0.2051,0.00666,0.1918,↑ Moderate increase,high,both,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S3,cross_sector,sustainability and green skills,0.2152,0.012739,0.1897,↑ Moderate increase,medium,medium_term,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S3,cross_sector,lifelong learning and adaptability,0.2152,0.013624,0.188,↑ Moderate increase,high,both,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S3,education,advanced education delivery,0.2152,0.013791,0.1876,↑ Moderate increase,high,both,QNDS3,Qatar Third National Development Strategy 2024-2030
+S1,cross_sector,leadership and management,0.3333,0.073209,0.1869,↑ Moderate increase,high,both,KEARNEY_GCC_TALENT; QATARIZATION_POLICY,Kearney — GCC Talent Competitiveness Report 2023; Qatar Qatarization Policy and National Workforce Strategy
+S1,healthcare,advanced medical services,0.2051,0.010743,0.1836,↑ Moderate increase,high,both,QNV2030,Qatar National Vision 2030
+S2,cross_sector,regulatory and market analysis,0.206,0.012117,0.1818,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S3,cross_sector,energy transition project management,0.3228,0.07093,0.1809,↑ Moderate increase,medium,both,IRENA_ENERGY_TRANSITION,IRENA — Renewable Energy and Jobs: Annual Review 2023
+S1,cross_sector,cognitive and creative skills,0.2051,0.013012,0.1791,↑ Moderate increase,high,medium_term,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S1,cross_sector,entrepreneurship and innovation,0.1795,0.00041,0.1787,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S1,education,educational leadership and pedagogy,0.2051,0.013175,0.1787,↑ Moderate increase,high,both,QNV2030,Qatar National Vision 2030
+S1,cross_sector,innovation and entrepreneurship,0.1795,0.00041,0.1787,→ Stable,high,both,QNDS3,Qatar Third National Development Strategy 2024-2030
+S1,cross_sector,human-AI collaboration,0.1795,0.001502,0.1765,→ Stable,high,both,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S5,cross_sector,business process automation,0.1893,0.006566,0.1762,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S2,energy_lng,carbon management and CCUS,0.4121,0.119445,0.1732,↑ Moderate increase,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S1,education,academic leadership,0.2051,0.016579,0.1719,↑ Moderate increase,high,both,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S2,cross_sector,digital literacy,0.1766,0.002594,0.1714,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S2,cross_sector,digital literacy and automation,0.1766,0.003482,0.1696,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,energy_lng,clean energy integration,0.1795,0.005024,0.1695,→ Stable,medium,medium_term,QNDS3,Qatar Third National Development Strategy 2024-2030
+S5,cross_sector,trade facilitation,0.1682,0.000205,0.1678,→ Stable,high,both,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S5,finance_banking,digital finance technology,0.1893,0.010925,0.1674,→ Stable,high,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S3,technology_digital,data analytics,0.2152,0.024298,0.1666,↑ Moderate increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
+S3,technology_digital,data analytics and big data,0.2152,0.024366,0.1665,↑ Moderate increase,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S4,cross_sector,AI policy and governance,0.1682,0.000956,0.1663,→ Stable,high,near_term,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S2,cross_sector,data analytics and statistics,0.1766,0.005803,0.165,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S1,healthcare,advanced healthcare services,0.1795,0.008656,0.1622,→ Stable,medium,medium_term,QNDS3,Qatar Third National Development Strategy 2024-2030
+S1,finance_banking,fintech and digital finance,0.1795,0.00946,0.1606,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S5,cross_sector,strategic communications,0.1682,0.004665,0.1589,→ Stable,high,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S5,construction_real_estate,logistics infrastructure,0.1682,0.004746,0.1587,→ Stable,medium,medium_term,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S1,technology_digital,data analytics,0.2051,0.024298,0.1565,↑ Moderate increase,high,medium_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
+S1,cross_sector,sustainability and green skills,0.1795,0.012739,0.154,→ Stable,medium,medium_term,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,cross_sector,sustainability and ESG,0.1538,0.000137,0.1535,→ Stable,medium,both,KEARNEY_GCC_TALENT,Kearney — GCC Talent Competitiveness Report 2023
+S1,education,STEM education delivery,0.1795,0.013108,0.1533,→ Stable,high,both,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,education,educational leadership,0.1795,0.013175,0.1531,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S1,cross_sector,innovation and adaptation,0.1538,0.00041,0.153,→ Stable,high,both,QF_EDU_WEBSITE,Qatar Foundation — Education for a New Era
+S2,technology_digital,cybersecurity and digital infrastructure,0.1766,0.011955,0.1527,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S5,cross_sector,international business development,0.1682,0.007762,0.1527,→ Stable,high,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S1,cross_sector,lifelong learning and adaptability,0.1795,0.013624,0.1523,→ Stable,high,both,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,education,advanced education delivery,0.1795,0.013791,0.1519,→ Stable,high,both,QNDS3,Qatar Third National Development Strategy 2024-2030
+S4,cross_sector,skills-based hiring,0.1495,0.000205,0.1491,→ Stable,high,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S3,technology_digital,data analytics and AI,0.2152,0.033296,0.1486,↑ Moderate increase,high,both,GS_GULF_VISION_2024; OXFORD_ECONOMICS_GCC; WB_QATAR_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation; Oxford Economics — GCC Labour Market Outlook 2030; World Bank — Qatar Economic Monitor 2024
+S3,technology_digital,smart grid technologies,0.1614,0.006387,0.1486,→ Stable,medium,medium_term,IRENA_ENERGY_TRANSITION,IRENA — Renewable Energy and Jobs: Annual Review 2023
+S1,cross_sector,digital literacy and automation,0.1538,0.003482,0.1468,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,healthcare,healthcare innovation,0.1538,0.00397,0.1459,→ Stable,high,both,KEARNEY_GCC_TALENT,Kearney — GCC Talent Competitiveness Report 2023
+S1,technology_digital,advanced technical skills,0.2051,0.030724,0.1437,↑ Moderate increase,high,both,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S1,education,research and innovation facilitation,0.1538,0.005449,0.1429,→ Stable,high,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
+S3,cross_sector,entrepreneurship education,0.1435,0.000478,0.1425,→ Stable,high,medium_term,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S1,cross_sector,data analytics and statistics,0.1538,0.005803,0.1422,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S1,healthcare,advanced medical specialties,0.1538,0.007358,0.1391,→ Stable,high,medium_term,QNDS2,Qatar Third National Development Strategy 2024-2030
+S4,technology_digital,digital reskilling,0.1495,0.005252,0.139,→ Stable,high,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S2,finance_banking,investment and capital markets,0.1766,0.019324,0.138,→ Stable,high,medium_term,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S1,education,research administration,0.1538,0.010016,0.1338,→ Stable,high,both,QF_EDU_WEBSITE,Qatar Foundation — Education for a New Era
+S3,technology_digital,knowledge economy enablement,0.1435,0.005321,0.1329,→ Stable,high,both,QNV2030,Qatar National Vision 2030
+S3,cross_sector,data analytics and statistics,0.1435,0.005803,0.1319,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S2,energy_lng,digital energy systems,0.206,0.037084,0.1318,↑ Moderate increase,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S1,technology_digital,data analytics and big data,0.1795,0.024366,0.1308,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S5,cross_sector,diplomatic communication,0.1682,0.019105,0.13,→ Stable,high,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S1,technology_digital,cybersecurity and digital infrastructure,0.1538,0.011955,0.1299,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S1,technology_digital,data science and analytics,0.1795,0.026136,0.1272,→ Stable,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,healthcare,specialized medical care,0.1538,0.015098,0.1236,→ Stable,medium,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,cross_sector,digital literacy,0.1282,0.002594,0.123,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S3,construction_real_estate,green construction,0.1614,0.020766,0.1199,→ Stable,medium,both,IRENA_ENERGY_TRANSITION,IRENA — Renewable Energy and Jobs: Annual Review 2023
+S3,technology_digital,cybersecurity and digital infrastructure,0.1435,0.011955,0.1196,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S1,finance_banking,digital banking and fintech,0.1538,0.018181,0.1174,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S3,education,educational leadership and pedagogy,0.1435,0.013175,0.1171,→ Stable,high,both,QNV2030,Qatar National Vision 2030
+S4,education,advanced research supervision,0.1308,0.006951,0.1169,→ Stable,medium,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S1,finance_banking,investment and capital markets,0.1538,0.019324,0.1152,→ Stable,high,medium_term,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S1,cross_sector,digital governance,0.1197,0.002731,0.1142,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S1,cross_sector,research methodology,0.1154,0.000819,0.1138,→ Stable,high,medium_term,SIDRA_STRATEGY,Sidra Medicine — Research and Clinical Excellence Strategy 2030
+S2,energy_lng,technical operations,0.1766,0.032256,0.1121,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,construction_real_estate,sustainable construction,0.1538,0.021441,0.1109,→ Stable,medium,both,OXFORD_ECONOMICS_GCC; QNDS2,Oxford Economics — GCC Labour Market Outlook 2030; Qatar Third National Development Strategy 2024-2030
+S3,education,academic leadership,0.1435,0.016579,0.1103,→ Stable,high,both,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S1,healthcare,clinical specialization,0.1282,0.008936,0.1103,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,technology_digital,data science and AI,0.1795,0.034681,0.1101,→ Stable,high,both,STRATEGY_AND_GCC_DIGITAL,Strategy& — GCC Digital Economy: Workforce Implications 2024
+S2,technology_digital,data analytics and AI,0.1766,0.033296,0.11,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S2,energy_lng,LNG operations and maintenance,0.1766,0.03328,0.11,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,tourism_hospitality,sustainable tourism practices,0.1154,0.00333,0.1087,→ Stable,medium,medium_term,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S2,energy_lng,clean energy integration,0.1177,0.005024,0.1077,→ Stable,medium,medium_term,QNDS2,Qatar Third National Development Strategy 2024-2030
+S1,healthcare,public health,0.1154,0.003909,0.1076,→ Stable,high,near_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
+S3,finance_banking,digital banking and fintech,0.1435,0.018181,0.1071,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S3,cross_sector,entrepreneurship and innovation,0.1076,0.00041,0.1068,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S3,finance_banking,investment and capital markets,0.1435,0.019324,0.1049,→ Stable,high,medium_term,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S4,technology_digital,learning technology,0.1495,0.025217,0.0991,→ Stable,medium,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S1,cross_sector,international partnerships,0.1026,0.002116,0.0984,→ Stable,high,both,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S3,energy_lng,renewable energy integration,0.1076,0.00482,0.098,→ Stable,medium,both,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,healthcare,medical education training,0.1154,0.012375,0.0907,→ Stable,high,medium_term,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
+S3,cross_sector,digital governance,0.0956,0.002731,0.0901,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S5,finance_banking,Islamic finance expertise,0.0946,0.002446,0.0897,→ Stable,high,medium_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S3,education,educational innovation,0.0897,0.00041,0.0889,→ Stable,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
+S5,cross_sector,regulatory compliance,0.0946,0.003072,0.0885,→ Stable,high,near_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,energy_lng,LNG operations and maintenance,0.1538,0.03328,0.0872,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S2,energy_lng,advanced energy operations,0.1472,0.03025,0.0867,→ Stable,medium,medium_term,GS_GULF_VISION_2024; KEARNEY_GCC_TALENT,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation; Kearney — GCC Talent Competitiveness Report 2023
+S1,cross_sector,future-focused problem solving,0.1538,0.033615,0.0866,→ Stable,high,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
+S3,technology_digital,AI ethics and governance,0.1076,0.010612,0.0864,→ Stable,medium,medium_term,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,energy_lng,renewable energy,0.0897,0.002635,0.0844,→ Stable,medium,medium_term,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S2,energy_lng,energy transition technologies,0.0883,0.003386,0.0815,→ Stable,medium,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S3,education,educational leadership,0.1076,0.013175,0.0812,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S4,cross_sector,business process automation,0.0935,0.006566,0.0804,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,digital marketing and e-commerce,0.0897,0.005052,0.0796,→ Stable,medium,both,STRATEGY_AND_GCC_DIGITAL,Strategy& — GCC Digital Economy: Workforce Implications 2024
+S5,finance_banking,capital markets,0.0946,0.007722,0.0792,→ Stable,medium,medium_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,multilingual communication,0.1154,0.019105,0.0772,→ Stable,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S1,education,skills development and training,0.1538,0.03842,0.077,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S1,education,educational innovation,0.0769,0.00041,0.0761,→ Stable,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
+S1,education,educational technology,0.0769,0.000888,0.0751,→ Stable,high,medium_term,KEARNEY_GCC_TALENT,Kearney — GCC Talent Competitiveness Report 2023
+S1,finance_banking,fintech and islamic finance,0.0769,0.001056,0.0748,→ Stable,high,near_term,QNDS2,Qatar Third National Development Strategy 2024-2030
+S1,healthcare,digital health and telemedicine,0.0897,0.007431,0.0748,→ Stable,medium,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,finance_banking,sustainable finance,0.0769,0.001056,0.0748,→ Stable,high,near_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,education,quality assurance,0.1026,0.014691,0.0732,→ Stable,medium,both,QF_HIGHER_ED_STRATEGY,Higher Education in Qatar Foundation: Preparing Global Leaders
+S4,cross_sector,workforce analytics,0.0748,0.000956,0.0729,→ Stable,medium,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S3,cross_sector,sustainability and ESG,0.0717,0.000137,0.0714,→ Stable,medium,both,KEARNEY_GCC_TALENT,Kearney — GCC Talent Competitiveness Report 2023
+S4,cross_sector,logistics analytics,0.0748,0.002006,0.0708,→ Stable,medium,near_term,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S1,technology_digital,AI ethics and governance,0.0897,0.010612,0.0685,→ Stable,medium,medium_term,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,cross_sector,skills-based hiring,0.0684,0.000205,0.068,→ Stable,high,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S3,education,skills development and training,0.1435,0.03842,0.0667,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S3,cross_sector,digital literacy,0.0717,0.002594,0.0665,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S3,construction_real_estate,sustainable construction,0.1076,0.021441,0.0647,→ Stable,medium,both,OXFORD_ECONOMICS_GCC; QNDS2,Oxford Economics — GCC Labour Market Outlook 2030; Qatar Third National Development Strategy 2024-2030
+S1,energy_lng,technical operations,0.1282,0.032256,0.0637,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S5,cross_sector,cultural analysis,0.0841,0.011025,0.0621,→ Stable,high,medium_term,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S1,finance_banking,financial services,0.1795,0.059468,0.0606,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S1,education,educational delivery,0.0641,0.001773,0.0606,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,cross_sector,institutional strengthening,0.0598,0.0,0.0598,→ Stable,high,medium_term,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S1,cross_sector,transparency and accountability,0.0598,6.8e-05,0.0597,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S1,healthcare,specialized medical services,0.0769,0.009101,0.0587,→ Stable,medium,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S1,technology_digital,digital reskilling,0.0684,0.005252,0.0579,→ Stable,high,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S5,cross_sector,management consulting,0.1893,0.066493,0.0563,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S4,education,competency-based assessment,0.0748,0.009293,0.0562,→ Stable,high,medium_term,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S3,healthcare,clinical specialization,0.0717,0.008936,0.0538,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,education,global education partnerships,0.0769,0.012155,0.0526,→ Stable,medium,both,QF_EDU_STRATEGY,Qatar Foundation — Education for a New Era
+S1,education,digital literacy and AI competency training,0.0769,0.012764,0.0514,→ Stable,high,both,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S3,energy_lng,energy transition planning,0.0717,0.011091,0.0495,→ Stable,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S3,energy_lng,renewable energy,0.0538,0.002635,0.0485,→ Stable,medium,medium_term,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S3,cross_sector,transparency and accountability,0.0478,6.8e-05,0.0477,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S3,cross_sector,regulatory and market analysis,0.0717,0.012117,0.0475,→ Stable,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S1,cross_sector,business process automation,0.0598,0.006566,0.0467,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,sustainability management,0.1795,0.066493,0.0465,→ Stable,high,both,QNDS3,Qatar Third National Development Strategy 2024-2030
+S3,education,STEM education delivery,0.0717,0.013108,0.0455,→ Stable,high,both,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,education,AI pedagogy and curriculum design,0.0769,0.01761,0.0417,→ Stable,high,both,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S1,education,digital education delivery,0.0769,0.018697,0.0395,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,cross_sector,project management,0.1795,0.070247,0.039,→ Stable,high,both,QFZA_TECH_2024; QNDS2,Qatar Free Zones Authority — Technology Sector Investment Strategy; Qatar Third National Development Strategy 2024-2030
+S1,cross_sector,project management and governance,0.1795,0.070521,0.0385,→ Stable,high,both,QNV2030; WB_QATAR_2024,Qatar National Vision 2030; World Bank — Qatar Economic Monitor 2024
+S1,finance_banking,digital finance technology,0.0598,0.010925,0.0379,→ Stable,high,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,AI policy and governance,0.0385,0.000956,0.0366,→ Stable,high,near_term,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S1,finance_banking,financial technology and regulation,0.1538,0.059874,0.0341,→ Stable,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S1,cross_sector,innovation commercialization,0.0342,0.00041,0.0334,→ Stable,medium,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S1,education,digital education and research,0.0769,0.021895,0.0331,→ Stable,high,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S3,cross_sector,leadership and management,0.1793,0.073209,0.0329,→ Stable,high,both,KEARNEY_GCC_TALENT; QATARIZATION_POLICY,Kearney — GCC Talent Competitiveness Report 2023; Qatar Qatarization Policy and National Workforce Strategy
+S3,education,educational delivery,0.0359,0.001773,0.0324,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,cross_sector,workforce analytics,0.0342,0.000956,0.0323,→ Stable,medium,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S2,cross_sector,management leadership,0.1766,0.073209,0.0302,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S3,tourism_hospitality,sustainable tourism practices,0.0359,0.00333,0.0292,→ Stable,medium,medium_term,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S3,cross_sector,digital literacy and automation,0.0359,0.003482,0.0289,→ Stable,high,both,OXFORD_ECONOMICS_GCC,Oxford Economics — GCC Labour Market Outlook 2030
+S1,energy_lng,renewable energy integration,0.0385,0.00482,0.0289,→ Stable,medium,both,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,cross_sector,digital logistics,0.0342,0.003644,0.0269,→ Stable,medium,near_term,QATAR_LOGISTICS_2030,Qatar Logistics & Supply Chain Strategy 2030
+S1,finance_banking,Islamic finance expertise,0.0299,0.002446,0.025,→ Stable,high,medium_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,regulatory compliance,0.0299,0.003072,0.0238,→ Stable,high,near_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,education,research methodology,0.0299,0.004903,0.0201,→ Stable,high,both,HBKU_STRATEGY,Hamad Bin Khalifa University — Research and Graduate Education Strategy
+S1,cross_sector,data science analytics,0.0342,0.007237,0.0197,→ Stable,high,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S3,technology_digital,data science and analytics,0.0717,0.026136,0.0194,→ Stable,high,medium_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,cross_sector,international business development,0.0342,0.007762,0.0187,→ Stable,high,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S1,technology_digital,learning technology,0.0684,0.025217,0.018,→ Stable,medium,both,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S1,education,competency-based assessment,0.0342,0.009293,0.0156,→ Stable,high,medium_term,WEF_RESKILLING_2024,WEF — Putting Skills First: Opportunities for Building Efficient Skills-First Labour Markets
+S1,finance_banking,capital markets,0.0299,0.007722,0.0145,→ Stable,medium,medium_term,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,tourism_hospitality,hospitality management,0.3077,0.147637,0.0124,↑ Moderate increase,high,both,OXFORD_ECONOMICS_GCC; QATAR_TOURISM_2030,Oxford Economics — GCC Labour Market Outlook 2030; Qatar National Tourism Strategy 2030
+S3,energy_lng,advanced energy operations,0.0717,0.03025,0.0112,→ Stable,medium,medium_term,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S3,energy_lng,energy transition technologies,0.0179,0.003386,0.0111,→ Stable,medium,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S1,cross_sector,project management and strategy,0.1538,0.072569,0.0087,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S3,technology_digital,data science and AI,0.0717,0.034681,0.0023,→ Stable,high,both,STRATEGY_AND_GCC_DIGITAL,Strategy& — GCC Digital Economy: Workforce Implications 2024
+S3,education,research methodology,0.012,0.004903,0.0022,→ Stable,high,both,HBKU_STRATEGY,Hamad Bin Khalifa University — Research and Graduate Education Strategy
+S1,technology_digital,digital infrastructure management,0.2821,0.14042,0.0013,↑ Moderate increase,high,near_term,QFZA_TECH_2024; RAND_QATAR_WORKFORCE,Qatar Free Zones Authority — Technology Sector Investment Strategy; RAND — Building a Knowledge Economy in Qatar
+S1,finance_banking,economic analysis,0.0769,0.037814,0.0013,→ Stable,medium,medium_term,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S3,cross_sector,project management and strategy,0.1435,0.072569,-0.0016,→ Stable,high,both,GS_GULF_VISION_2024,Goldman Sachs — Gulf Vision 2030: Diversification and Workforce Transformation
+S5,cross_sector,AI policy and governance,0.0,0.000956,-0.0019,→ Stable,high,near_term,UNESCO_AI_EDUCATION,UNESCO — Artificial Intelligence in Education: Guidance for Policymakers
+S3,energy_lng,digital energy systems,0.0717,0.037084,-0.0025,→ Stable,high,both,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S3,finance_banking,economic analysis,0.0717,0.037814,-0.0039,→ Stable,medium,medium_term,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S5,technology_digital,cybersecurity research,0.0,0.004402,-0.0088,→ Stable,high,both,QSTP_INNOVATION,Qatar Science & Technology Park — Innovation Ecosystem 2030
+S3,finance_banking,financial innovation,0.1076,0.058239,-0.0089,→ Stable,high,medium_term,QNDS3,Qatar Third National Development Strategy 2024-2030
+S3,cross_sector,change management and adaptability,0.1255,0.069051,-0.0126,→ Stable,medium,both,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S2,cross_sector,energy transition management,0.1177,0.067039,-0.0164,→ Stable,high,near_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,cross_sector,management leadership,0.1282,0.073209,-0.0182,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S3,cross_sector,critical thinking and creativity,0.1076,0.064598,-0.0216,→ Stable,medium,medium_term,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,healthcare,clinical and health management,0.1795,0.101391,-0.0233,→ Stable,high,both,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S3,cross_sector,analytical and critical thinking,0.1076,0.066441,-0.0253,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S3,education,digital education and research,0.0179,0.021895,-0.0259,→ Stable,high,medium_term,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S3,cross_sector,energy transition management,0.1076,0.067039,-0.0265,→ Stable,high,near_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S1,finance_banking,financial innovation,0.0897,0.058239,-0.0268,→ Stable,high,medium_term,QNDS3,Qatar Third National Development Strategy 2024-2030
+S3,cross_sector,creative and design thinking,0.1076,0.069104,-0.0306,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S1,cross_sector,environmental management,0.1026,0.066766,-0.0309,→ Stable,medium,both,QNV2030,Qatar National Vision 2030
+S1,cross_sector,change management and adaptability,0.1026,0.069051,-0.0355,→ Stable,medium,both,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S1,finance_banking,financial services and investment,0.1026,0.07107,-0.0395,→ Stable,high,medium_term,QNV2030,Qatar National Vision 2030
+S4,cross_sector,management consulting,0.0935,0.066493,-0.0395,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S1,cross_sector,critical thinking and creativity,0.0897,0.064598,-0.0395,→ Stable,medium,medium_term,OECD_AI_SKILLS_2023,OECD — AI and the Future of Skills: Policy Perspectives
+S1,cross_sector,analytical and critical thinking,0.0897,0.066441,-0.0432,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S2,cross_sector,human resources management,0.0883,0.067107,-0.0459,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S1,cross_sector,digital transformation management,0.0897,0.068677,-0.0477,→ Stable,high,medium_term,STRATEGY_AND_GCC_DIGITAL,Strategy& — GCC Digital Economy: Workforce Implications 2024
+S1,cross_sector,creative and design thinking,0.0897,0.069104,-0.0485,→ Stable,high,both,WEF_FUTURE_JOBS_2023,WEF Future of Jobs Report 2023 — MENA Skills Outlook
+S3,cross_sector,project management,0.0897,0.070247,-0.0508,→ Stable,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
+S1,education,adult learning and workforce development,0.0897,0.070372,-0.051,→ Stable,medium,near_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S3,cross_sector,project management and governance,0.0897,0.070521,-0.0513,→ Stable,high,both,QNV2030; WB_QATAR_2024,Qatar National Vision 2030; World Bank — Qatar Economic Monitor 2024
+S2,cross_sector,project management and governance,0.0883,0.070521,-0.0527,→ Stable,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S1,cross_sector,human resources management,0.0769,0.067107,-0.0573,→ Stable,high,both,MDPS_LFS_2023,Qatar Labour Force Sample Survey 2023
+S3,cross_sector,environmental management,0.0717,0.066766,-0.0618,→ Stable,medium,both,QNV2030,Qatar National Vision 2030
+S1,tourism_hospitality,business events management,0.2308,0.151373,-0.0719,↑ Moderate increase,high,both,QATAR_TOURISM_2030,Qatar National Tourism Strategy 2030
+S1,cross_sector,expenditure management,0.0598,0.066356,-0.0729,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S1,cross_sector,management consulting,0.0598,0.066493,-0.0732,→ Stable,medium,both,DELOITTE_GCC_SERVICES,Deloitte — GCC Professional Services Sector: Workforce of the Future
+S3,cross_sector,management leadership,0.0717,0.073209,-0.0747,→ Stable,high,both,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,healthcare,health system management,0.1154,0.096824,-0.0782,→ Stable,high,both,QATAR_NHDS_2024,Qatar National Health Development Strategy 2024-2030
+S2,cross_sector,project management,0.0589,0.070247,-0.0816,→ Stable,high,both,QNDS2,Qatar Third National Development Strategy 2024-2030
+S3,finance_banking,financial technology and regulation,0.0359,0.059874,-0.0838,→ Stable,high,both,WB_QATAR_2024,World Bank — Qatar Economic Monitor 2024
+S3,cross_sector,expenditure management,0.0478,0.066356,-0.0849,→ Stable,high,both,WB_MENA_JOBS_2023,World Bank — Jobs Undone: Reshaping the Role of Governments toward Markets and Workers in MENA
+S3,energy_lng,carbon management and CCUS,0.1435,0.119445,-0.0954,→ Stable,high,medium_term,IEA_GAS_OUTLOOK_2024,IEA Gas Market Report 2024 — LNG Supply Outlook
+S1,cross_sector,energy transition management,0.0385,0.067039,-0.0956,→ Stable,high,near_term,MS_MENA_OUTLOOK_2024,Morgan Stanley — MENA Economic Outlook 2024: Skills for the Energy Transition
+S3,cross_sector,digital transformation management,0.0359,0.068677,-0.1015,→ Stable,high,medium_term,STRATEGY_AND_GCC_DIGITAL,Strategy& — GCC Digital Economy: Workforce Implications 2024
+S3,education,adult learning and workforce development,0.0359,0.070372,-0.1048,→ Stable,medium,near_term,RAND_QATAR_WORKFORCE,RAND — Building a Knowledge Economy in Qatar
+S1,finance_banking,financial analysis,0.0641,0.084766,-0.1054,→ Stable,high,medium_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,cross_sector,knowledge management,0.0299,0.069895,-0.1099,→ Stable,high,medium_term,HBKU_STRATEGY,Hamad Bin Khalifa University — Research and Graduate Education Strategy
+S3,cross_sector,knowledge management,0.012,0.069895,-0.1278,→ Stable,high,medium_term,HBKU_STRATEGY,Hamad Bin Khalifa University — Research and Graduate Education Strategy
+S1,cross_sector,traditional manual skills,-0.1026,0.012808,-0.1282,→ Stable,low,near_term,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S3,cross_sector,traditional manual skills,-0.1255,0.012808,-0.1511,→ Stable,low,near_term,MCK_FUTURE_WORK_GCC,McKinsey Global Institute — The Future of Work in the GCC
+S1,education,international education management,0.0769,0.122402,-0.1679,→ Stable,medium,medium_term,QF_EDU_WEBSITE,Qatar Foundation — Education for a New Era
+S3,technology_digital,digital infrastructure management,0.1076,0.14042,-0.1732,→ Stable,medium,near_term,QFZA_TECH_2024,Qatar Free Zones Authority — Technology Sector Investment Strategy
+S2,energy_lng,energy operations management,0.1177,0.14581,-0.1739,→ Stable,high,medium_term,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S1,energy_lng,energy operations management,0.0897,0.14581,-0.2019,→ Stable,high,medium_term,QATARIZATION_POLICY,Qatar Qatarization Policy and National Workforce Strategy
+S5,tourism_hospitality,cultural tourism management,0.0841,0.146015,-0.2079,→ Stable,medium,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
+S2,construction_real_estate,project management,0.0883,0.166154,-0.244,→ Stable,high,near_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,construction_real_estate,project management,0.0641,0.166154,-0.2682,→ Stable,high,near_term,ILO_QATAR_LABOUR_2023,ILO — Qatar Labour Market and Skills Assessment
+S1,tourism_hospitality,cultural tourism management,0.0171,0.146015,-0.2749,→ Stable,medium,both,BROOKINGS_QATAR_SOFT_POWER,Brookings Doha Center — Qatar's Soft Power and Regional Influence Strategy
