@@ -1,0 +1,75 @@
+scenario,source_id,total_weighted,signal_count,avg_quality,avg_scenario_w,publisher,data_quality,scenario_label
+S1,QATARIZATION_POLICY,14.699999999999998,8,1.5,0.7,"Ministry of Labour, Qatar",high,S1: Diversification Acceleration
+S1,QNDS3,13.649999999999999,7,1.5,0.7,"Ministry of Development Planning and Statistics, Qatar",high,S1: Diversification Acceleration
+S1,WEF_FUTURE_JOBS_2023,13.649999999999999,8,1.5,0.7,World Economic Forum,high,S1: Diversification Acceleration
+S1,QATAR_TOURISM_2030,13.5,6,1.5,0.9,Qatar Tourism,high,S1: Diversification Acceleration
+S1,SIDRA_STRATEGY,12.15,5,1.5,0.9,Sidra Medicine / Qatar Foundation,high,S1: Diversification Acceleration
+S1,QF_HIGHER_ED_STRATEGY,12.000000000000002,6,1.5,0.8000000000000002,Qatar Foundation,high,S1: Diversification Acceleration
+S1,QNV2030,10.8,6,1.5,0.8000000000000002,"General Secretariat for Development Planning, Qatar",high,S1: Diversification Acceleration
+S1,OXFORD_ECONOMICS_GCC,10.799999999999999,8,1.5,0.6,Oxford Economics,high,S1: Diversification Acceleration
+S1,OECD_AI_SKILLS_2023,10.499999999999998,6,1.5,0.6999999999999998,OECD,high,S1: Diversification Acceleration
+S1,STRATEGY_AND_GCC_DIGITAL,10.499999999999998,6,1.5,0.6999999999999998,Strategy& (PwC),high,S1: Diversification Acceleration
+S1,KEARNEY_GCC_TALENT,9.899999999999999,6,1.5,0.6,Kearney,high,S1: Diversification Acceleration
+S1,ILO_QATAR_LABOUR_2023,9.75,8,1.5,0.5,International Labour Organization,high,S1: Diversification Acceleration
+S1,MCK_FUTURE_WORK_GCC,9.600000000000001,6,1.5,0.8000000000000002,McKinsey Global Institute,high,S1: Diversification Acceleration
+S1,QFZA_TECH_2024,9.600000000000001,5,1.5,0.8,QFZA,high,S1: Diversification Acceleration
+S1,QATAR_NHDS_2024,9.450000000000001,5,1.5,0.9,"Ministry of Public Health, Qatar",high,S1: Diversification Acceleration
+S1,RAND_QATAR_WORKFORCE,9.45,5,1.5,0.7,RAND Corporation,high,S1: Diversification Acceleration
+S1,GS_GULF_VISION_2024,9.0,5,1.5,0.6,Goldman Sachs Research,high,S1: Diversification Acceleration
+S1,MDPS_LFS_2023,7.199999999999999,5,1.5,0.6,"Planning and Statistics Authority (PSA), Qatar",high,S1: Diversification Acceleration
+S1,QNDS2,7.199999999999999,6,1.5,0.6,"Ministry of Development Planning and Statistics, Qatar",high,S1: Diversification Acceleration
+S1,QF_EDU_STRATEGY,6.300000000000001,4,1.0,0.9,Qatar Foundation,medium,S1: Diversification Acceleration
+S1,QF_EDU_WEBSITE,6.3,4,1.0,0.9,Qatar Foundation,medium,S1: Diversification Acceleration
+S1,WB_QATAR_2024,6.299999999999999,5,1.5,0.6,World Bank,high,S1: Diversification Acceleration
+S1,WB_MENA_JOBS_2023,3.5,4,1.0,0.7,World Bank,medium,S1: Diversification Acceleration
+S1,WEF_RESKILLING_2024,3.2,5,1.0,0.4,World Economic Forum,medium,S1: Diversification Acceleration
+S1,DELOITTE_GCC_SERVICES,3.15,6,1.0,0.3499999999999999,Deloitte,medium,S1: Diversification Acceleration
+S1,UNESCO_AI_EDUCATION,2.25,3,1.5,0.3,UNESCO,high,S1: Diversification Acceleration
+S1,MS_MENA_OUTLOOK_2024,1.7999999999999998,3,1.5,0.3,Morgan Stanley Research,high,S1: Diversification Acceleration
+S1,HBKU_STRATEGY,1.0499999999999998,3,0.5,0.6999999999999998,HBKU / Qatar Foundation,low,S1: Diversification Acceleration
+S1,QSTP_INNOVATION,0.8,2,1.0,0.2,Qatar Foundation / QSTP,medium,S1: Diversification Acceleration
+S1,BROOKINGS_QATAR_SOFT_POWER,0.6000000000000001,2,1.0,0.2,Brookings Institution / Brookings Doha Center,medium,S1: Diversification Acceleration
+S1,QATAR_LOGISTICS_2030,0.4,1,1.0,0.2,Qatar General Authority of Customs / Mwani Qatar,medium,S1: Diversification Acceleration
+S2,IEA_GAS_OUTLOOK_2024,6.299999999999999,4,1.5,0.7,International Energy Agency,high,S2: Hydrocarbon Dominance
+S2,GS_GULF_VISION_2024,3.1499999999999995,4,1.5,0.3,Goldman Sachs Research,high,S2: Hydrocarbon Dominance
+S2,ILO_QATAR_LABOUR_2023,3.1499999999999995,4,1.5,0.3,International Labour Organization,high,S2: Hydrocarbon Dominance
+S2,MS_MENA_OUTLOOK_2024,3.0000000000000004,3,1.5,0.4000000000000001,Morgan Stanley Research,high,S2: Hydrocarbon Dominance
+S2,QATARIZATION_POLICY,1.8000000000000003,2,1.5,0.4,"Ministry of Labour, Qatar",high,S2: Hydrocarbon Dominance
+S2,OXFORD_ECONOMICS_GCC,1.7999999999999998,2,1.5,0.3,Oxford Economics,high,S2: Hydrocarbon Dominance
+S2,MDPS_LFS_2023,1.3499999999999999,2,1.5,0.3,"Planning and Statistics Authority (PSA), Qatar",high,S2: Hydrocarbon Dominance
+S2,KEARNEY_GCC_TALENT,0.9000000000000001,2,1.5,0.2,Kearney,high,S2: Hydrocarbon Dominance
+S2,QNDS2,0.9000000000000001,2,1.5,0.2,"Ministry of Development Planning and Statistics, Qatar",high,S2: Hydrocarbon Dominance
+S2,WB_QATAR_2024,0.8999999999999999,2,1.5,0.3,World Bank,high,S2: Hydrocarbon Dominance
+S3,IRENA_ENERGY_TRANSITION,10.8,5,1.5,0.9,International Renewable Energy Agency,high,S3: Green Transition Pressure
+S3,QNDS3,9.899999999999999,6,1.5,0.6,"Ministry of Development Planning and Statistics, Qatar",high,S3: Green Transition Pressure
+S3,OECD_AI_SKILLS_2023,9.0,6,1.5,0.6,OECD,high,S3: Green Transition Pressure
+S3,WEF_FUTURE_JOBS_2023,9.0,6,1.5,0.6,World Economic Forum,high,S3: Green Transition Pressure
+S3,MS_MENA_OUTLOOK_2024,7.199999999999999,5,1.5,0.6,Morgan Stanley Research,high,S3: Green Transition Pressure
+S3,QNDS2,6.75,6,1.5,0.5,"Ministry of Development Planning and Statistics, Qatar",high,S3: Green Transition Pressure
+S3,GS_GULF_VISION_2024,6.600000000000001,6,1.5,0.4000000000000001,Goldman Sachs Research,high,S3: Green Transition Pressure
+S3,MCK_FUTURE_WORK_GCC,6.299999999999999,5,1.5,0.7,McKinsey Global Institute,high,S3: Green Transition Pressure
+S3,QFZA_TECH_2024,6.299999999999999,4,1.5,0.6,QFZA,high,S3: Green Transition Pressure
+S3,MDPS_LFS_2023,4.200000000000001,4,1.5,0.4,"Planning and Statistics Authority (PSA), Qatar",high,S3: Green Transition Pressure
+S3,QATARIZATION_POLICY,4.05,5,1.5,0.3,"Ministry of Labour, Qatar",high,S3: Green Transition Pressure
+S3,QF_HIGHER_ED_STRATEGY,3.6000000000000005,3,1.5,0.4000000000000001,Qatar Foundation,high,S3: Green Transition Pressure
+S3,QNV2030,3.6000000000000005,4,1.5,0.4,"General Secretariat for Development Planning, Qatar",high,S3: Green Transition Pressure
+S3,IEA_GAS_OUTLOOK_2024,3.0000000000000004,4,1.5,0.4,International Energy Agency,high,S3: Green Transition Pressure
+S3,ILO_QATAR_LABOUR_2023,2.7,5,1.5,0.2,International Labour Organization,high,S3: Green Transition Pressure
+S3,RAND_QATAR_WORKFORCE,2.1000000000000005,4,1.5,0.2,RAND Corporation,high,S3: Green Transition Pressure
+S3,STRATEGY_AND_GCC_DIGITAL,2.1000000000000005,4,1.5,0.2,Strategy& (PwC),high,S3: Green Transition Pressure
+S3,KEARNEY_GCC_TALENT,1.8000000000000003,3,1.5,0.20000000000000004,Kearney,high,S3: Green Transition Pressure
+S3,WB_MENA_JOBS_2023,1.6,3,1.0,0.4000000000000001,World Bank,medium,S3: Green Transition Pressure
+S3,WB_QATAR_2024,1.0500000000000003,5,1.5,0.1,World Bank,high,S3: Green Transition Pressure
+S3,OXFORD_ECONOMICS_GCC,0.7500000000000001,3,1.5,0.10000000000000002,Oxford Economics,high,S3: Green Transition Pressure
+S3,QATAR_TOURISM_2030,0.30000000000000004,1,1.5,0.2,Qatar Tourism,high,S3: Green Transition Pressure
+S3,HBKU_STRATEGY,0.2,2,0.5,0.2,HBKU / Qatar Foundation,low,S3: Green Transition Pressure
+S4,QSTP_INNOVATION,7.699999999999999,6,1.0,0.6999999999999998,Qatar Foundation / QSTP,medium,S4: Knowledge Economy Leap
+S4,UNESCO_AI_EDUCATION,6.299999999999999,4,1.5,0.6,UNESCO,high,S4: Knowledge Economy Leap
+S4,WEF_RESKILLING_2024,3.2,5,1.0,0.4,World Economic Forum,medium,S4: Knowledge Economy Leap
+S4,DELOITTE_GCC_SERVICES,1.0,2,1.0,0.25,Deloitte,medium,S4: Knowledge Economy Leap
+S4,QATAR_LOGISTICS_2030,0.4,1,1.0,0.2,Qatar General Authority of Customs / Mwani Qatar,medium,S4: Knowledge Economy Leap
+S5,QATAR_LOGISTICS_2030,6.4,5,1.0,0.8,Qatar General Authority of Customs / Mwani Qatar,medium,S5: Regional Hub & Geopolitical Pivot
+S5,DELOITTE_GCC_SERVICES,4.05,6,1.0,0.45,Deloitte,medium,S5: Regional Hub & Geopolitical Pivot
+S5,BROOKINGS_QATAR_SOFT_POWER,3.2,5,1.0,0.4,Brookings Institution / Brookings Doha Center,medium,S5: Regional Hub & Geopolitical Pivot
+S5,QSTP_INNOVATION,0.0,1,1.0,0.0,Qatar Foundation / QSTP,medium,S5: Regional Hub & Geopolitical Pivot
+S5,UNESCO_AI_EDUCATION,0.0,1,1.5,0.0,UNESCO,high,S5: Regional Hub & Geopolitical Pivot

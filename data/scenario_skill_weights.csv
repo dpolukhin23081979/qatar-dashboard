@@ -1,0 +1,277 @@
+scenario,skill_category,total_weighted,signal_count,avg_demand_score,avg_quality,sources,sector,penalty,adjusted_weight,normalized_weight,scenario_label
+S1,digital transformation,11.7,6,2.0,1.5,"KEARNEY_GCC_TALENT, MDPS_LFS_2023, QATARIZATION_POLICY, QNDS2, QNDS3, STRATEGY_AND_GCC_DIGITAL",technology_digital,1.0,11.7,1.0,S1: Diversification Acceleration
+S1,data analytics and AI,5.3999999999999995,3,2.0,1.5,"GS_GULF_VISION_2024, OXFORD_ECONOMICS_GCC, WB_QATAR_2024",technology_digital,1.0,5.3999999999999995,0.4615384615384615,S1: Diversification Acceleration
+S1,fintech and digital banking,4.799999999999999,3,1.6666666666666667,1.5,"KEARNEY_GCC_TALENT, OXFORD_ECONOMICS_GCC, STRATEGY_AND_GCC_DIGITAL",finance_banking,1.0,4.799999999999999,0.4102564102564102,S1: Diversification Acceleration
+S1,digital literacy and data skills,4.5,2,2.0,1.5,"MCK_FUTURE_WORK_GCC, OECD_AI_SKILLS_2023",cross_sector,1.0,4.5,0.38461538461538464,S1: Diversification Acceleration
+S1,research and development,4.5,2,2.0,1.5,"QF_HIGHER_ED_STRATEGY, RAND_QATAR_WORKFORCE",cross_sector,1.0,4.5,0.38461538461538464,S1: Diversification Acceleration
+S1,artificial intelligence and machine learning,4.199999999999999,2,2.0,1.5,"OECD_AI_SKILLS_2023, WEF_FUTURE_JOBS_2023",technology_digital,1.0,4.199999999999999,0.3589743589743589,S1: Diversification Acceleration
+S1,cybersecurity,4.199999999999999,2,2.0,1.5,"STRATEGY_AND_GCC_DIGITAL, WEF_FUTURE_JOBS_2023",technology_digital,1.0,4.199999999999999,0.3589743589743589,S1: Diversification Acceleration
+S1,software development,3.9000000000000004,2,2.0,1.5,"ILO_QATAR_LABOUR_2023, QFZA_TECH_2024",technology_digital,1.0,3.9000000000000004,0.33333333333333337,S1: Diversification Acceleration
+S1,leadership and management,3.8999999999999995,2,2.0,1.5,"KEARNEY_GCC_TALENT, QATARIZATION_POLICY",cross_sector,1.0,3.8999999999999995,0.3333333333333333,S1: Diversification Acceleration
+S1,educational technology,3.6500000000000004,3,1.3333333333333333,1.1666666666666667,"HBKU_STRATEGY, KEARNEY_GCC_TALENT, QF_HIGHER_ED_STRATEGY",technology_digital,1.0,3.6500000000000004,0.311965811965812,S1: Diversification Acceleration
+S1,hospitality management,3.6,2,1.5,1.5,"OXFORD_ECONOMICS_GCC, QATAR_TOURISM_2030",tourism_hospitality,1.0,3.6,0.3076923076923077,S1: Diversification Acceleration
+S1,multidisciplinary education delivery,3.6,2,2.0,1.0,"QF_EDU_STRATEGY, QF_EDU_WEBSITE",education,1.0,3.6,0.3076923076923077,S1: Diversification Acceleration
+S1,digital infrastructure management,3.3,2,1.5,1.5,"QFZA_TECH_2024, RAND_QATAR_WORKFORCE",technology_digital,1.0,3.3,0.28205128205128205,S1: Diversification Acceleration
+S1,project management,2.85,3,1.0,1.5,"ILO_QATAR_LABOUR_2023, QFZA_TECH_2024, QNDS2",cross_sector,1.0,2.85,0.2435897435897436,S1: Diversification Acceleration
+S1,business events management,2.7,1,2.0,1.5,QATAR_TOURISM_2030,tourism_hospitality,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,clinical research,2.7,1,2.0,1.5,SIDRA_STRATEGY,healthcare,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,cultural tourism expertise,2.7,1,2.0,1.5,QATAR_TOURISM_2030,tourism_hospitality,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,digital health technology,2.7,1,2.0,1.5,QATAR_NHDS_2024,healthcare,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,digital tourism services,2.7,1,2.0,1.5,QATAR_TOURISM_2030,tourism_hospitality,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,health informatics,2.7,1,2.0,1.5,SIDRA_STRATEGY,technology_digital,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,pediatric specialty care,2.7,1,2.0,1.5,SIDRA_STRATEGY,healthcare,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,precision medicine,2.7,1,2.0,1.5,SIDRA_STRATEGY,healthcare,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,specialized clinical care,2.7,1,2.0,1.5,QATAR_NHDS_2024,healthcare,1.0,2.7,0.2307692307692308,S1: Diversification Acceleration
+S1,academic leadership,2.4000000000000004,1,2.0,1.5,QF_HIGHER_ED_STRATEGY,education,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,advanced medical services,2.4000000000000004,1,2.0,1.5,QNV2030,healthcare,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,advanced technical skills,2.4000000000000004,1,2.0,1.5,MCK_FUTURE_WORK_GCC,technology_digital,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,artificial intelligence and automation,2.4000000000000004,1,2.0,1.5,MCK_FUTURE_WORK_GCC,technology_digital,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,cognitive and creative skills,2.4000000000000004,1,2.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,data analytics,2.4000000000000004,1,2.0,1.5,QFZA_TECH_2024,technology_digital,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,educational leadership and pedagogy,2.4000000000000004,1,2.0,1.5,QNV2030,education,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,entrepreneurship education,2.4000000000000004,1,2.0,1.5,QF_HIGHER_ED_STRATEGY,cross_sector,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,fintech,2.4000000000000004,1,2.0,1.5,QFZA_TECH_2024,technology_digital,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,knowledge economy enablement,2.4000000000000004,1,2.0,1.5,QNV2030,technology_digital,1.0,2.4000000000000004,0.20512820512820518,S1: Diversification Acceleration
+S1,project management and governance,2.1,2,1.0,1.5,"QNV2030, WB_QATAR_2024",cross_sector,1.0,2.1,0.17948717948717952,S1: Diversification Acceleration
+S1,STEM education delivery,2.0999999999999996,1,2.0,1.5,RAND_QATAR_WORKFORCE,education,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,advanced education delivery,2.0999999999999996,1,2.0,1.5,QNDS3,education,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,advanced healthcare services,2.0999999999999996,1,2.0,1.5,QNDS3,healthcare,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,clean energy integration,2.0999999999999996,1,2.0,1.5,QNDS3,energy_lng,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,clinical and health management,2.0999999999999996,1,2.0,1.5,QATARIZATION_POLICY,healthcare,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,data analytics and big data,2.0999999999999996,1,2.0,1.5,WEF_FUTURE_JOBS_2023,technology_digital,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,data science and AI,2.0999999999999996,1,2.0,1.5,STRATEGY_AND_GCC_DIGITAL,technology_digital,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,data science and analytics,2.0999999999999996,1,2.0,1.5,RAND_QATAR_WORKFORCE,technology_digital,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,educational leadership,2.0999999999999996,1,2.0,1.5,QATARIZATION_POLICY,education,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,entrepreneurship and innovation,2.0999999999999996,1,2.0,1.5,QATARIZATION_POLICY,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,financial services,2.0999999999999996,1,2.0,1.5,QATARIZATION_POLICY,finance_banking,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,fintech and digital finance,2.0999999999999996,1,2.0,1.5,WEF_FUTURE_JOBS_2023,finance_banking,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,human-AI collaboration,2.0999999999999996,1,2.0,1.5,OECD_AI_SKILLS_2023,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,innovation and entrepreneurship,2.0999999999999996,1,2.0,1.5,QNDS3,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,lifelong learning and adaptability,2.0999999999999996,1,2.0,1.5,OECD_AI_SKILLS_2023,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,sustainability and green skills,2.0999999999999996,1,2.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,sustainability management,2.0999999999999996,1,2.0,1.5,QNDS3,cross_sector,1.0,2.0999999999999996,0.17948717948717946,S1: Diversification Acceleration
+S1,future-focused problem solving,1.8,1,2.0,1.0,QF_EDU_STRATEGY,cross_sector,1.0,1.8,0.15384615384615385,S1: Diversification Acceleration
+S1,innovation and adaptation,1.8,1,2.0,1.0,QF_EDU_WEBSITE,cross_sector,1.0,1.8,0.15384615384615385,S1: Diversification Acceleration
+S1,research administration,1.8,1,2.0,1.0,QF_EDU_WEBSITE,education,1.0,1.8,0.15384615384615385,S1: Diversification Acceleration
+S1,research and innovation facilitation,1.8,1,2.0,1.0,QF_EDU_STRATEGY,education,1.0,1.8,0.15384615384615385,S1: Diversification Acceleration
+S1,LNG operations and maintenance,1.7999999999999998,1,2.0,1.5,OXFORD_ECONOMICS_GCC,energy_lng,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,advanced medical specialties,1.7999999999999998,1,2.0,1.5,QNDS2,healthcare,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,cybersecurity and digital infrastructure,1.7999999999999998,1,2.0,1.5,GS_GULF_VISION_2024,technology_digital,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,data analytics and statistics,1.7999999999999998,1,2.0,1.5,MDPS_LFS_2023,cross_sector,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,digital banking and fintech,1.7999999999999998,1,2.0,1.5,GS_GULF_VISION_2024,finance_banking,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,digital literacy and automation,1.7999999999999998,1,2.0,1.5,OXFORD_ECONOMICS_GCC,cross_sector,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,financial technology and regulation,1.7999999999999998,1,2.0,1.5,WB_QATAR_2024,finance_banking,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,healthcare innovation,1.7999999999999998,1,2.0,1.5,KEARNEY_GCC_TALENT,healthcare,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,investment and capital markets,1.7999999999999998,1,2.0,1.5,GS_GULF_VISION_2024,finance_banking,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,project management and strategy,1.7999999999999998,1,2.0,1.5,GS_GULF_VISION_2024,cross_sector,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,skills development and training,1.7999999999999998,1,2.0,1.5,MDPS_LFS_2023,education,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,specialized medical care,1.7999999999999998,1,2.0,1.5,OXFORD_ECONOMICS_GCC,healthcare,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,sustainability and ESG,1.7999999999999998,1,2.0,1.5,KEARNEY_GCC_TALENT,cross_sector,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,sustainable construction,1.7999999999999998,2,1.0,1.5,"OXFORD_ECONOMICS_GCC, QNDS2",construction_real_estate,1.0,1.7999999999999998,0.15384615384615383,S1: Diversification Acceleration
+S1,research methodology,1.7000000000000002,2,1.0,1.0,"HBKU_STRATEGY, SIDRA_STRATEGY",cross_sector,1.0,1.7000000000000002,0.1452991452991453,S1: Diversification Acceleration
+S1,clinical specialization,1.5,1,2.0,1.5,ILO_QATAR_LABOUR_2023,healthcare,1.0,1.5,0.12820512820512822,S1: Diversification Acceleration
+S1,digital literacy,1.5,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,1.0,1.5,0.12820512820512822,S1: Diversification Acceleration
+S1,management leadership,1.5,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,1.0,1.5,0.12820512820512822,S1: Diversification Acceleration
+S1,technical operations,1.5,1,2.0,1.5,ILO_QATAR_LABOUR_2023,energy_lng,1.0,1.5,0.12820512820512822,S1: Diversification Acceleration
+S1,digital governance,1.4,1,2.0,1.0,WB_MENA_JOBS_2023,cross_sector,1.0,1.4,0.11965811965811966,S1: Diversification Acceleration
+S1,health system management,1.35,1,1.0,1.5,QATAR_NHDS_2024,healthcare,1.0,1.35,0.1153846153846154,S1: Diversification Acceleration
+S1,medical education training,1.35,1,1.0,1.5,QATAR_NHDS_2024,healthcare,1.0,1.35,0.1153846153846154,S1: Diversification Acceleration
+S1,multilingual communication,1.35,1,1.0,1.5,QATAR_TOURISM_2030,cross_sector,1.0,1.35,0.1153846153846154,S1: Diversification Acceleration
+S1,public health,1.35,1,1.0,1.5,QATAR_NHDS_2024,healthcare,1.0,1.35,0.1153846153846154,S1: Diversification Acceleration
+S1,sustainable tourism practices,1.35,1,1.0,1.5,QATAR_TOURISM_2030,tourism_hospitality,1.0,1.35,0.1153846153846154,S1: Diversification Acceleration
+S1,change management and adaptability,1.2000000000000002,1,1.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,1.0,1.2000000000000002,0.10256410256410259,S1: Diversification Acceleration
+S1,environmental management,1.2000000000000002,1,1.0,1.5,QNV2030,cross_sector,1.0,1.2000000000000002,0.10256410256410259,S1: Diversification Acceleration
+S1,financial services and investment,1.2000000000000002,1,1.0,1.5,QNV2030,finance_banking,1.0,1.2000000000000002,0.10256410256410259,S1: Diversification Acceleration
+S1,international partnerships,1.2000000000000002,1,1.0,1.5,QF_HIGHER_ED_STRATEGY,cross_sector,1.0,1.2000000000000002,0.10256410256410259,S1: Diversification Acceleration
+S1,quality assurance,1.2000000000000002,1,1.0,1.5,QF_HIGHER_ED_STRATEGY,education,1.0,1.2000000000000002,0.10256410256410259,S1: Diversification Acceleration
+S1,AI ethics and governance,1.0499999999999998,1,1.0,1.5,OECD_AI_SKILLS_2023,technology_digital,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,adult learning and workforce development,1.0499999999999998,1,1.0,1.5,RAND_QATAR_WORKFORCE,education,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,analytical and critical thinking,1.0499999999999998,1,1.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,creative and design thinking,1.0499999999999998,1,1.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,critical thinking and creativity,1.0499999999999998,1,1.0,1.5,OECD_AI_SKILLS_2023,cross_sector,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,digital health and telemedicine,1.0499999999999998,1,1.0,1.5,WEF_FUTURE_JOBS_2023,healthcare,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,digital marketing and e-commerce,1.0499999999999998,1,1.0,1.5,STRATEGY_AND_GCC_DIGITAL,cross_sector,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,digital transformation management,1.0499999999999998,1,1.0,1.5,STRATEGY_AND_GCC_DIGITAL,cross_sector,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,energy operations management,1.0499999999999998,1,1.0,1.5,QATARIZATION_POLICY,energy_lng,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,financial innovation,1.0499999999999998,1,1.0,1.5,QNDS3,finance_banking,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,renewable energy,1.0499999999999998,1,1.0,1.5,QATARIZATION_POLICY,energy_lng,1.0,1.0499999999999998,0.08974358974358973,S1: Diversification Acceleration
+S1,global education partnerships,0.9,1,1.0,1.0,QF_EDU_STRATEGY,education,1.0,0.9,0.07692307692307693,S1: Diversification Acceleration
+S1,international education management,0.9,1,1.0,1.0,QF_EDU_WEBSITE,education,1.0,0.9,0.07692307692307693,S1: Diversification Acceleration
+S1,AI pedagogy and curriculum design,0.8999999999999999,1,2.0,1.5,UNESCO_AI_EDUCATION,education,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,digital education and research,0.8999999999999999,1,1.0,1.5,WB_QATAR_2024,education,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,digital education delivery,0.8999999999999999,1,1.0,1.5,OXFORD_ECONOMICS_GCC,education,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,digital literacy and AI competency training,0.8999999999999999,1,2.0,1.5,UNESCO_AI_EDUCATION,education,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,economic analysis,0.8999999999999999,1,1.0,1.5,MDPS_LFS_2023,finance_banking,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,educational innovation,0.8999999999999999,1,1.0,1.5,QNDS2,education,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,fintech and islamic finance,0.8999999999999999,1,1.0,1.5,QNDS2,finance_banking,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,human resources management,0.8999999999999999,1,1.0,1.5,MDPS_LFS_2023,cross_sector,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,specialized medical services,0.8999999999999999,1,1.0,1.5,WB_QATAR_2024,healthcare,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,sustainable finance,0.8999999999999999,1,2.0,1.5,MS_MENA_OUTLOOK_2024,finance_banking,1.0,0.8999999999999999,0.07692307692307691,S1: Diversification Acceleration
+S1,digital reskilling,0.8,1,2.0,1.0,WEF_RESKILLING_2024,technology_digital,1.0,0.8,0.06837606837606838,S1: Diversification Acceleration
+S1,learning technology,0.8,1,2.0,1.0,WEF_RESKILLING_2024,technology_digital,1.0,0.8,0.06837606837606838,S1: Diversification Acceleration
+S1,skills-based hiring,0.8,1,2.0,1.0,WEF_RESKILLING_2024,cross_sector,1.0,0.8,0.06837606837606838,S1: Diversification Acceleration
+S1,educational delivery,0.75,1,1.0,1.5,ILO_QATAR_LABOUR_2023,education,1.0,0.75,0.06410256410256411,S1: Diversification Acceleration
+S1,financial analysis,0.75,1,1.0,1.5,ILO_QATAR_LABOUR_2023,finance_banking,1.0,0.75,0.06410256410256411,S1: Diversification Acceleration
+S1,business process automation,0.7,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,digital finance technology,0.7,1,2.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,expenditure management,0.7,1,1.0,1.0,WB_MENA_JOBS_2023,cross_sector,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,institutional strengthening,0.7,1,1.0,1.0,WB_MENA_JOBS_2023,cross_sector,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,management consulting,0.7,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,transparency and accountability,0.7,1,1.0,1.0,WB_MENA_JOBS_2023,cross_sector,1.0,0.7,0.05982905982905983,S1: Diversification Acceleration
+S1,AI policy and governance,0.44999999999999996,1,1.0,1.5,UNESCO_AI_EDUCATION,cross_sector,1.0,0.44999999999999996,0.03846153846153846,S1: Diversification Acceleration
+S1,energy transition management,0.44999999999999996,1,1.0,1.5,MS_MENA_OUTLOOK_2024,cross_sector,1.0,0.44999999999999996,0.03846153846153846,S1: Diversification Acceleration
+S1,renewable energy integration,0.44999999999999996,1,1.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,1.0,0.44999999999999996,0.03846153846153846,S1: Diversification Acceleration
+S1,competency-based assessment,0.4,1,1.0,1.0,WEF_RESKILLING_2024,education,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,data science analytics,0.4,1,2.0,1.0,QSTP_INNOVATION,cross_sector,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,digital logistics,0.4,1,2.0,1.0,QATAR_LOGISTICS_2030,cross_sector,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,innovation commercialization,0.4,1,2.0,1.0,QSTP_INNOVATION,cross_sector,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,international business development,0.4,1,2.0,1.0,BROOKINGS_QATAR_SOFT_POWER,cross_sector,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,workforce analytics,0.4,1,1.0,1.0,WEF_RESKILLING_2024,cross_sector,1.0,0.4,0.03418803418803419,S1: Diversification Acceleration
+S1,Islamic finance expertise,0.35,1,1.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,1.0,0.35,0.029914529914529916,S1: Diversification Acceleration
+S1,capital markets,0.35,1,1.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,1.0,0.35,0.029914529914529916,S1: Diversification Acceleration
+S1,knowledge management,0.35,1,1.0,0.5,HBKU_STRATEGY,cross_sector,1.0,0.35,0.029914529914529916,S1: Diversification Acceleration
+S1,regulatory compliance,0.35,1,1.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,1.0,0.35,0.029914529914529916,S1: Diversification Acceleration
+S1,cultural tourism management,0.2,1,1.0,1.0,BROOKINGS_QATAR_SOFT_POWER,tourism_hospitality,1.0,0.2,0.017094017094017096,S1: Diversification Acceleration
+S1,traditional manual skills,-1.2000000000000002,1,-1.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,1.0,-1.2000000000000002,-0.10256410256410259,S1: Diversification Acceleration
+S2,LNG operations and engineering,2.0999999999999996,1,2.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.4120816918460671,0.8653715528767407,1.0,S2: Hydrocarbon Dominance
+S2,carbon management and CCUS,2.0999999999999996,1,2.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.4120816918460671,0.8653715528767407,1.0,S2: Hydrocarbon Dominance
+S2,leadership and management,1.8000000000000003,2,2.0,1.5,"KEARNEY_GCC_TALENT, QATARIZATION_POLICY",cross_sector,0.4120816918460671,0.7417470453229208,0.8571428571428573,S2: Hydrocarbon Dominance
+S2,carbon capture and storage,1.2000000000000002,1,2.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,0.4120816918460671,0.49449803021528055,0.5714285714285716,S2: Hydrocarbon Dominance
+S2,hydrogen production,1.2000000000000002,1,2.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,0.4120816918460671,0.49449803021528055,0.5714285714285716,S2: Hydrocarbon Dominance
+S2,digital energy systems,1.0499999999999998,1,1.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.4120816918460671,0.43268577643837036,0.5,S2: Hydrocarbon Dominance
+S2,regulatory and market analysis,1.0499999999999998,1,1.0,1.5,IEA_GAS_OUTLOOK_2024,cross_sector,0.4120816918460671,0.43268577643837036,0.5,S2: Hydrocarbon Dominance
+S2,LNG operations and maintenance,0.8999999999999999,1,2.0,1.5,OXFORD_ECONOMICS_GCC,energy_lng,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,cybersecurity and digital infrastructure,0.8999999999999999,1,2.0,1.5,GS_GULF_VISION_2024,technology_digital,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,data analytics and AI,0.8999999999999999,1,2.0,1.5,GS_GULF_VISION_2024,technology_digital,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,data analytics and statistics,0.8999999999999999,1,2.0,1.5,MDPS_LFS_2023,cross_sector,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,digital literacy,0.8999999999999999,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,digital literacy and automation,0.8999999999999999,1,2.0,1.5,OXFORD_ECONOMICS_GCC,cross_sector,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,investment and capital markets,0.8999999999999999,1,2.0,1.5,GS_GULF_VISION_2024,finance_banking,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,management leadership,0.8999999999999999,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,technical operations,0.8999999999999999,1,2.0,1.5,ILO_QATAR_LABOUR_2023,energy_lng,0.4120816918460671,0.37087352266146034,0.4285714285714286,S2: Hydrocarbon Dominance
+S2,advanced energy operations,0.75,2,1.0,1.5,"GS_GULF_VISION_2024, KEARNEY_GCC_TALENT",energy_lng,0.4120816918460671,0.3090612688845503,0.3571428571428572,S2: Hydrocarbon Dominance
+S2,project management,0.75,2,1.0,1.5,"ILO_QATAR_LABOUR_2023, QNDS2",construction_real_estate,0.4120816918460671,0.3090612688845503,0.3571428571428572,S2: Hydrocarbon Dominance
+S2,clean energy integration,0.6000000000000001,1,2.0,1.5,QNDS2,energy_lng,0.4120816918460671,0.24724901510764027,0.2857142857142858,S2: Hydrocarbon Dominance
+S2,energy operations management,0.6000000000000001,1,1.0,1.5,QATARIZATION_POLICY,energy_lng,0.4120816918460671,0.24724901510764027,0.2857142857142858,S2: Hydrocarbon Dominance
+S2,energy transition management,0.6000000000000001,1,1.0,1.5,MS_MENA_OUTLOOK_2024,cross_sector,0.4120816918460671,0.24724901510764027,0.2857142857142858,S2: Hydrocarbon Dominance
+S2,energy transition technologies,0.44999999999999996,1,1.0,1.5,WB_QATAR_2024,energy_lng,0.4120816918460671,0.18543676133073017,0.2142857142857143,S2: Hydrocarbon Dominance
+S2,human resources management,0.44999999999999996,1,1.0,1.5,MDPS_LFS_2023,cross_sector,0.4120816918460671,0.18543676133073017,0.2142857142857143,S2: Hydrocarbon Dominance
+S2,project management and governance,0.44999999999999996,1,1.0,1.5,WB_QATAR_2024,cross_sector,0.4120816918460671,0.18543676133073017,0.2142857142857143,S2: Hydrocarbon Dominance
+S3,digital transformation,6.6,6,2.0,1.5,"KEARNEY_GCC_TALENT, MDPS_LFS_2023, QATARIZATION_POLICY, QNDS2, QNDS3, STRATEGY_AND_GCC_DIGITAL",technology_digital,0.7890763647670371,5.207904007462445,1.0,S3: Green Transition Pressure
+S3,digital literacy and data skills,3.8999999999999995,2,2.0,1.5,"MCK_FUTURE_WORK_GCC, OECD_AI_SKILLS_2023",cross_sector,0.7890763647670371,3.0773978225914442,0.5909090909090908,S3: Green Transition Pressure
+S3,artificial intelligence and machine learning,3.5999999999999996,2,2.0,1.5,"OECD_AI_SKILLS_2023, WEF_FUTURE_JOBS_2023",technology_digital,0.7890763647670371,2.8406749131613336,0.5454545454545454,S3: Green Transition Pressure
+S3,clean energy integration,3.3,2,2.0,1.5,"QNDS2, QNDS3",energy_lng,0.7890763647670371,2.6039520037312225,0.5,S3: Green Transition Pressure
+S3,sustainability management,3.3,2,2.0,1.5,"QNDS2, QNDS3",cross_sector,0.7890763647670371,2.6039520037312225,0.5,S3: Green Transition Pressure
+S3,energy transition project management,2.7,1,2.0,1.5,IRENA_ENERGY_TRANSITION,cross_sector,0.7890763647670371,2.1305061848710003,0.4090909090909091,S3: Green Transition Pressure
+S3,green hydrogen production,2.7,1,2.0,1.5,IRENA_ENERGY_TRANSITION,energy_lng,0.7890763647670371,2.1305061848710003,0.4090909090909091,S3: Green Transition Pressure
+S3,renewable energy engineering,2.7,1,2.0,1.5,IRENA_ENERGY_TRANSITION,energy_lng,0.7890763647670371,2.1305061848710003,0.4090909090909091,S3: Green Transition Pressure
+S3,cybersecurity,2.4,2,2.0,1.5,"STRATEGY_AND_GCC_DIGITAL, WEF_FUTURE_JOBS_2023",technology_digital,0.7890763647670371,1.893783275440889,0.3636363636363636,S3: Green Transition Pressure
+S3,software development,2.4,2,2.0,1.5,"ILO_QATAR_LABOUR_2023, QFZA_TECH_2024",technology_digital,0.7890763647670371,1.893783275440889,0.3636363636363636,S3: Green Transition Pressure
+S3,artificial intelligence and automation,2.0999999999999996,1,2.0,1.5,MCK_FUTURE_WORK_GCC,technology_digital,0.7890763647670371,1.6570603660107777,0.3181818181818181,S3: Green Transition Pressure
+S3,cognitive and creative skills,2.0999999999999996,1,2.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,0.7890763647670371,1.6570603660107777,0.3181818181818181,S3: Green Transition Pressure
+S3,data analytics and AI,1.8000000000000003,3,2.0,1.5,"GS_GULF_VISION_2024, OXFORD_ECONOMICS_GCC, WB_QATAR_2024",technology_digital,0.7890763647670371,1.420337456580667,0.27272727272727276,S3: Green Transition Pressure
+S3,research and development,1.8000000000000003,2,2.0,1.5,"QF_HIGHER_ED_STRATEGY, RAND_QATAR_WORKFORCE",cross_sector,0.7890763647670371,1.420337456580667,0.27272727272727276,S3: Green Transition Pressure
+S3,advanced education delivery,1.7999999999999998,1,2.0,1.5,QNDS3,education,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,carbon capture and storage,1.7999999999999998,1,2.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,data analytics,1.7999999999999998,1,2.0,1.5,QFZA_TECH_2024,technology_digital,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,data analytics and big data,1.7999999999999998,1,2.0,1.5,WEF_FUTURE_JOBS_2023,technology_digital,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,fintech,1.7999999999999998,1,2.0,1.5,QFZA_TECH_2024,technology_digital,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,human-AI collaboration,1.7999999999999998,1,2.0,1.5,OECD_AI_SKILLS_2023,cross_sector,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,hydrogen production,1.7999999999999998,1,2.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,innovation and entrepreneurship,1.7999999999999998,1,2.0,1.5,QNDS3,cross_sector,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,lifelong learning and adaptability,1.7999999999999998,1,2.0,1.5,OECD_AI_SKILLS_2023,cross_sector,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,sustainability and green skills,1.7999999999999998,1,2.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,sustainable finance,1.7999999999999998,1,2.0,1.5,MS_MENA_OUTLOOK_2024,finance_banking,0.7890763647670371,1.4203374565806668,0.2727272727272727,S3: Green Transition Pressure
+S3,leadership and management,1.5,2,2.0,1.5,"KEARNEY_GCC_TALENT, QATARIZATION_POLICY",cross_sector,0.7890763647670371,1.1836145471505557,0.22727272727272727,S3: Green Transition Pressure
+S3,green construction,1.35,1,1.0,1.5,IRENA_ENERGY_TRANSITION,construction_real_estate,0.7890763647670371,1.0652530924355001,0.20454545454545456,S3: Green Transition Pressure
+S3,smart grid technologies,1.35,1,1.0,1.5,IRENA_ENERGY_TRANSITION,technology_digital,0.7890763647670371,1.0652530924355001,0.20454545454545456,S3: Green Transition Pressure
+S3,academic leadership,1.2000000000000002,1,2.0,1.5,QF_HIGHER_ED_STRATEGY,education,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,carbon management and CCUS,1.2000000000000002,1,2.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,cybersecurity and digital infrastructure,1.2000000000000002,1,2.0,1.5,GS_GULF_VISION_2024,technology_digital,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,data analytics and statistics,1.2000000000000002,1,2.0,1.5,MDPS_LFS_2023,cross_sector,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,digital banking and fintech,1.2000000000000002,1,2.0,1.5,GS_GULF_VISION_2024,finance_banking,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,educational leadership and pedagogy,1.2000000000000002,1,2.0,1.5,QNV2030,education,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,entrepreneurship education,1.2000000000000002,1,2.0,1.5,QF_HIGHER_ED_STRATEGY,cross_sector,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,investment and capital markets,1.2000000000000002,1,2.0,1.5,GS_GULF_VISION_2024,finance_banking,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,knowledge economy enablement,1.2000000000000002,1,2.0,1.5,QNV2030,technology_digital,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,project management and strategy,1.2000000000000002,1,2.0,1.5,GS_GULF_VISION_2024,cross_sector,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,skills development and training,1.2000000000000002,1,2.0,1.5,MDPS_LFS_2023,education,0.7890763647670371,0.9468916377204447,0.18181818181818185,S3: Green Transition Pressure
+S3,change management and adaptability,1.0499999999999998,1,1.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,0.7890763647670371,0.8285301830053888,0.15909090909090906,S3: Green Transition Pressure
+S3,AI ethics and governance,0.8999999999999999,1,1.0,1.5,OECD_AI_SKILLS_2023,technology_digital,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,analytical and critical thinking,0.8999999999999999,1,1.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,creative and design thinking,0.8999999999999999,1,1.0,1.5,WEF_FUTURE_JOBS_2023,cross_sector,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,critical thinking and creativity,0.8999999999999999,1,1.0,1.5,OECD_AI_SKILLS_2023,cross_sector,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,digital infrastructure management,0.8999999999999999,1,1.0,1.5,QFZA_TECH_2024,technology_digital,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,educational leadership,0.8999999999999999,1,2.0,1.5,QATARIZATION_POLICY,education,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,energy transition management,0.8999999999999999,1,1.0,1.5,MS_MENA_OUTLOOK_2024,cross_sector,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,entrepreneurship and innovation,0.8999999999999999,1,2.0,1.5,QATARIZATION_POLICY,cross_sector,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,financial innovation,0.8999999999999999,1,1.0,1.5,QNDS3,finance_banking,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,renewable energy integration,0.8999999999999999,1,1.0,1.5,MS_MENA_OUTLOOK_2024,energy_lng,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,sustainable construction,0.9,2,1.0,1.5,"OXFORD_ECONOMICS_GCC, QNDS2",construction_real_estate,0.7890763647670371,0.7101687282903334,0.13636363636363635,S3: Green Transition Pressure
+S3,digital governance,0.8,1,2.0,1.0,WB_MENA_JOBS_2023,cross_sector,0.7890763647670371,0.6312610918136298,0.12121212121212123,S3: Green Transition Pressure
+S3,project management and governance,0.7500000000000001,2,1.0,1.5,"QNV2030, WB_QATAR_2024",cross_sector,0.7890763647670371,0.591807273575278,0.11363636363636366,S3: Green Transition Pressure
+S3,educational innovation,0.75,1,1.0,1.5,QNDS2,education,0.7890763647670371,0.5918072735752778,0.11363636363636363,S3: Green Transition Pressure
+S3,project management,0.75,1,1.0,1.5,QNDS2,cross_sector,0.7890763647670371,0.5918072735752778,0.11363636363636363,S3: Green Transition Pressure
+S3,STEM education delivery,0.6000000000000001,1,2.0,1.5,RAND_QATAR_WORKFORCE,education,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,advanced energy operations,0.6000000000000001,1,1.0,1.5,GS_GULF_VISION_2024,energy_lng,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,clinical specialization,0.6000000000000001,1,2.0,1.5,ILO_QATAR_LABOUR_2023,healthcare,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,data science and AI,0.6000000000000001,1,2.0,1.5,STRATEGY_AND_GCC_DIGITAL,technology_digital,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,data science and analytics,0.6000000000000001,1,2.0,1.5,RAND_QATAR_WORKFORCE,technology_digital,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,digital energy systems,0.6000000000000001,1,1.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,digital literacy,0.6000000000000001,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,economic analysis,0.6000000000000001,1,1.0,1.5,MDPS_LFS_2023,finance_banking,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,energy transition planning,0.6000000000000001,1,1.0,1.5,IEA_GAS_OUTLOOK_2024,energy_lng,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,environmental management,0.6000000000000001,1,1.0,1.5,QNV2030,cross_sector,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,management leadership,0.6000000000000001,1,2.0,1.5,ILO_QATAR_LABOUR_2023,cross_sector,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,regulatory and market analysis,0.6000000000000001,1,1.0,1.5,IEA_GAS_OUTLOOK_2024,cross_sector,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,sustainability and ESG,0.6000000000000001,1,2.0,1.5,KEARNEY_GCC_TALENT,cross_sector,0.7890763647670371,0.47344581886022236,0.09090909090909093,S3: Green Transition Pressure
+S3,renewable energy,0.44999999999999996,1,1.0,1.5,QATARIZATION_POLICY,energy_lng,0.7890763647670371,0.3550843641451667,0.06818181818181818,S3: Green Transition Pressure
+S3,expenditure management,0.4,1,1.0,1.0,WB_MENA_JOBS_2023,cross_sector,0.7890763647670371,0.3156305459068149,0.060606060606060615,S3: Green Transition Pressure
+S3,transparency and accountability,0.4,1,1.0,1.0,WB_MENA_JOBS_2023,cross_sector,0.7890763647670371,0.3156305459068149,0.060606060606060615,S3: Green Transition Pressure
+S3,adult learning and workforce development,0.30000000000000004,1,1.0,1.5,RAND_QATAR_WORKFORCE,education,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,digital literacy and automation,0.30000000000000004,1,2.0,1.5,OXFORD_ECONOMICS_GCC,cross_sector,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,digital transformation management,0.30000000000000004,1,1.0,1.5,STRATEGY_AND_GCC_DIGITAL,cross_sector,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,educational delivery,0.30000000000000004,1,1.0,1.5,ILO_QATAR_LABOUR_2023,education,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,financial technology and regulation,0.30000000000000004,1,2.0,1.5,WB_QATAR_2024,finance_banking,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,sustainable tourism practices,0.30000000000000004,1,1.0,1.5,QATAR_TOURISM_2030,tourism_hospitality,0.7890763647670371,0.23672290943011118,0.04545454545454546,S3: Green Transition Pressure
+S3,digital education and research,0.15000000000000002,1,1.0,1.5,WB_QATAR_2024,education,0.7890763647670371,0.11836145471505559,0.02272727272727273,S3: Green Transition Pressure
+S3,energy transition technologies,0.15000000000000002,1,1.0,1.5,WB_QATAR_2024,energy_lng,0.7890763647670371,0.11836145471505559,0.02272727272727273,S3: Green Transition Pressure
+S3,knowledge management,0.1,1,1.0,0.5,HBKU_STRATEGY,cross_sector,0.7890763647670371,0.07890763647670372,0.015151515151515154,S3: Green Transition Pressure
+S3,research methodology,0.1,1,1.0,0.5,HBKU_STRATEGY,education,0.7890763647670371,0.07890763647670372,0.015151515151515154,S3: Green Transition Pressure
+S3,traditional manual skills,-1.0499999999999998,1,-1.0,1.5,MCK_FUTURE_WORK_GCC,cross_sector,0.7890763647670371,-0.8285301830053888,-0.15909090909090906,S3: Green Transition Pressure
+S4,AI development and implementation,1.7999999999999998,1,2.0,1.5,UNESCO_AI_EDUCATION,technology_digital,0.33646329245522655,0.6056339264194077,1.0,S4: Knowledge Economy Leap
+S4,AI pedagogy and curriculum design,1.7999999999999998,1,2.0,1.5,UNESCO_AI_EDUCATION,education,0.33646329245522655,0.6056339264194077,1.0,S4: Knowledge Economy Leap
+S4,digital literacy and AI competency training,1.7999999999999998,1,2.0,1.5,UNESCO_AI_EDUCATION,education,0.33646329245522655,0.6056339264194077,1.0,S4: Knowledge Economy Leap
+S4,artificial intelligence research,1.4,1,2.0,1.0,QSTP_INNOVATION,technology_digital,0.33646329245522655,0.47104860943731713,0.7777777777777778,S4: Knowledge Economy Leap
+S4,biotechnology research,1.4,1,2.0,1.0,QSTP_INNOVATION,technology_digital,0.33646329245522655,0.47104860943731713,0.7777777777777778,S4: Knowledge Economy Leap
+S4,cybersecurity research,1.4,1,2.0,1.0,QSTP_INNOVATION,technology_digital,0.33646329245522655,0.47104860943731713,0.7777777777777778,S4: Knowledge Economy Leap
+S4,data science analytics,1.4,1,2.0,1.0,QSTP_INNOVATION,cross_sector,0.33646329245522655,0.47104860943731713,0.7777777777777778,S4: Knowledge Economy Leap
+S4,innovation commercialization,1.4,1,2.0,1.0,QSTP_INNOVATION,cross_sector,0.33646329245522655,0.47104860943731713,0.7777777777777778,S4: Knowledge Economy Leap
+S4,AI policy and governance,0.8999999999999999,1,1.0,1.5,UNESCO_AI_EDUCATION,cross_sector,0.33646329245522655,0.30281696320970386,0.5,S4: Knowledge Economy Leap
+S4,digital reskilling,0.8,1,2.0,1.0,WEF_RESKILLING_2024,technology_digital,0.33646329245522655,0.2691706339641812,0.4444444444444445,S4: Knowledge Economy Leap
+S4,learning technology,0.8,1,2.0,1.0,WEF_RESKILLING_2024,technology_digital,0.33646329245522655,0.2691706339641812,0.4444444444444445,S4: Knowledge Economy Leap
+S4,skills-based hiring,0.8,1,2.0,1.0,WEF_RESKILLING_2024,cross_sector,0.33646329245522655,0.2691706339641812,0.4444444444444445,S4: Knowledge Economy Leap
+S4,advanced research supervision,0.7,1,1.0,1.0,QSTP_INNOVATION,education,0.33646329245522655,0.23552430471865857,0.3888888888888889,S4: Knowledge Economy Leap
+S4,business process automation,0.5,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,0.33646329245522655,0.16823164622761327,0.2777777777777778,S4: Knowledge Economy Leap
+S4,management consulting,0.5,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,0.33646329245522655,0.16823164622761327,0.2777777777777778,S4: Knowledge Economy Leap
+S4,competency-based assessment,0.4,1,1.0,1.0,WEF_RESKILLING_2024,education,0.33646329245522655,0.1345853169820906,0.22222222222222224,S4: Knowledge Economy Leap
+S4,logistics analytics,0.4,1,2.0,1.0,QATAR_LOGISTICS_2030,cross_sector,0.33646329245522655,0.1345853169820906,0.22222222222222224,S4: Knowledge Economy Leap
+S4,workforce analytics,0.4,1,1.0,1.0,WEF_RESKILLING_2024,cross_sector,0.33646329245522655,0.1345853169820906,0.22222222222222224,S4: Knowledge Economy Leap
+S5,digital logistics,1.6,1,2.0,1.0,QATAR_LOGISTICS_2030,cross_sector,0.33646329245522655,0.5383412679283625,1.0,S5: Regional Hub & Geopolitical Pivot
+S5,logistics analytics,1.6,1,2.0,1.0,QATAR_LOGISTICS_2030,cross_sector,0.33646329245522655,0.5383412679283625,1.0,S5: Regional Hub & Geopolitical Pivot
+S5,supply chain management,1.6,1,2.0,1.0,QATAR_LOGISTICS_2030,cross_sector,0.33646329245522655,0.5383412679283625,1.0,S5: Regional Hub & Geopolitical Pivot
+S5,business process automation,0.9,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,0.33646329245522655,0.3028169632097039,0.5625000000000001,S5: Regional Hub & Geopolitical Pivot
+S5,digital finance technology,0.9,1,2.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,0.33646329245522655,0.3028169632097039,0.5625000000000001,S5: Regional Hub & Geopolitical Pivot
+S5,management consulting,0.9,1,2.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,0.33646329245522655,0.3028169632097039,0.5625000000000001,S5: Regional Hub & Geopolitical Pivot
+S5,diplomatic communication,0.8,1,2.0,1.0,BROOKINGS_QATAR_SOFT_POWER,cross_sector,0.33646329245522655,0.2691706339641812,0.5,S5: Regional Hub & Geopolitical Pivot
+S5,international business development,0.8,1,2.0,1.0,BROOKINGS_QATAR_SOFT_POWER,cross_sector,0.33646329245522655,0.2691706339641812,0.5,S5: Regional Hub & Geopolitical Pivot
+S5,logistics infrastructure,0.8,1,1.0,1.0,QATAR_LOGISTICS_2030,construction_real_estate,0.33646329245522655,0.2691706339641812,0.5,S5: Regional Hub & Geopolitical Pivot
+S5,strategic communications,0.8,1,2.0,1.0,BROOKINGS_QATAR_SOFT_POWER,cross_sector,0.33646329245522655,0.2691706339641812,0.5,S5: Regional Hub & Geopolitical Pivot
+S5,trade facilitation,0.8,1,1.0,1.0,QATAR_LOGISTICS_2030,cross_sector,0.33646329245522655,0.2691706339641812,0.5,S5: Regional Hub & Geopolitical Pivot
+S5,Islamic finance expertise,0.45,1,1.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,0.33646329245522655,0.15140848160485196,0.28125000000000006,S5: Regional Hub & Geopolitical Pivot
+S5,capital markets,0.45,1,1.0,1.0,DELOITTE_GCC_SERVICES,finance_banking,0.33646329245522655,0.15140848160485196,0.28125000000000006,S5: Regional Hub & Geopolitical Pivot
+S5,regulatory compliance,0.45,1,1.0,1.0,DELOITTE_GCC_SERVICES,cross_sector,0.33646329245522655,0.15140848160485196,0.28125000000000006,S5: Regional Hub & Geopolitical Pivot
+S5,cultural analysis,0.4,1,1.0,1.0,BROOKINGS_QATAR_SOFT_POWER,cross_sector,0.33646329245522655,0.1345853169820906,0.25,S5: Regional Hub & Geopolitical Pivot
+S5,cultural tourism management,0.4,1,1.0,1.0,BROOKINGS_QATAR_SOFT_POWER,tourism_hospitality,0.33646329245522655,0.1345853169820906,0.25,S5: Regional Hub & Geopolitical Pivot
+S5,AI policy and governance,0.0,1,1.0,1.5,UNESCO_AI_EDUCATION,cross_sector,0.33646329245522655,0.0,0.0,S5: Regional Hub & Geopolitical Pivot
+S5,cybersecurity research,0.0,1,2.0,1.0,QSTP_INNOVATION,technology_digital,0.33646329245522655,0.0,0.0,S5: Regional Hub & Geopolitical Pivot
