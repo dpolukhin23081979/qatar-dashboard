@@ -144,6 +144,77 @@ sources_f = sources_df[sources_df["scenario"].isin(selected_scenarios or ALL_SCE
 # ── Header ────────────────────────────────────────────────────────────────
 st.markdown("# Qatar 2030 Labor Market Intelligence")
 st.markdown("*Strategic Skill Demand Scenarios — Evidence-based workforce gap analysis for Manara & QNV 2030*")
+
+# ── Key Definitions ───────────────────────────────────────────────────────
+with st.expander("📖 Key Definitions — Start Here", expanded=False):
+    st.markdown("""
+<div class="definition-box">
+<b>🔍 What is a Skill Gap?</b><br>
+A skill gap is the difference between what Qatar's strategic documents (QNV 2030, IMF, World Bank, WEF etc.) predict will be needed by 2030, and what employers are <i>actually</i> hiring for today. A large positive gap means a skill is strategically critical but the labor market hasn't caught up yet — this is where Manara should intervene.
+</div>
+
+<div class="definition-box">
+<b>📊 What is a Gap Score?</b><br>
+Gap Score = Calibration Score (from 41 published sources) minus Posting Frequency (from 5,067 Qatar job postings), scaled to ±1.0.<br>
+• <b>Positive (green)</b>: Strategy expects more demand than market shows → intervention needed<br>
+• <b>Near zero</b>: Market and strategy are aligned → no action needed<br>
+• <b>Negative (red)</b>: Market already hires more than strategy expects → skill is market-led
+</div>
+
+<div class="definition-box">
+<b>🇶🇦 What is Qatarization Priority?</b><br>
+Qatarization is Qatar's national policy to increase employment of Qatari nationals in the private sector, aligned with QNV 2030's Human Development pillar. Skills marked <b>High Qatarization Relevance</b> are those where strategic documents explicitly flag the need to develop Qatari talent — not just hire expats. These are the most important for Manara programme design.
+</div>
+
+<div class="definition-box">
+<b>🎭 What are Scenarios?</b><br>
+Scenarios are plausible futures for Qatar's economy by 2030. Each scenario changes which skills become most important:<br>
+• <b>S1 Diversification</b>: QNV succeeds — tech, health, education, finance all grow<br>
+• <b>S2 Hydrocarbon</b>: LNG expansion dominates — engineering, operations, energy skills<br>
+• <b>S3 Green Transition</b>: Decarbonization accelerates — clean energy, sustainability skills<br>
+• <b>S4 Knowledge Leap</b>: Qatar becomes R&D/AI hub — research, innovation, deep tech<br>
+• <b>S5 Regional Hub</b>: Qatar as services & diplomacy centre — finance, logistics, soft skills
+</div>
+
+<div class="definition-box">
+<b>⚖️ What is a Calibration Score?</b><br>
+The calibration score (0–1) reflects how strongly the 41 published sources signal demand for a skill under a given scenario. It is built from: source credibility (quality weight), scenario alignment (scenario weight), and signal volume (penalty factor). Higher = more sources agree this skill will be in demand.
+</div>
+""", unsafe_allow_html=True)
+
+# ── How to Use ────────────────────────────────────────────────────────────
+with st.expander("🧭 How to Use This Dashboard", expanded=False):
+    st.markdown("""
+<div class="how-to-box">
+<b>Step 1 — Select your scenarios</b> (sidebar, top)<br>
+Choose which futures you want to analyse. Select all 5 for a full picture, or isolate one scenario to see what skills matter specifically under that future. S1 is the baseline QNV case.
+</div>
+
+<div class="how-to-box">
+<b>Step 2 — Filter by sector and Qatarization relevance</b> (sidebar)<br>
+Narrow down to a specific industry (energy, healthcare, tech etc.) or focus on skills where Qatari nationals are the priority target. "High" Qatarization relevance = most important for Manara.
+</div>
+
+<div class="how-to-box">
+<b>Step 3 — Navigate the tabs</b><br>
+📊 <b>Skill Gap Analysis</b>: The main output. Which skills are strategically expected but missing from the market?<br>
+🏭 <b>Industry Matrix</b>: Which sectors have the biggest gaps, broken down by scenario.<br>
+🎯 <b>Strategic Demand</b>: What the 41 sources say about future skill demand — independent of job postings.<br>
+🔬 <b>Scenario Coefficients</b>: How scenario scores are built — which sources drive each scenario and by how much.<br>
+🧠 <b>Skill Weights</b>: Which skills carry the most weight in each scenario and across all 5.<br>
+📚 <b>Source Evidence</b>: Full audit trail — every signal traced to its publication.<br>
+📋 <b>Data Explorer</b>: Search and download any underlying dataset.
+</div>
+
+<div class="how-to-box">
+<b>Interpreting the charts</b><br>
+• <b>Green bars/cells</b>: skills Qatar needs more of — gaps to fill<br>
+• <b>Red bars/cells</b>: skills the market already over-supplies<br>
+• <b>— (dash)</b>: no signal from sources for that scenario × skill combination<br>
+• <b>↑↑ ↑ → ↓ ↓↓</b>: demand direction arrows in the heatmap
+</div>
+""", unsafe_allow_html=True)
+
 st.markdown("---")
 
 # ── KPI row ───────────────────────────────────────────────────────────────
@@ -360,7 +431,7 @@ with tab4:
     if p:
         st.image(str(p), use_container_width=True)
     else:
-        st.info("Run Cell 8b in the pipeline notebook to generate this chart, then upload `scenario_coefficient_report.png` to `data/`.")
+        st.info("📊 Chart not yet generated. Run **Cell 8b** in the Qatar Scenario Pipeline notebook, then upload `scenario_coefficient_report.png` to your `data/` folder on GitHub.")
 
     # Weight definitions
     st.markdown('<div class="section-header">Weight Definitions</div>', unsafe_allow_html=True)
@@ -418,14 +489,15 @@ with tab4:
 # ════════════════════════════════════════════════════════════════════
 with tab5:
     st.markdown('<div class="section-header">Skill Weights per Scenario</div>', unsafe_allow_html=True)
-    st.caption("Which skills carry the most strategic weight in each scenario, and which are universally important across all 5.")
+    st.info("**What you're looking at:** How much strategic weight each skill carries within each scenario (0–1 normalized). The top chart shows the most important skills per scenario. The cross-scenario comparison shows which skills are universally strategic (high bars across all 5 scenarios) vs scenario-specific (only tall in one). Universal skills are the safest Manara investment bets.")
+    st.caption("Normalized adjusted weight (0–1 within each scenario). Color = industry sector. Dashed line = 0.6 high-impact threshold.")
 
     # Static charts
     p_sw = img_path("scenario_skill_weights.png")
     if p_sw:
         st.image(str(p_sw), use_container_width=True)
     else:
-        st.info("Run Cell 8c in the pipeline notebook to generate this chart, then upload `scenario_skill_weights.png` to `data/`.")
+        st.info("📊 Chart not yet generated. Run **Cell 8c** in the Qatar Scenario Pipeline notebook, then upload `scenario_skill_weights.png` to your `data/` folder on GitHub.")
 
     p_cs = img_path("scenario_cross_skill_comparison.png")
     if p_cs:
