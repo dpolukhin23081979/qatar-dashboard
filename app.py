@@ -170,7 +170,8 @@ st.markdown("---")
 # ════════════════════════════════════════════════════════════════════
 # TABS
 # ════════════════════════════════════════════════════════════════════
-tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
+    "🗺️ Guide & Definitions",
     "📊 Skill Gap Analysis",
     "🏭 Industry Matrix",
     "🎯 Strategic Demand",
@@ -183,6 +184,109 @@ tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
 # ════════════════════════════════════════════════════════════════════
 # TAB 1 — SKILL GAP ANALYSIS
 # ════════════════════════════════════════════════════════════════════
+with tab0:
+    st.markdown("## Welcome to the Qatar 2030 Labor Market Intelligence Dashboard")
+    st.markdown(
+        "This dashboard helps policymakers, researchers, and programme designers "
+        "understand **where Qatar's labor market is heading** and **where the gaps are** "
+        "between strategic ambitions and actual hiring. Built for the "
+        "**Manara programme** and aligned with **Qatar National Vision 2030**."
+    )
+    st.markdown("---")
+
+    st.markdown("### 🧭 How to Use This Dashboard")
+    col_h1, col_h2, col_h3 = st.columns(3)
+    with col_h1:
+        st.markdown('''<div class="definition-box">
+<b>Step 1 — Select Scenarios</b><br><br>
+Use the sidebar to choose which futures to analyse. Select all 5 for a complete picture, or isolate one to focus.
+<b>S1 Diversification</b> is the baseline QNV case and a good starting point.
+</div>''', unsafe_allow_html=True)
+    with col_h2:
+        st.markdown('''<div class="definition-box">
+<b>Step 2 — Apply Filters</b><br><br>
+Narrow by sector (energy, healthcare, tech etc.) or Qatarization relevance.
+Select <b>High</b> to focus on skills where Qatari nationals are the explicit policy priority.
+</div>''', unsafe_allow_html=True)
+    with col_h3:
+        st.markdown('''<div class="definition-box">
+<b>Step 3 — Navigate Tabs</b><br><br>
+Each tab answers a different question. Start with <b>Skill Gap Analysis</b> for headline findings,
+then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector detail.
+</div>''', unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("### 📑 What Each Tab Shows")
+    tabs_info = [
+        ("📊 Skill Gap Analysis", "The main output. Which skills are strategically expected but missing from the market? Longer green bar = bigger gap = higher Manara priority. Filter by scenario, sector, and Qatarization relevance."),
+        ("🏭 Industry Matrix", "A heatmap of average skill gap per industry sector per scenario. Shows which sectors are furthest behind their strategic targets. All green = Qatar is universally under-supplied."),
+        ("🎯 Strategic Demand", "What 41 published sources predict about skill demand with NO reference to job postings. The pure strategy side. Compare with Skill Gap Analysis to see where strategy and market diverge."),
+        ("⚖️ Scenario Coefficients", "The model transparency layer. Which sources drive each scenario, how weights are applied, and how the signal-count penalty balances scenarios. Use to justify findings to stakeholders."),
+        ("🧠 Skill Weights", "Which skills carry the most strategic weight within each scenario, and which are universally important across all 5. Universal skills = safest Manara investment bets."),
+        ("📚 Source Evidence", "Full audit trail. Every skill signal traced to its publication — IMF, World Bank, QNV, WEF, ILO, RAND, McKinsey, Goldman Sachs and 33 more sources."),
+        ("📋 Data Explorer", "Search, filter, and download any underlying dataset for custom analysis or reports."),
+    ]
+    for name, desc in tabs_info:
+        st.markdown(f'''<div class="how-to-box"><b>{name}</b><br>{desc}</div>''', unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown("### 📖 Key Definitions")
+    col_d1, col_d2 = st.columns(2)
+
+    with col_d1:
+        st.markdown('''<div class="definition-box"><b>🔍 Skill Gap</b><br>
+The difference between what Qatar's strategic documents predict will be needed by 2030
+and what employers are <i>actually</i> hiring for today.
+Large positive gap = strategically critical but market hasn't caught up → Manara should intervene.</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>📊 Gap Score (±1.0 scale)</b><br>
+Gap Score = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br>
+• <b>Positive / green</b>: Strategy expects more → intervention needed<br>
+• <b>Near zero</b>: Market and strategy aligned → no action needed<br>
+• <b>Negative / red</b>: Market already over-supplies this skill</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>⚖️ Calibration Score</b><br>
+How strongly the 41 sources signal demand for a skill (0–1).
+Built from: source credibility × scenario alignment × signal volume.
+Higher = more sources agree this skill will be needed.</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>🎯 Signal Count Penalty</b><br>
+A square-root balancing factor for scenarios with fewer contributing sources.
+Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.</div>''', unsafe_allow_html=True)
+
+    with col_d2:
+        st.markdown('''<div class="definition-box"><b>🇶🇦 Qatarization Priority</b><br>
+Qatar's policy to increase employment of Qatari nationals per QNV 2030 Human Development pillar.
+Skills marked <b>High</b> = strategic documents explicitly flag developing Qatari talent here.
+Most critical for Manara programme design.</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>🎭 The 5 Scenarios</b><br>
+Plausible futures for Qatar's economy by 2030:<br>
+• <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
+• <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
+• <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
+• <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
+• <b>S5</b> Regional Hub — Qatar as services and diplomacy centre</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>📈 Demand Direction Arrows</b><br>
+Shown in heatmaps and matrices:<br>
+• <b>↑↑</b> Strong increase (gap ≥ 0.6) — urgent priority<br>
+• <b>↑</b> Moderate increase (0.2–0.6)<br>
+• <b>→</b> Stable / aligned (-0.2–0.2)<br>
+• <b>↓</b> Moderate decrease<br>
+• <b>—</b> No signal for this scenario × skill combination</div>''', unsafe_allow_html=True)
+
+        st.markdown('''<div class="definition-box"><b>🏭 Sector Classification</b><br>
+Each job posting is assigned to one of 8 sectors using a 5-layer classifier:
+standardized industry tags → LinkedIn industry → job function → job title → SOC codes.
+Unmatched jobs are labelled <b>cross_sector</b>.</div>''', unsafe_allow_html=True)
+
+    st.markdown("---")
+    st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
+Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capstone 2025 ·
+41 authoritative sources · 5,067 Qatar job postings · 5 scenarios
+</div>''', unsafe_allow_html=True)
+
 with tab1:
     st.markdown('<div class="section-header">Strategic Skill Gaps — Scenario vs. Market Reality</div>', unsafe_allow_html=True)
     st.caption("Gap score = strategic expectation (41 published sources) minus actual hiring frequency (Qatar job postings). Positive = under-supplied.")
