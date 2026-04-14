@@ -216,20 +216,6 @@ then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector de
 </div>''', unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### 📑 What Each Tab Shows")
-    tabs_info = [
-        ("📊 Skill Gap Analysis", "The main output. Which skills are strategically expected but missing from the market? Longer green bar = bigger gap = higher Manara priority. Filter by scenario, sector, and Qatarization relevance."),
-        ("🏭 Industry Matrix", "A heatmap of average skill gap per industry sector per scenario. Shows which sectors are furthest behind their strategic targets. All green = Qatar is universally under-supplied."),
-        ("🎯 Strategic Demand", "What 41 published sources predict about skill demand with NO reference to job postings. The pure strategy side. Compare with Skill Gap Analysis to see where strategy and market diverge."),
-        ("⚖️ Scenario Coefficients", "The model transparency layer. Which sources drive each scenario, how weights are applied, and how the signal-count penalty balances scenarios. Use to justify findings to stakeholders."),
-        ("🧠 Skill Weights", "Which skills carry the most strategic weight within each scenario, and which are universally important across all 5. Universal skills = safest Manara investment bets."),
-        ("📚 Source Evidence", "Full audit trail. Every skill signal traced to its publication — IMF, World Bank, QNV, WEF, ILO, RAND, McKinsey, Goldman Sachs and 33 more sources."),
-        ("📋 Data Explorer", "Search, filter, and download any underlying dataset for custom analysis or reports."),
-    ]
-    for name, desc in tabs_info:
-        st.markdown(f'''<div class="how-to-box"><b>{name}</b><br>{desc}</div>''', unsafe_allow_html=True)
-
-    st.markdown("---")
 st.markdown("### 📖 Key Definitions")
 
 # Row 1 — Core Concepts
