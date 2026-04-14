@@ -230,56 +230,102 @@ then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector de
         st.markdown(f'''<div class="how-to-box"><b>{name}</b><br>{desc}</div>''', unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown("### 📖 Key Definitions")
-    col_d1, col_d2 = st.columns(2)
+st.markdown("### 📖 Key Definitions")
 
-    with col_d1:
-        st.markdown('''<div class="definition-box"><b>🔍 Skill Gap</b><br>
-The difference between what Qatar's strategic documents predict will be needed by 2030
-and what employers are <i>actually</i> hiring for today.
-Large positive gap = strategically critical but market hasn't caught up → Manara should intervene.</div>''', unsafe_allow_html=True)
+# Row 1 — Core Concepts
+st.markdown("#### 📐 Core Concepts")
+r1a, r1b, r1c = st.columns(3)
+with r1a:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🔍 Skill Gap</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        The difference between what Qatar's strategic documents predict will be needed by 2030
+        and what employers are <i>actually</i> hiring for today.<br><br>
+        <span style="color:#e8513a;font-weight:600;">Large positive gap</span> = strategically critical but market hasn't caught up → Manara should intervene.
+        </div>
+    </div>''', unsafe_allow_html=True)
+with r1b:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📊 Gap Score (±1.0 scale)</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        <b>Gap Score</b> = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br><br>
+        <span style="color:#4CAF50;">● Positive</span> Strategy expects more → intervene<br>
+        <span style="color:#aaa;">● Near zero</span> Market & strategy aligned<br>
+        <span style="color:#e8513a;">● Negative</span> Market over-supplies this skill
+        </div>
+    </div>''', unsafe_allow_html=True)
+with r1c:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚖️ Calibration Score</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        How strongly the 41 sources signal demand for a skill <b>(0–1)</b>.<br><br>
+        Built from:<br>
+        Source credibility × Scenario alignment × Signal volume<br><br>
+        Higher = more sources agree this skill will be needed.
+        </div>
+    </div>''', unsafe_allow_html=True)
 
-        st.markdown('''<div class="definition-box"><b>📊 Gap Score (±1.0 scale)</b><br>
-Gap Score = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br>
-• <b>Positive / green</b>: Strategy expects more → intervention needed<br>
-• <b>Near zero</b>: Market and strategy aligned → no action needed<br>
-• <b>Negative / red</b>: Market already over-supplies this skill</div>''', unsafe_allow_html=True)
+st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
-        st.markdown('''<div class="definition-box"><b>⚖️ Calibration Score</b><br>
-How strongly the 41 sources signal demand for a skill (0–1).
-Built from: source credibility × scenario alignment × signal volume.
-Higher = more sources agree this skill will be needed.</div>''', unsafe_allow_html=True)
+# Row 2 — Scenarios & Policy
+st.markdown("#### 🎭 Scenarios & Policy")
+r2a, r2b = st.columns(2)
+with r2a:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎭 The 5 Scenarios</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+        Plausible futures for Qatar's economy by 2030:<br>
+        <span style="color:#2196F3;">■</span> <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
+        <span style="color:#FF9800;">■</span> <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
+        <span style="color:#4CAF50;">■</span> <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
+        <span style="color:#9C27B0;">■</span> <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
+        <span style="color:#F44336;">■</span> <b>S5</b> Regional Hub — Qatar as services and diplomacy centre
+        </div>
+    </div>''', unsafe_allow_html=True)
+with r2b:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🇶🇦 Qatarization Priority</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>
+        <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br><br>
+        <span style="color:#D4A017;font-weight:600;">Medium</span> = Relevant but secondary priority.<br>
+        <span style="color:#4C78A8;font-weight:600;">Low</span> = General workforce need, not Qatari-specific.
+        </div>
+    </div>''', unsafe_allow_html=True)
 
-        st.markdown('''<div class="definition-box"><b>🎯 Signal Count Penalty</b><br>
-A square-root balancing factor for scenarios with fewer contributing sources.
-Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.</div>''', unsafe_allow_html=True)
+st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
-    with col_d2:
-        st.markdown('''<div class="definition-box"><b>🇶🇦 Qatarization Priority</b><br>
-Qatar's policy to increase employment of Qatari nationals per QNV 2030 Human Development pillar.
-Skills marked <b>High</b> = strategic documents explicitly flag developing Qatari talent here.
-Most critical for Manara programme design.</div>''', unsafe_allow_html=True)
-
-        st.markdown('''<div class="definition-box"><b>🎭 The 5 Scenarios</b><br>
-Plausible futures for Qatar's economy by 2030:<br>
-• <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
-• <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
-• <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
-• <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
-• <b>S5</b> Regional Hub — Qatar as services and diplomacy centre</div>''', unsafe_allow_html=True)
-
-        st.markdown('''<div class="definition-box"><b>📈 Demand Direction Arrows</b><br>
-Shown in heatmaps and matrices:<br>
-• <b>↑↑</b> Strong increase (gap ≥ 0.6) — urgent priority<br>
-• <b>↑</b> Moderate increase (0.2–0.6)<br>
-• <b>→</b> Stable / aligned (-0.2–0.2)<br>
-• <b>↓</b> Moderate decrease<br>
-• <b>—</b> No signal for this scenario × skill combination</div>''', unsafe_allow_html=True)
-
-        st.markdown('''<div class="definition-box"><b>🏭 Sector Classification</b><br>
-Each job posting is assigned to one of 8 sectors using a 5-layer classifier:
-standardized industry tags → LinkedIn industry → job function → job title → SOC codes.
-Unmatched jobs are labelled <b>cross_sector</b>.</div>''', unsafe_allow_html=True)
+# Row 3 — Technical / Model
+st.markdown("#### 🛠️ Technical & Model")
+r3a, r3b, r3c = st.columns(3)
+with r3a:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎯 Signal Count Penalty</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        A <b>square-root balancing factor</b> for scenarios with fewer contributing sources.<br><br>
+        Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.
+        </div>
+    </div>''', unsafe_allow_html=True)
+with r3b:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📈 Demand Direction Arrows</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+        <span style="color:#4CAF50;">↑↑</span> Strong increase (gap ≥ 0.6) — urgent<br>
+        <span style="color:#8BC34A;">↑</span>  Moderate increase (0.2–0.6)<br>
+        <span style="color:#aaa;">→</span>  Stable / aligned (−0.2–0.2)<br>
+        <span style="color:#FF9800;">↓</span>  Moderate decrease<br>
+        <span style="color:#aaa;">—</span>  No signal for this combination
+        </div>
+    </div>''', unsafe_allow_html=True)
+with r3c:
+    st.markdown('''<div class="metric-card">
+        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🏭 Sector Classification</div>
+        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+        Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>
+        Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br><br>
+        Unmatched jobs → labelled <b>cross_sector</b>.
+        </div>
+    </div>''', unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
