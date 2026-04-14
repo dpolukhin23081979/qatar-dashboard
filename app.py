@@ -452,6 +452,7 @@ with tab2:
 # ════════════════════════════════════════════════════════════════════
 with tab3:
     st.markdown('<div class="section-header">Strategic Demand Intensity — From 41 Published Sources</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** What 41 published sources predict about skill demand — with no reference to job postings. This is the pure strategy side. Compare with the Skill Gap tab to see where strategy and market diverge.")
     st.caption("Based entirely on published sources — independent of job postings data.")
 
     p = img_path("sector_scenario_demand.png")
@@ -508,6 +509,7 @@ with tab3:
 # ════════════════════════════════════════════════════════════════════
 with tab4:
     st.markdown('<div class="section-header">Scenario Coefficient Report — Model Transparency</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** Model transparency. Which sources drive each scenario, how quality weights are applied, and how the signal-count penalty balances scenarios. Use to justify findings to stakeholders.")
     st.caption("Shows how each source contributes to each scenario through quality weights, scenario weights, and signal-count penalties.")
 
     # Static chart
@@ -573,6 +575,7 @@ with tab4:
 # ════════════════════════════════════════════════════════════════════
 with tab5:
     st.markdown('<div class="section-header">Skill Weights per Scenario</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** How much strategic weight each skill carries within each scenario (0–1). Skills with high bars across all 5 scenarios are universally important — the safest Manara investment bets.")
     st.info("**What you're looking at:** How much strategic weight each skill carries within each scenario (0–1 normalized). The top chart shows the most important skills per scenario. The cross-scenario comparison shows which skills are universally strategic (high bars across all 5 scenarios) vs scenario-specific (only tall in one). Universal skills are the safest Manara investment bets.")
     st.caption("Normalized adjusted weight (0–1 within each scenario). Color = industry sector. Dashed line = 0.6 high-impact threshold.")
 
@@ -647,6 +650,7 @@ with tab5:
 # ════════════════════════════════════════════════════════════════════
 with tab6:
     st.markdown('<div class="section-header">Source Evidence — Full Citation Trail</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** Full audit trail. Every skill signal traced back to its publication — IMF, World Bank, QNV, WEF, ILO, RAND, McKinsey, Goldman Sachs and 33 more. Use to verify or cite any finding.")
 
     col_s1, col_s2 = st.columns(2)
     with col_s1:
@@ -712,6 +716,7 @@ with tab6:
 # ════════════════════════════════════════════════════════════════════
 with tab7:
     st.markdown('<div class="section-header">Data Explorer</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** Search, filter, and download any underlying dataset for custom analysis or reporting. Switch between Gap Analysis, Skill Matrix, Calibration, Sources, Coefficients, and Skill Weights.")
 
     dataset = st.radio("Select dataset",
         ["Gap Analysis","Skill Matrix","Calibration","Source Signals","Coefficients","Skill Weights"],
