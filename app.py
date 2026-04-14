@@ -137,15 +137,13 @@ def apply_filters(df):
     if time_filter != "All": d = d[d["time_horizon"] == time_filter]
     return d
 
-gap_f    = apply_filters(gap_df)
-matrix_f = matrix_df[matrix_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
+gap_f     = apply_filters(gap_df)
+matrix_f  = matrix_df[matrix_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
 sources_f = sources_df[sources_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
 
 # ── Header ────────────────────────────────────────────────────────────────
 st.markdown("# Qatar 2030 Labor Market Intelligence")
 st.markdown("*Strategic Skill Demand Scenarios — Evidence-based workforce gap analysis for Manara & QNV 2030*")
-
-
 
 st.markdown("---")
 
@@ -182,7 +180,7 @@ tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
 ])
 
 # ════════════════════════════════════════════════════════════════════
-# TAB 1 — SKILL GAP ANALYSIS
+# TAB 0 — GUIDE & DEFINITIONS
 # ════════════════════════════════════════════════════════════════════
 with tab0:
     st.markdown("## Welcome to the Qatar 2030 Labor Market Intelligence Dashboard")
@@ -197,128 +195,131 @@ with tab0:
     st.markdown("### 🧭 How to Use This Dashboard")
     col_h1, col_h2, col_h3 = st.columns(3)
     with col_h1:
-        st.markdown('''<div class="definition-box">
+        st.markdown('''<div class="metric-card">
 <b>Step 1 — Select Scenarios</b><br><br>
 Use the sidebar to choose which futures to analyse. Select all 5 for a complete picture, or isolate one to focus.
 <b>S1 Diversification</b> is the baseline QNV case and a good starting point.
 </div>''', unsafe_allow_html=True)
     with col_h2:
-        st.markdown('''<div class="definition-box">
+        st.markdown('''<div class="metric-card">
 <b>Step 2 — Apply Filters</b><br><br>
 Narrow by sector (energy, healthcare, tech etc.) or Qatarization relevance.
 Select <b>High</b> to focus on skills where Qatari nationals are the explicit policy priority.
 </div>''', unsafe_allow_html=True)
     with col_h3:
-        st.markdown('''<div class="definition-box">
+        st.markdown('''<div class="metric-card">
 <b>Step 3 — Navigate Tabs</b><br><br>
 Each tab answers a different question. Start with <b>Skill Gap Analysis</b> for headline findings,
 then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector detail.
 </div>''', unsafe_allow_html=True)
 
     st.markdown("---")
-st.markdown("### 📖 Key Definitions")
+    st.markdown("### 📖 Key Definitions")
 
     # Row 1 — Core Concepts
-st.markdown("#### 📐 Core Concepts")
-r1a, r1b, r1c = st.columns(3)
-with r1a:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🔍 Skill Gap</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        The difference between what Qatar's strategic documents predict will be needed by 2030
-        and what employers are <i>actually</i> hiring for today.<br><br>
-        <span style="color:#e8513a;font-weight:600;">Large positive gap</span> = strategically critical but market hasn't caught up → Manara should intervene.
-        </div>
-    </div>''', unsafe_allow_html=True)
-with r1b:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📊 Gap Score (±1.0 scale)</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        <b>Gap Score</b> = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br><br>
-        <span style="color:#4CAF50;">● Positive</span> Strategy expects more → intervene<br>
-        <span style="color:#aaa;">● Near zero</span> Market & strategy aligned<br>
-        <span style="color:#e8513a;">● Negative</span> Market over-supplies this skill
-        </div>
-    </div>''', unsafe_allow_html=True)
-with r1c:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚖️ Calibration Score</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        How strongly the 41 sources signal demand for a skill <b>(0–1)</b>.<br><br>
-    Built from:<br>
-        Source credibility × Scenario alignment × Signal volume<br><br>
-        Higher = more sources agree this skill will be needed.
-        </div>
-    </div>''', unsafe_allow_html=True)
+    st.markdown("#### 📐 Core Concepts")
+    r1a, r1b, r1c = st.columns(3)
+    with r1a:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🔍 Skill Gap</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            The difference between what Qatar's strategic documents predict will be needed by 2030
+            and what employers are <i>actually</i> hiring for today.<br><br>
+            <span style="color:#e8513a;font-weight:600;">Large positive gap</span> = strategically critical but market hasn't caught up → Manara should intervene.
+            </div>
+        </div>''', unsafe_allow_html=True)
+    with r1b:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📊 Gap Score (±1.0 scale)</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            <b>Gap Score</b> = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br><br>
+            <span style="color:#4CAF50;">● Positive</span> Strategy expects more → intervene<br>
+            <span style="color:#aaa;">● Near zero</span> Market & strategy aligned<br>
+            <span style="color:#e8513a;">● Negative</span> Market over-supplies this skill
+            </div>
+        </div>''', unsafe_allow_html=True)
+    with r1c:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚖️ Calibration Score</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            How strongly the 41 sources signal demand for a skill <b>(0–1)</b>.<br><br>
+            Built from:<br>
+            Source credibility × Scenario alignment × Signal volume<br><br>
+            Higher = more sources agree this skill will be needed.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
-st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
-# Row 2 — Scenarios & Policy
-st.markdown("#### 🎭 Scenarios & Policy")
-r2a, r2b = st.columns(2)
-with r2a:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎭 The 5 Scenarios</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
-        Plausible futures for Qatar's economy by 2030:<br>
-        <span style="color:#2196F3;">■</span> <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
-        <span style="color:#FF9800;">■</span> <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
-        <span style="color:#4CAF50;">■</span> <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
-        <span style="color:#9C27B0;">■</span> <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
-        <span style="color:#F44336;">■</span> <b>S5</b> Regional Hub — Qatar as services and diplomacy centre
-        </div>
-</div>''', unsafe_allow_html=True)
-with r2b:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🇶🇦 Qatarization Priority</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>
-        <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br><br>
-        <span style="color:#D4A017;font-weight:600;">Medium</span> = Relevant but secondary priority.<br>
-        <span style="color:#4C78A8;font-weight:600;">Low</span> = General workforce need, not Qatari-specific.
-        </div>
-    </div>''', unsafe_allow_html=True)
+    # Row 2 — Scenarios & Policy
+    st.markdown("#### 🎭 Scenarios & Policy")
+    r2a, r2b = st.columns(2)
+    with r2a:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎭 The 5 Scenarios</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+            Plausible futures for Qatar's economy by 2030:<br>
+            <span style="color:#2196F3;">■</span> <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
+            <span style="color:#FF9800;">■</span> <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
+            <span style="color:#4CAF50;">■</span> <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
+            <span style="color:#9C27B0;">■</span> <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
+            <span style="color:#F44336;">■</span> <b>S5</b> Regional Hub — Qatar as services and diplomacy centre
+            </div>
+        </div>''', unsafe_allow_html=True)
+    with r2b:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🇶🇦 Qatarization Priority</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>
+            <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br><br>
+            <span style="color:#D4A017;font-weight:600;">Medium</span> = Relevant but secondary priority.<br>
+            <span style="color:#4C78A8;font-weight:600;">Low</span> = General workforce need, not Qatari-specific.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
-st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
-# Row 3 — Technical / Model
-st.markdown("#### 🛠️ Technical & Model")
-r3a, r3b, r3c = st.columns(3)
-with r3a:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎯 Signal Count Penalty</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        A <b>square-root balancing factor</b> for scenarios with fewer contributing sources.<br><br>
-        Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.
-        </div>
-</div>''', unsafe_allow_html=True)
-with r3b:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📈 Demand Direction Arrows</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
-        <span style="color:#4CAF50;">↑↑</span> Strong increase (gap ≥ 0.6) — urgent<br>
-        <span style="color:#8BC34A;">↑</span>  Moderate increase (0.2–0.6)<br>
-        <span style="color:#aaa;">→</span>  Stable / aligned (−0.2–0.2)<br>
-        <span style="color:#FF9800;">↓</span>  Moderate decrease<br>
-        <span style="color:#aaa;">—</span>  No signal for this combination
-        </div>
-    </div>''', unsafe_allow_html=True)
-with r3c:
-    st.markdown('''<div class="metric-card">
-        <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🏭 Sector Classification</div>
-        <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
-        Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>
-        Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br><br>
-        Unmatched jobs → labelled <b>cross_sector</b>.
-        </div>
-    </div>''', unsafe_allow_html=True)
+    # Row 3 — Technical / Model
+    st.markdown("#### 🛠️ Technical & Model")
+    r3a, r3b, r3c = st.columns(3)
+    with r3a:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎯 Signal Count Penalty</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            A <b>square-root balancing factor</b> for scenarios with fewer contributing sources.<br><br>
+            Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.
+            </div>
+        </div>''', unsafe_allow_html=True)
+    with r3b:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📈 Demand Direction Arrows</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+            <span style="color:#4CAF50;">↑↑</span> Strong increase (gap ≥ 0.6) — urgent<br>
+            <span style="color:#8BC34A;">↑</span>  Moderate increase (0.2–0.6)<br>
+            <span style="color:#aaa;">→</span>  Stable / aligned (−0.2–0.2)<br>
+            <span style="color:#FF9800;">↓</span>  Moderate decrease<br>
+            <span style="color:#aaa;">—</span>  No signal for this combination
+            </div>
+        </div>''', unsafe_allow_html=True)
+    with r3c:
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🏭 Sector Classification</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>
+            Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br><br>
+            Unmatched jobs → labelled <b>cross_sector</b>.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
-st.markdown("---")
-st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
+    st.markdown("---")
+    st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
 Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capstone 2025 ·
 41 authoritative sources · 5,067 Qatar job postings · 5 scenarios
 </div>''', unsafe_allow_html=True)
 
+# ════════════════════════════════════════════════════════════════════
+# TAB 1 — SKILL GAP ANALYSIS
+# ════════════════════════════════════════════════════════════════════
 with tab1:
     st.markdown('<div class="section-header">Strategic Skill Gaps — Scenario vs. Market Reality</div>', unsafe_allow_html=True)
     st.info("📌 **What this tab shows:** Which skills are strategically expected by 2030 but missing from Qatar's job market. A positive gap score means Manara should intervene. Filter by scenario, sector, and Qatarization relevance using the sidebar.")
@@ -380,7 +381,6 @@ with tab1:
                         font=dict(color="#e8e4dc"))
     st.plotly_chart(fig_h, use_container_width=True)
 
-    # Static chart from pipeline
     p = img_path("scenario_analysis_charts.png")
     if p:
         st.markdown('<div class="section-header">Full Dashboard Chart (from pipeline)</div>', unsafe_allow_html=True)
@@ -394,12 +394,10 @@ with tab2:
     st.info("📌 **What this tab shows:** A heatmap of average skill gap per industry sector per scenario. All green = Qatar is universally under-supplied. Use this to identify which sectors are furthest behind their strategic targets.")
     st.caption("Average gap score per sector × scenario. Green = under-supplied. Red = over-supplied.")
 
-    # Static image from pipeline
     p = img_path("industry_scenario_skill_matrix.png")
     if p:
         st.image(str(p), use_container_width=True)
 
-    # Interactive version
     st.markdown('<div class="section-header">Interactive Version</div>', unsafe_allow_html=True)
     pivot_ind = gap_f.pivot_table(index="sector", columns="scenario",
                                    values="gap_score", aggfunc="mean").fillna(0).clip(-1,1)
@@ -427,7 +425,6 @@ with tab2:
                           font=dict(color="#e8e4dc", size=12))
     st.plotly_chart(fig_ind, use_container_width=True)
 
-    # Qatarization chart
     p2 = img_path("qatarization_priority_gaps.png")
     if p2:
         st.markdown('<div class="section-header">High Qatarization Priority Gaps</div>', unsafe_allow_html=True)
@@ -445,7 +442,6 @@ with tab3:
     if p:
         st.image(str(p), use_container_width=True)
 
-    # Interactive sector × scenario
     st.markdown('<div class="section-header">Interactive Demand by Sector & Scenario</div>', unsafe_allow_html=True)
     pivot2 = matrix_f.pivot_table(index="sector", columns="scenario",
                                    values="normalized_score", aggfunc="mean").fillna(0).reset_index()
@@ -463,7 +459,6 @@ with tab3:
                        legend=dict(orientation="h", yanchor="bottom", y=1.02))
     st.plotly_chart(fig2, use_container_width=True)
 
-    # Top skills per scenario
     col_a, col_b = st.columns(2)
     with col_a:
         st.markdown('<div class="section-header">Top Skills per Scenario</div>', unsafe_allow_html=True)
@@ -498,14 +493,12 @@ with tab4:
     st.info("📌 **What this tab shows:** Model transparency. Which sources drive each scenario, how quality weights are applied, and how the signal-count penalty balances scenarios. Use to justify findings to stakeholders.")
     st.caption("Shows how each source contributes to each scenario through quality weights, scenario weights, and signal-count penalties.")
 
-    # Static chart
     p = img_path("scenario_coefficient_report.png")
     if p:
         st.image(str(p), use_container_width=True)
     else:
         st.info("📊 Chart not yet generated. Run **Cell 8b** in the Qatar Scenario Pipeline notebook, then upload `scenario_coefficient_report.png` to your `data/` folder on GitHub.")
 
-    # Weight definitions
     st.markdown('<div class="section-header">Weight Definitions</div>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
@@ -534,7 +527,6 @@ with tab4:
         - S2/S4/S5 (fewer) = **< 1.0×**
         """)
 
-    # Coefficient table
     if coeff_df is not None:
         st.markdown('<div class="section-header">Source Contribution Table</div>', unsafe_allow_html=True)
         sc_sel = st.selectbox("Filter by scenario", ["All"] + ALL_SCENARIOS,
@@ -542,7 +534,6 @@ with tab4:
                               key="coeff_sc")
         df_show = coeff_df if sc_sel == "All" else coeff_df[coeff_df["scenario"] == sc_sel]
 
-        # Interactive chart
         fig_c = px.bar(
             df_show.nlargest(30, "total_weighted"),
             x="total_weighted", y="source_id", color="scenario",
@@ -562,10 +553,8 @@ with tab4:
 with tab5:
     st.markdown('<div class="section-header">Skill Weights per Scenario</div>', unsafe_allow_html=True)
     st.info("📌 **What this tab shows:** How much strategic weight each skill carries within each scenario (0–1). Skills with high bars across all 5 scenarios are universally important — the safest Manara investment bets.")
-    st.info("**What you're looking at:** How much strategic weight each skill carries within each scenario (0–1 normalized). The top chart shows the most important skills per scenario. The cross-scenario comparison shows which skills are universally strategic (high bars across all 5 scenarios) vs scenario-specific (only tall in one). Universal skills are the safest Manara investment bets.")
     st.caption("Normalized adjusted weight (0–1 within each scenario). Color = industry sector. Dashed line = 0.6 high-impact threshold.")
 
-    # Static charts
     p_sw = img_path("scenario_skill_weights.png")
     if p_sw:
         st.image(str(p_sw), use_container_width=True)
@@ -577,7 +566,6 @@ with tab5:
         st.markdown('<div class="section-header">Cross-Scenario Skill Comparison</div>', unsafe_allow_html=True)
         st.image(str(p_cs), use_container_width=True)
 
-    # Interactive skill weight explorer
     if skill_wt_df is not None:
         st.markdown('<div class="section-header">Interactive Skill Weight Explorer</div>', unsafe_allow_html=True)
         col_sw1, col_sw2 = st.columns(2)
@@ -612,7 +600,6 @@ with tab5:
                              legend=dict(orientation="h", yanchor="bottom", y=1.02))
         st.plotly_chart(fig_sw, use_container_width=True)
 
-        # Cross-scenario pivot
         st.markdown('<div class="section-header">Skill × Scenario Weight Matrix</div>', unsafe_allow_html=True)
         sw_pivot = skill_wt_df.pivot_table(
             index="skill_category", columns="scenario",
@@ -659,7 +646,6 @@ with tab6:
                              font=dict(color="#e8e4dc"))
         st.plotly_chart(fig_ss, use_container_width=True)
 
-    # Source summary table
     st.markdown('<div class="section-header">Source Detail</div>', unsafe_allow_html=True)
     src_sum = sources_df.groupby(
         ["source_id","source_title","source_publisher","source_year","data_quality"]
@@ -673,18 +659,17 @@ with tab6:
         src_sum[["source_id","source_title","source_publisher","source_year","data_quality","signals","sectors","scenarios"]],
         use_container_width=True, hide_index=True,
         column_config={
-            "source_id":    st.column_config.TextColumn("ID", width="small"),
-            "source_title": st.column_config.TextColumn("Title", width="large"),
+            "source_id":        st.column_config.TextColumn("ID", width="small"),
+            "source_title":     st.column_config.TextColumn("Title", width="large"),
             "source_publisher": st.column_config.TextColumn("Publisher", width="medium"),
-            "source_year":  st.column_config.NumberColumn("Year", width="small", format="%d"),
-            "data_quality": st.column_config.TextColumn("Quality", width="small"),
-            "signals":      st.column_config.NumberColumn("Signals", width="small"),
-            "sectors":      st.column_config.TextColumn("Sectors", width="medium"),
-            "scenarios":    st.column_config.TextColumn("Scenarios", width="small"),
+            "source_year":      st.column_config.NumberColumn("Year", width="small", format="%d"),
+            "data_quality":     st.column_config.TextColumn("Quality", width="small"),
+            "signals":          st.column_config.NumberColumn("Signals", width="small"),
+            "sectors":          st.column_config.TextColumn("Sectors", width="medium"),
+            "scenarios":        st.column_config.TextColumn("Scenarios", width="small"),
         }
     )
 
-    # Demand direction
     st.markdown('<div class="section-header">Demand Direction Breakdown</div>', unsafe_allow_html=True)
     dir_c = sources_f["demand_direction"].value_counts().reset_index()
     dir_c.columns = ["direction","count"]
