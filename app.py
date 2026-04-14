@@ -335,6 +335,7 @@ Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capsto
 
 with tab1:
     st.markdown('<div class="section-header">Strategic Skill Gaps — Scenario vs. Market Reality</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** Which skills are strategically expected by 2030 but missing from Qatar's job market. A positive gap score means Manara should intervene. Filter by scenario, sector, and Qatarization relevance using the sidebar.")
     st.caption("Gap score = strategic expectation (41 published sources) minus actual hiring frequency (Qatar job postings). Positive = under-supplied.")
 
     col_l, col_r = st.columns([2, 1])
@@ -404,6 +405,7 @@ with tab1:
 # ════════════════════════════════════════════════════════════════════
 with tab2:
     st.markdown('<div class="section-header">Industry × Scenario Skill Gap Matrix</div>', unsafe_allow_html=True)
+    st.info("📌 **What this tab shows:** A heatmap of average skill gap per industry sector per scenario. All green = Qatar is universally under-supplied. Use this to identify which sectors are furthest behind their strategic targets.")
     st.caption("Average gap score per sector × scenario. Green = under-supplied. Red = over-supplied.")
 
     # Static image from pipeline
