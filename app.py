@@ -313,8 +313,8 @@ st.markdown("### 📖 Key Definitions")
             </div>
         </div>''', unsafe_allow_html=True)
 
-    st.markdown("---")
-    st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
+st.markdown("---")
+st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
 Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capstone 2025 ·
 41 authoritative sources · 5,067 Qatar job postings · 5 scenarios
 </div>''', unsafe_allow_html=True)
