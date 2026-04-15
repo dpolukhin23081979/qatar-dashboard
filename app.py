@@ -103,6 +103,195 @@ def img_path(filename):
     p = DATA_DIR / filename
     return p if p.exists() else None
 
+
+def first_existing_column(df, candidates):
+    for c in candidates:
+        if c in df.columns:
+            return c
+    return None
+
+def apply_dark_theme(fig, height=None):
+    fig.update_layout(
+        plot_bgcolor="#1a1a2e",
+        paper_bgcolor="#1a1a2e",
+        font=dict(color="#e8e4dc"),
+    )
+    if height is not None:
+        fig.update_layout(height=height)
+    return fig
+
+def render_live_coeff_dashboard(df):
+    if df is None or df.empty:
+        st.warning("No scenario coefficient data found. Add `scenario_coefficients.csv` to render this section.")
+        return
+
+    scenario_col = first_existing_column(df, ["scenario", "scenario_id", "scenario_code"])
+    source_col = first_existing_column(df, ["source_id", "source", "source_name", "publication"])
+    total_col = first_existing_column(df, ["total_weighted", "weighted_score", "contribution", "total_score", "adjusted_weight"])
+    quality_col = first_existing_column(df, ["quality_weight", "source_quality_weight", "quality"])
+    scenario_w_col = first_existing_column(df, ["scenario_weight", "scenario_coefficient", "scenario_coef", "coefficient"])
+    penalty_col = first_existing_column(df, ["signal_count_penalty", "signal_penalty", "penalty", "count_penalty"])
+
+    if scenario_col is None or total_col is None:
+        st.warning(
+            "Could not build the live coefficient dashboard because the required columns are missing. "
+            f"Available columns: {list(df.columns)}"
+        )
+        st.dataframe(df, use_container_width=True, hide_index=True)
+        return
+
+    work = df.copy()
+    if source_col is None:
+        work["source_label"] = [f"Source {i+1}" for i in range(len(work))]
+        source_col = "source_label"
+
+    summary = (
+        work.groupby(scenario_col, as_index=False)[total_col]
+        .agg(["mean", "sum", "count"])
+        .reset_index()
+        .rename(columns={"mean": "avg_contribution", "sum": "total_contribution", "count": "n_sources"})
+    )
+    if scenario_col not in summary.columns:
+        summary = summary.rename(columns={summary.columns[0]: scenario_col})
+    summary["scenario_label"] = summary[scenario_col].map(SCENARIO_LABELS).fillna(summary[scenario_col])
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+        fig = px.bar(
+            summary.sort_values("avg_contribution", ascending=False),
+            x="scenario_label",
+            y="avg_contribution",
+            color=scenario_col,
+            color_discrete_map=SCENARIO_COLORS,
+            labels={"scenario_label": "", "avg_contribution": "Average weighted contribution"},
+            title="Average source contribution by scenario",
+        )
+        apply_dark_theme(fig, 420)
+        fig.update_layout(showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with c2:
+        top_sources = (
+            work.groupby([scenario_col, source_col], as_index=False)[total_col]
+            .sum()
+            .sort_values(total_col, ascending=False)
+            .head(20)
+        )
+        top_sources["scenario_label"] = top_sources[scenario_col].map(SCENARIO_LABELS).fillna(top_sources[scenario_col])
+        fig = px.bar(
+            top_sources.sort_values(total_col),
+            x=total_col,
+            y=source_col,
+            color=scenario_col,
+            color_discrete_map=SCENARIO_COLORS,
+            orientation="h",
+            labels={total_col: "Total weighted contribution", source_col: ""},
+            title="Top contributing sources across scenarios",
+            hover_data=["scenario_label"],
+        )
+        apply_dark_theme(fig, 420)
+        st.plotly_chart(fig, use_container_width=True)
+
+    metric_candidates = [c for c in [quality_col, scenario_w_col, penalty_col, total_col] if c is not None]
+    if len(metric_candidates) >= 2:
+        metric_map = (
+            work.groupby(scenario_col)[metric_candidates]
+            .mean(numeric_only=True)
+            .round(3)
+        )
+        metric_map.index = metric_map.index.map(lambda x: SCENARIO_LABELS.get(x, x))
+        fig = px.imshow(
+            metric_map.T,
+            color_continuous_scale="Reds",
+            text_auto=".2f",
+            aspect="auto",
+            title="Coefficient mechanics by scenario (average values)",
+        )
+        apply_dark_theme(fig, 420)
+        st.plotly_chart(fig, use_container_width=True)
+
+    st.markdown('<div class="section-header">Detailed coefficient table</div>', unsafe_allow_html=True)
+    scenario_options = ["All"] + list(work[scenario_col].dropna().astype(str).unique())
+    selected = st.selectbox(
+        "Scenario detail",
+        scenario_options,
+        format_func=lambda x: "All" if x == "All" else SCENARIO_LABELS.get(x, x),
+        key="live_coeff_scenario",
+    )
+    detail = work if selected == "All" else work[work[scenario_col].astype(str) == selected]
+    sort_col = total_col if total_col in detail.columns else detail.columns[0]
+    detail = detail.sort_values(sort_col, ascending=False)
+    st.dataframe(detail, use_container_width=True, hide_index=True)
+
+def render_live_skill_weight_dashboard(df):
+    if df is None or df.empty:
+        st.warning("No skill weight data found. Add `scenario_skill_weights.csv` to render this section.")
+        return
+
+    scenario_col = first_existing_column(df, ["scenario", "scenario_id", "scenario_code"])
+    skill_col = first_existing_column(df, ["skill_category", "skill", "skill_name"])
+    sector_col = first_existing_column(df, ["sector", "industry_sector", "sector_name"])
+    weight_col = first_existing_column(df, ["normalized_weight", "weight", "adjusted_weight", "score"])
+
+    if scenario_col is None or skill_col is None or weight_col is None:
+        st.warning(
+            "Could not build the live skill-weight dashboard because the required columns are missing. "
+            f"Available columns: {list(df.columns)}"
+        )
+        st.dataframe(df, use_container_width=True, hide_index=True)
+        return
+
+    work = df.copy()
+    if sector_col is None:
+        work["sector_fallback"] = "cross_sector"
+        sector_col = "sector_fallback"
+
+    work["scenario_label"] = work[scenario_col].map(SCENARIO_LABELS).fillna(work[scenario_col])
+    work["sector_label"] = work[sector_col].map(lambda x: SECTOR_LABELS.get(x, x))
+
+    pivot = work.pivot_table(
+        index=skill_col,
+        columns=scenario_col,
+        values=weight_col,
+        aggfunc="mean"
+    ).fillna(0)
+
+    scenario_order = [s for s in ALL_SCENARIOS if s in pivot.columns] + [c for c in pivot.columns if c not in ALL_SCENARIOS]
+    pivot = pivot[scenario_order]
+    pivot["avg_weight"] = pivot.mean(axis=1)
+    top_universal = pivot.sort_values("avg_weight", ascending=False).head(20).copy()
+    heat = top_universal.drop(columns="avg_weight")
+    heat.columns = [SCENARIO_LABELS.get(c, c) for c in heat.columns]
+
+    c1, c2 = st.columns(2)
+
+    with c1:
+        bar_df = top_universal[["avg_weight"]].reset_index().sort_values("avg_weight")
+        fig = px.bar(
+            bar_df,
+            x="avg_weight",
+            y=skill_col,
+            orientation="h",
+            labels={"avg_weight": "Average normalized weight", skill_col: ""},
+            title="Most consistently important skills across scenarios",
+        )
+        apply_dark_theme(fig, 460)
+        st.plotly_chart(fig, use_container_width=True)
+
+    with c2:
+        fig = px.imshow(
+            heat,
+            color_continuous_scale="Purples",
+            zmin=0,
+            zmax=max(1.0, float(heat.to_numpy().max()) if heat.size else 1.0),
+            text_auto=".2f",
+            aspect="auto",
+            title="Cross-scenario skill importance matrix",
+        )
+        apply_dark_theme(fig, 460)
+        st.plotly_chart(fig, use_container_width=True)
+
 # ── Sidebar ───────────────────────────────────────────────────────────────
 with st.sidebar:
     st.markdown('<div style="font-family:\'DM Serif Display\',serif;font-size:1.3rem;color:#f0ece4;padding:8px 0;">🇶🇦 Qatar 2030<br>Labor Market Intelligence</div>', unsafe_allow_html=True)
@@ -491,9 +680,11 @@ with tab3:
 with tab4:
     st.markdown('<div class="section-header">Scenario Coefficient Report — Model Transparency</div>', unsafe_allow_html=True)
     st.info("📌 **What this tab shows:** Model transparency. Which sources drive each scenario, how quality weights are applied, and how the signal-count penalty balances scenarios. Use to justify findings to stakeholders.")
+    st.caption("Shows how each source contributes to each scenario through quality weights, scenario weights, and signal-count penalties.")
 
-    # ── Weight definitions ────────────────────────────────────────────────
-    st.markdown('<div class="section-header">How Scores Are Built</div>', unsafe_allow_html=True)
+    render_live_coeff_dashboard(coeff_df)
+
+    st.markdown('<div class="section-header">Weight Definitions</div>', unsafe_allow_html=True)
     col1, col2, col3 = st.columns(3)
     with col1:
         st.markdown("**Demand Score**")
@@ -521,306 +712,91 @@ with tab4:
         - S2/S4/S5 (fewer) = **< 1.0×**
         """)
 
-    if coeff_df is None:
-        st.warning("scenario_coefficients.csv not found — upload it to the data/ folder on GitHub.")
-    else:
-        import math
-
-        # ── Signal count & penalty charts ────────────────────────────────
-        st.markdown('<div class="section-header">Signal Count & Penalty per Scenario</div>', unsafe_allow_html=True)
-
-        sc_counts = coeff_df.groupby("scenario")["signal_count"].sum().reset_index()
-        sc_counts["scenario_label"] = sc_counts["scenario"].map(SCENARIO_LABELS)
-        max_sig = sc_counts["signal_count"].max()
-        sc_counts["penalty"] = sc_counts["signal_count"].apply(
-            lambda x: round(math.sqrt(x / max_sig), 3))
-
-        col_s1, col_s2 = st.columns(2)
-        with col_s1:
-            fig_sig = px.bar(
-                sc_counts.sort_values("signal_count", ascending=False),
-                x="scenario_label", y="signal_count",
-                color="scenario", color_discrete_map=SCENARIO_COLORS,
-                text="signal_count",
-                title="Signal Count per Scenario",
-                labels={"scenario_label": "Scenario", "signal_count": "Number of Signals"}
-            )
-            fig_sig.update_traces(textposition="outside")
-            fig_sig.update_layout(
-                height=350, showlegend=False,
-                plot_bgcolor="white", paper_bgcolor="white",
-                font=dict(size=12), title_font_size=13, xaxis_tickangle=-15
-            )
-            st.plotly_chart(fig_sig, use_container_width=True)
-
-        with col_s2:
-            fig_pen = px.bar(
-                sc_counts.sort_values("penalty", ascending=False),
-                x="scenario_label", y="penalty",
-                color="scenario", color_discrete_map=SCENARIO_COLORS,
-                text="penalty",
-                title="Signal-Count Penalty Factor (√ ratio)",
-                labels={"scenario_label": "Scenario", "penalty": "Penalty (0–1)"}
-            )
-            fig_pen.update_traces(textposition="outside")
-            fig_pen.add_hline(y=1.0, line_dash="dash", line_color="gray",
-                              annotation_text="max (S1)")
-            fig_pen.update_layout(
-                height=350, showlegend=False,
-                plot_bgcolor="white", paper_bgcolor="white",
-                font=dict(size=12), title_font_size=13, xaxis_tickangle=-15
-            )
-            st.plotly_chart(fig_pen, use_container_width=True)
-
-        # ── Source contributions ──────────────────────────────────────────
-        st.markdown('<div class="section-header">Source Contributions per Scenario</div>', unsafe_allow_html=True)
-        st.caption("Bar = adjusted weighted score (weighted_score × penalty). Color = source data quality.")
-
-        sc_sel = st.selectbox(
-            "Filter by scenario", ["All"] + ALL_SCENARIOS,
-            format_func=lambda x: "All" if x == "All" else SCENARIO_LABELS[x],
-            key="coeff_sc"
-        )
+    if coeff_df is not None:
+        st.markdown('<div class="section-header">Source Contribution Table</div>', unsafe_allow_html=True)
+        sc_sel = st.selectbox("Filter by scenario", ["All"] + ALL_SCENARIOS,
+                              format_func=lambda x: "All" if x=="All" else SCENARIO_LABELS[x],
+                              key="coeff_sc")
         df_show = coeff_df if sc_sel == "All" else coeff_df[coeff_df["scenario"] == sc_sel]
 
-        # Apply penalty
-        pen_map = sc_counts.set_index("scenario")["penalty"].to_dict()
-        df_plot = df_show.copy()
-        df_plot["adj_weight"] = df_plot.apply(
-            lambda r: r["total_weighted"] * pen_map.get(r["scenario"], 1.0), axis=1)
-        df_plot = df_plot.nlargest(25, "adj_weight").sort_values("adj_weight")
-        df_plot["scenario_label"] = df_plot["scenario"].map(SCENARIO_LABELS)
-
-        QUALITY_COLORS = {"high": "#2ecc71", "medium": "#f39c12", "low": "#e74c3c"}
-        fig_contrib = px.bar(
-            df_plot,
-            x="adj_weight", y="source_id",
-            color="data_quality",
-            color_discrete_map=QUALITY_COLORS,
-            orientation="h",
-            hover_data=["scenario_label", "publisher", "signal_count", "avg_scenario_w"],
-            text=df_plot["adj_weight"].round(2),
-            title=f"Source Contributions — {'All Scenarios' if sc_sel == 'All' else SCENARIO_LABELS[sc_sel]}",
-            labels={"adj_weight": "Adjusted Weight", "source_id": "Source",
-                    "data_quality": "Source Quality"}
+        fig_c = px.bar(
+            df_show.nlargest(30, "total_weighted"),
+            x="total_weighted", y="source_id", color="scenario",
+            color_discrete_map=SCENARIO_COLORS, orientation="h",
+            labels={"total_weighted":"Total Weighted Score","source_id":"Source"},
+            title="Source Contributions (top 30)"
         )
-        fig_contrib.update_traces(textposition="outside", textfont_size=10)
-        fig_contrib.update_layout(
-            height=max(400, len(df_plot) * 30),
-            plot_bgcolor="white", paper_bgcolor="white",
-            font=dict(size=12), title_font_size=13,
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, title="Source Quality")
-        )
-        st.plotly_chart(fig_contrib, use_container_width=True)
-
-        # ── Source × Scenario weight matrix ──────────────────────────────
-        st.markdown('<div class="section-header">Source × Scenario Weight Matrix</div>', unsafe_allow_html=True)
-        st.caption("Average scenario_weight (0–1) extracted by Claude per source × scenario pair.")
-
-        pivot_w = coeff_df.pivot_table(
-            index="source_id", columns="scenario",
-            values="avg_scenario_w", aggfunc="mean"
-        ).fillna(0).round(2)
-        sc_order_w = [s for s in ALL_SCENARIOS if s in pivot_w.columns]
-        pivot_w = pivot_w[sc_order_w]
-        pivot_w.columns = [SCENARIO_LABELS.get(c, c) for c in pivot_w.columns]
-        pivot_w["Total"] = pivot_w.sum(axis=1)
-        pivot_w = pivot_w.sort_values("Total", ascending=False).drop(columns="Total")
-
-        fig_wmat = px.imshow(
-            pivot_w, color_continuous_scale="Blues",
-            zmin=0, zmax=1, text_auto=".2f", aspect="auto",
-            title="Source × Scenario Weight Matrix"
-        )
-        fig_wmat.update_layout(
-            height=max(400, len(pivot_w) * 22),
-            font=dict(size=10), title_font_size=13,
-            coloraxis_colorbar=dict(title="Weight")
-        )
-        st.plotly_chart(fig_wmat, use_container_width=True)
-
-        with st.expander("📥 Download coefficient data"):
-            csv_c = coeff_df.to_csv(index=False).encode("utf-8")
-            st.download_button("⬇ Download CSV", data=csv_c,
-                               file_name="scenario_coefficients.csv", mime="text/csv")
+        fig_c.update_layout(height=500, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                            font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"),
+                            legend=dict(orientation="h", yanchor="bottom", y=1.02))
+        st.plotly_chart(fig_c, use_container_width=True)
+        st.dataframe(df_show, use_container_width=True, hide_index=True)
 
 # ════════════════════════════════════════════════════════════════════
 # TAB 5 — SKILL WEIGHTS
 # ════════════════════════════════════════════════════════════════════
-
 with tab5:
     st.markdown('<div class="section-header">Skill Weights per Scenario</div>', unsafe_allow_html=True)
     st.info("📌 **What this tab shows:** How much strategic weight each skill carries within each scenario (0–1). Skills with high bars across all 5 scenarios are universally important — the safest Manara investment bets.")
     st.caption("Normalized adjusted weight (0–1 within each scenario). Color = industry sector. Dashed line = 0.6 high-impact threshold.")
 
-    if skill_wt_df is None:
-        st.warning("scenario_skill_weights.csv not found — upload it to the data/ folder on GitHub.")
-    else:
-        SECTOR_COLORS_SW = {
-            "technology_digital": "#1976D2", "energy_lng": "#F57C00",
-            "healthcare": "#388E3C", "education": "#7B1FA2",
-            "finance_banking": "#C62828", "construction_real_estate": "#5D4037",
-            "tourism_hospitality": "#00838F", "cross_sector": "#757575",
-        }
+    render_live_skill_weight_dashboard(skill_wt_df)
 
-        # ── Top skills per scenario — interactive ─────────────────────────
-        st.markdown('<div class="section-header">Top Skills — Select Scenario</div>', unsafe_allow_html=True)
-        col_sw1, col_sw2 = st.columns([2, 1])
+    if skill_wt_df is not None:
+        st.markdown('<div class="section-header">Interactive Skill Weight Explorer</div>', unsafe_allow_html=True)
+        col_sw1, col_sw2 = st.columns(2)
         with col_sw1:
-            sc_sw = st.selectbox(
-                "Scenario", ALL_SCENARIOS,
-                format_func=lambda x: SCENARIO_LABELS[x], key="sw_sc"
-            )
+            sc_sw = st.selectbox("Scenario", ALL_SCENARIOS,
+                                 format_func=lambda x: SCENARIO_LABELS[x], key="sw_sc")
         with col_sw2:
             top_n = st.slider("Top N skills", 10, 30, 15)
 
-        sw_data = (
-            skill_wt_df[skill_wt_df["scenario"] == sc_sw]
-            .nlargest(top_n, "normalized_weight")
-            .sort_values("normalized_weight")
-        )
-        sw_data["sector_label"] = sw_data["sector"].map(
-            lambda x: SECTOR_LABELS.get(x, x.replace("_", " ").title()))
+        sw_data = skill_wt_df[skill_wt_df["scenario"] == sc_sw].nlargest(top_n, "normalized_weight")
+
+        SECTOR_COLORS = {
+            "technology_digital":"#1976D2","energy_lng":"#F57C00",
+            "healthcare":"#388E3C","education":"#7B1FA2",
+            "finance_banking":"#C62828","construction_real_estate":"#5D4037",
+            "tourism_hospitality":"#00838F","cross_sector":"#757575",
+        }
+        sw_data["sector_label"] = sw_data["sector"].map(lambda x: SECTOR_LABELS.get(x,x))
+        sw_data["color"] = sw_data["sector"].map(lambda x: SECTOR_COLORS.get(x,"#757575"))
 
         fig_sw = px.bar(
-            sw_data,
+            sw_data.sort_values("normalized_weight"),
             x="normalized_weight", y="skill_category",
-            color="sector_label",
-            color_discrete_map={
-                SECTOR_LABELS.get(k, k.replace("_", " ").title()): v
-                for k, v in SECTOR_COLORS_SW.items()
-            },
-            orientation="h",
-            text=sw_data["normalized_weight"].round(2),
-            hover_data=["signal_count", "sources"] if "sources" in skill_wt_df.columns else ["signal_count"],
-            title=f"Skill Weights — {SCENARIO_LABELS[sc_sw]}",
-            labels={"normalized_weight": "Normalized Weight (0–1)",
-                    "skill_category": "", "sector_label": "Sector"}
+            color="sector_label", orientation="h",
+            color_discrete_map={SECTOR_LABELS.get(k,k): v for k,v in SECTOR_COLORS.items()},
+            labels={"normalized_weight":"Normalized Weight (0–1)","skill_category":"","sector_label":"Sector"},
+            title=f"Skill Weights — {SCENARIO_LABELS[sc_sw]}"
         )
-        fig_sw.add_vline(x=0.6, line_dash="dash", line_color="#999", line_width=1.5,
-                         annotation_text="high impact", annotation_position="top right",
-                         annotation_font_size=10)
-        fig_sw.update_traces(textposition="outside", textfont_size=10)
-        fig_sw.update_layout(
-            height=max(420, top_n * 28),
-            plot_bgcolor="white", paper_bgcolor="white",
-            font=dict(size=12), title_font_size=13,
-            xaxis=dict(range=[0, 1.3]),
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, title="Sector")
-        )
+        fig_sw.add_vline(x=0.6, line_dash="dash", line_color="#aaa", line_width=1)
+        fig_sw.update_layout(height=500, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                             font=dict(color="#e8e4dc"),
+                             legend=dict(orientation="h", yanchor="bottom", y=1.02))
         st.plotly_chart(fig_sw, use_container_width=True)
 
-        # ── All 5 scenarios — facet chart ────────────────────────────────
-        st.markdown('<div class="section-header">All 5 Scenarios — Top 10 Skills Each</div>', unsafe_allow_html=True)
-        st.caption("Compare priorities across all scenarios at a glance.")
-
-        top10_all = (
-            skill_wt_df.groupby("scenario", group_keys=False)
-            .apply(lambda g: g.nlargest(10, "normalized_weight"))
-            .reset_index(drop=True)
-        )
-        top10_all["scenario_label"] = top10_all["scenario"].map(SCENARIO_LABELS)
-        top10_all["sector_label"] = top10_all["sector"].map(
-            lambda x: SECTOR_LABELS.get(x, x.replace("_", " ").title()))
-
-        fig_all = px.bar(
-            top10_all.sort_values(["scenario", "normalized_weight"]),
-            x="normalized_weight", y="skill_category",
-            color="sector_label",
-            color_discrete_map={
-                SECTOR_LABELS.get(k, k.replace("_", " ").title()): v
-                for k, v in SECTOR_COLORS_SW.items()
-            },
-            facet_col="scenario_label", facet_col_wrap=3,
-            orientation="h",
-            labels={"normalized_weight": "Weight", "skill_category": "",
-                    "sector_label": "Sector"},
-            title="Top 10 Skills per Scenario"
-        )
-        fig_all.add_vline(x=0.6, line_dash="dash", line_color="#ccc", line_width=1)
-        fig_all.update_layout(
-            height=600, plot_bgcolor="white", paper_bgcolor="white",
-            font=dict(size=10), title_font_size=13,
-            legend=dict(orientation="h", yanchor="bottom", y=-0.18, title="Sector")
-        )
-        fig_all.for_each_annotation(lambda a: a.update(text=a.text.split("=")[-1]))
-        st.plotly_chart(fig_all, use_container_width=True)
-
-        # ── Cross-scenario comparison ─────────────────────────────────────
-        st.markdown('<div class="section-header">Cross-Scenario Skill Comparison</div>', unsafe_allow_html=True)
-        st.caption("Skills in 2+ scenarios. Universal skills (high across all) = safest Manara investment.")
-
-        pivot_sw = skill_wt_df.pivot_table(
-            index="skill_category", columns="scenario",
-            values="normalized_weight", aggfunc="mean"
-        ).fillna(0)
-        sc_order_sw = [s for s in ALL_SCENARIOS if s in pivot_sw.columns]
-        pivot_sw = pivot_sw[sc_order_sw]
-        pivot_sw["scenario_count"] = (pivot_sw > 0.1).sum(axis=1)
-        pivot_sw["max_weight"] = pivot_sw.drop(columns="scenario_count").max(axis=1)
-        cross = (
-            pivot_sw[pivot_sw["scenario_count"] >= 2]
-            .sort_values("max_weight", ascending=False)
-            .head(20)
-            .drop(columns=["scenario_count", "max_weight"])
-            .reset_index()
-        )
-        cross_melted = cross.melt(
-            id_vars="skill_category", var_name="scenario", value_name="weight")
-        cross_melted["scenario_label"] = cross_melted["scenario"].map(SCENARIO_LABELS)
-
-        fig_cross = px.bar(
-            cross_melted,
-            x="skill_category", y="weight",
-            color="scenario_label", barmode="group",
-            color_discrete_map={v: SCENARIO_COLORS[k] for k, v in SCENARIO_LABELS.items()},
-            text=cross_melted["weight"].round(2),
-            labels={"skill_category": "Skill", "weight": "Normalized Weight (0–1)",
-                    "scenario_label": "Scenario"},
-            title="Cross-Scenario Skill Weights — Skills in 2+ Scenarios"
-        )
-        fig_cross.add_hline(y=0.6, line_dash="dash", line_color="#999",
-                            annotation_text="high impact threshold",
-                            annotation_position="top right", annotation_font_size=10)
-        fig_cross.update_traces(textposition="outside", textfont_size=8)
-        fig_cross.update_layout(
-            height=500, plot_bgcolor="white", paper_bgcolor="white",
-            font=dict(size=11), title_font_size=13,
-            xaxis_tickangle=-35,
-            legend=dict(orientation="h", yanchor="bottom", y=1.02, title="Scenario")
-        )
-        st.plotly_chart(fig_cross, use_container_width=True)
-
-        # ── Full skill × scenario heatmap ─────────────────────────────────
         st.markdown('<div class="section-header">Skill × Scenario Weight Matrix</div>', unsafe_allow_html=True)
-
         sw_pivot = skill_wt_df.pivot_table(
             index="skill_category", columns="scenario",
             values="normalized_weight", aggfunc="mean"
         ).fillna(0).round(2)
-        sc_order_p = [s for s in ALL_SCENARIOS if s in sw_pivot.columns]
-        sw_pivot = sw_pivot[sc_order_p]
-        sw_pivot.columns = [SCENARIO_LABELS.get(c, c) for c in sw_pivot.columns]
+        sc_order = [s for s in ALL_SCENARIOS if s in sw_pivot.columns]
+        sw_pivot = sw_pivot[sc_order]
+        sw_pivot.columns = [SCENARIO_LABELS.get(c,c) for c in sw_pivot.columns]
         sw_pivot["Max"] = sw_pivot.max(axis=1)
-        sw_pivot = sw_pivot.sort_values("Max", ascending=False).drop(columns="Max").head(30)
+        sw_pivot = sw_pivot.sort_values("Max", ascending=False).drop(columns="Max").head(25)
 
-        fig_swh = px.imshow(
-            sw_pivot, color_continuous_scale="Purples",
-            zmin=0, zmax=1, text_auto=".2f", aspect="auto",
-            title="Skill Weight Matrix — all 5 scenarios"
-        )
-        fig_swh.update_layout(
-            height=max(500, len(sw_pivot) * 22),
-            font=dict(size=10), title_font_size=13,
-            coloraxis_colorbar=dict(title="Weight (0–1)")
-        )
+        fig_swh = px.imshow(sw_pivot, color_continuous_scale="Purples",
+                            zmin=0, zmax=1, text_auto=".2f", aspect="auto",
+                            title="Skill Weight Matrix — all 5 scenarios")
+        fig_swh.update_layout(height=600, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                              font=dict(color="#e8e4dc"))
         st.plotly_chart(fig_swh, use_container_width=True)
 
-        with st.expander("📥 Download skill weights data"):
-            csv_sw = skill_wt_df.to_csv(index=False).encode("utf-8")
-            st.download_button("⬇ Download CSV", data=csv_sw,
-                               file_name="scenario_skill_weights.csv", mime="text/csv")
-
+# ════════════════════════════════════════════════════════════════════
+# TAB 6 — SOURCE EVIDENCE
+# ════════════════════════════════════════════════════════════════════
 with tab6:
     st.markdown('<div class="section-header">Source Evidence — Full Citation Trail</div>', unsafe_allow_html=True)
     st.info("📌 **What this tab shows:** Full audit trail. Every skill signal traced back to its publication — IMF, World Bank, QNV, WEF, ILO, RAND, McKinsey, Goldman Sachs and 33 more. Use to verify or cite any finding.")
