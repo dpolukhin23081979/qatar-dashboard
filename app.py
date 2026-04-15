@@ -264,33 +264,43 @@ def render_live_skill_weight_dashboard(df):
     heat = top_universal.drop(columns="avg_weight")
     heat.columns = [SCENARIO_LABELS.get(c, c) for c in heat.columns]
 
-    c1, c2 = st.columns(2)
+    bar_df = top_universal[["avg_weight"]].reset_index().sort_values("avg_weight")
+    fig_bar = px.bar(
+        bar_df,
+        x="avg_weight",
+        y=skill_col,
+        orientation="h",
+        labels={"avg_weight": "Average normalized weight", skill_col: ""},
+        title="Most consistently important skills across scenarios",
+    )
+    fig_bar.update_layout(
+        font=dict(size=13),
+        title_font=dict(size=15),
+        yaxis=dict(tickfont=dict(size=12)),
+        xaxis=dict(tickfont=dict(size=12)),
+    )
+    apply_dark_theme(fig_bar, 560)
+    st.plotly_chart(fig_bar, use_container_width=True)
 
-    with c1:
-        bar_df = top_universal[["avg_weight"]].reset_index().sort_values("avg_weight")
-        fig = px.bar(
-            bar_df,
-            x="avg_weight",
-            y=skill_col,
-            orientation="h",
-            labels={"avg_weight": "Average normalized weight", skill_col: ""},
-            title="Most consistently important skills across scenarios",
-        )
-        apply_dark_theme(fig, 460)
-        st.plotly_chart(fig, use_container_width=True)
-
-    with c2:
-        fig = px.imshow(
-            heat,
-            color_continuous_scale="Purples",
-            zmin=0,
-            zmax=max(1.0, float(heat.to_numpy().max()) if heat.size else 1.0),
-            text_auto=".2f",
-            aspect="auto",
-            title="Cross-scenario skill importance matrix",
-        )
-        apply_dark_theme(fig, 460)
-        st.plotly_chart(fig, use_container_width=True)
+    fig_heat = px.imshow(
+        heat,
+        color_continuous_scale="Purples",
+        zmin=0,
+        zmax=max(1.0, float(heat.to_numpy().max()) if heat.size else 1.0),
+        text_auto=".2f",
+        aspect="auto",
+        title="Cross-scenario skill importance matrix",
+    )
+    fig_heat.update_layout(
+        font=dict(size=13),
+        title_font=dict(size=15),
+        xaxis=dict(tickfont=dict(size=12), tickangle=-30),
+        yaxis=dict(tickfont=dict(size=12)),
+        coloraxis_colorbar=dict(tickfont=dict(size=11)),
+    )
+    fig_heat.update_traces(textfont=dict(size=12))
+    apply_dark_theme(fig_heat, 560)
+    st.plotly_chart(fig_heat, use_container_width=True)
 
 # ── Sidebar ───────────────────────────────────────────────────────────────
 with st.sidebar:
