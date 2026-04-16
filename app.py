@@ -114,11 +114,11 @@ def first_existing_column(df, candidates):
             return c
     return None
 
-def apply_dark_theme(fig, height=None):
+def apply_chart_theme(fig, height=None):
     fig.update_layout(
-        plot_bgcolor="#1a1a2e",
-        paper_bgcolor="#1a1a2e",
-        font=dict(color="#e8e4dc"),
+        plot_bgcolor="#FFFFFF",
+        paper_bgcolor="#F5F2EE",
+        font=dict(color="#1A1410"),
     )
     if height is not None:
         fig.update_layout(height=height)
@@ -171,7 +171,7 @@ def render_live_coeff_dashboard(df):
             labels={"scenario_label": "", "avg_contribution": "Average weighted contribution"},
             title="Average source contribution by scenario",
         )
-        apply_dark_theme(fig, 420)
+        apply_chart_theme(fig, 420)
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
@@ -194,7 +194,7 @@ def render_live_coeff_dashboard(df):
             title="Top contributing sources across scenarios",
             hover_data=["scenario_label"],
         )
-        apply_dark_theme(fig, 420)
+        apply_chart_theme(fig, 420)
         st.plotly_chart(fig, use_container_width=True)
 
     metric_candidates = [c for c in [quality_col, scenario_w_col, penalty_col, total_col] if c is not None]
@@ -212,7 +212,7 @@ def render_live_coeff_dashboard(df):
             aspect="auto",
             title="Coefficient mechanics by scenario (average values)",
         )
-        apply_dark_theme(fig, 420)
+        apply_chart_theme(fig, 420)
         st.plotly_chart(fig, use_container_width=True)
 
     st.markdown('<div class="section-header">Detailed coefficient table</div>', unsafe_allow_html=True)
@@ -283,7 +283,7 @@ def render_live_skill_weight_dashboard(df):
         yaxis=dict(tickfont=dict(size=12)),
         xaxis=dict(tickfont=dict(size=12)),
     )
-    apply_dark_theme(fig_bar, 560)
+    apply_chart_theme(fig_bar, 560)
     st.plotly_chart(fig_bar, use_container_width=True)
 
     fig_heat = px.imshow(
@@ -303,7 +303,7 @@ def render_live_skill_weight_dashboard(df):
         coloraxis_colorbar=dict(tickfont=dict(size=11)),
     )
     fig_heat.update_traces(textfont=dict(size=12))
-    apply_dark_theme(fig_heat, 560)
+    apply_chart_theme(fig_heat, 560)
     st.plotly_chart(fig_heat, use_container_width=True)
 
 # ── Sidebar ───────────────────────────────────────────────────────────────
