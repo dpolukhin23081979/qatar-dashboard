@@ -523,7 +523,7 @@ with tab_exec:
         .head(5)
     )
 
-   if len(top5) == 0:
+    if len(top5) == 0:
         st.info("No high Qatarization priority gaps found for current filters.")
     else:
         cols = st.columns(len(top5))
