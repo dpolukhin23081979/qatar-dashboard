@@ -8,82 +8,46 @@ import os
 # ── Page config ───────────────────────────────────────────────────────────
 st.set_page_config(
     page_title="Qatar 2030 Labor Market Intelligence",
-    page_icon="⛵",
+    page_icon="🇶🇦",
     layout="wide",
     initial_sidebar_state="expanded"
 )
-
-# ── Palette ───────────────────────────────────────────────────────────────
-BG_PAGE   = "#F5F2EE"
-BG_CARD   = "#FFFFFF"
-BG_RAISED = "#EDE8E2"
-TXT_PRI   = "#1A1410"
-TXT_SEC   = "#5A5248"
-TXT_MUTED = "#9A9088"
-ACCENT    = "#8B2635"
-ACCENT_LT = "#C0564A"
-SAND      = "#C49040"
-BORDER    = "#E0D8D0"
 
 # ── Custom CSS ────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: #1A1410; }
-h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #1A1410 !important; }
-.main { background-color: #F5F2EE; }
-.stApp { background-color: #F5F2EE; }
-section[data-testid="stMain"] { background-color: #F5F2EE; }
-div[data-testid="stTabs"] { background-color: #F5F2EE; }
-button[data-baseweb="tab"] { color: #9A9088 !important; background: transparent !important; }
-button[data-baseweb="tab"][aria-selected="true"] { color: #1A1410 !important; border-bottom-color: #8B2635 !important; }
+html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: #e8e4dc; }
+h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #f0ece4 !important; }
+.main { background-color: #0d0d14; }
+.stApp { background-color: #0d0d14; }
+section[data-testid="stMain"] { background-color: #0d0d14; }
+div[data-testid="stTabs"] { background-color: #0d0d14; }
+button[data-baseweb="tab"] { color: #a09a8e !important; }
+button[data-baseweb="tab"][aria-selected="true"] { color: #f0ece4 !important; border-bottom-color: #c0392b !important; }
 
 .metric-card {
-    background: #FFFFFF;
-    border-radius: 12px;
-    padding: 20px 24px;
-    border: 1px solid #E0D8D0;
-    border-left: 4px solid #8B2635;
+    background: #1a1a2e; border-radius: 12px; padding: 20px 24px;
+    border-left: 4px solid #c0392b; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
     margin-bottom: 8px;
 }
-.metric-value { font-size: 2rem; font-weight: 600; color: #8B2635; line-height: 1; }
-.metric-label { font-size: 0.8rem; color: #9A9088; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+.metric-value { font-size: 2rem; font-weight: 600; color: #e8513a; line-height: 1; }
+.metric-label { font-size: 0.8rem; color: #8a8070; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
 
 .section-header {
-    font-family: 'DM Serif Display', serif;
-    font-size: 1.4rem;
-    color: #1A1410 !important;
-    border-bottom: 2px solid #8B2635;
-    padding-bottom: 8px;
-    margin: 24px 0 16px 0;
+    font-family: 'DM Serif Display', serif; font-size: 1.4rem;
+    color: #f0ece4 !important; border-bottom: 2px solid #c0392b;
+    padding-bottom: 8px; margin: 24px 0 16px 0;
 }
 
-div[data-testid="stSidebarContent"] { background-color: #EDE8E2 !important; }
-div[data-testid="stSidebarContent"] label { color: #1A1410 !important; }
-div[data-testid="stSidebarContent"] p { color: #5A5248 !important; }
-div[data-testid="stSidebarContent"] h1,
-div[data-testid="stSidebarContent"] h2,
-div[data-testid="stSidebarContent"] h3 { color: #1A1410 !important; }
-div[data-testid="stMarkdownContainer"] p { color: #1A1410; }
-div[data-testid="stCaptionContainer"] p { color: #9A9088 !important; }
-div[data-testid="stDownloadButton"] button { background-color: #8B2635 !important; color: white !important; border: none; }
-hr { border-color: #E0D8D0; }
-
-div[data-baseweb="select"] > div { background-color: #FFFFFF !important; border-color: #E0D8D0 !important; }
-div[data-baseweb="select"] * { color: #1A1410 !important; }
-div[data-baseweb="popover"] { background-color: #FFFFFF !important; }
-ul[data-baseweb="menu"] { background-color: #FFFFFF !important; }
-ul[data-baseweb="menu"] li { color: #1A1410 !important; }
-ul[data-baseweb="menu"] li:hover { background-color: #F5F2EE !important; }
-div[data-baseweb="tag"] { background-color: #EDE8E2 !important; border-color: #E0D8D0 !important; }
-div[data-baseweb="tag"] span { color: #1A1410 !important; }
-div[data-baseweb="tag"] svg { fill: #5A5248 !important; }
-div[data-testid="stMultiSelect"] * { color: #1A1410 !important; }
-div[data-testid="stSlider"] * { color: #1A1410 !important; }
-div[data-testid="stRadio"] * { color: #1A1410 !important; }
-input { background-color: #FFFFFF !important; color: #1A1410 !important; }
-div[data-testid="stTextInput"] input { border-color: #E0D8D0 !important; }
+div[data-testid="stSidebarContent"] { background-color: #0a0a12; color: #e8e4dc; }
+div[data-testid="stSidebarContent"] label { color: #e8e4dc !important; }
+div[data-testid="stSidebarContent"] p { color: #a09a8e !important; }
+div[data-testid="stMarkdownContainer"] p { color: #e8e4dc; }
+div[data-testid="stCaptionContainer"] p { color: #8a8070 !important; }
+div[data-testid="stDownloadButton"] button { background-color: #c0392b; color: white; border: none; }
+hr { border-color: #2a2a3e; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -92,10 +56,10 @@ DATA_DIR = Path("data")
 
 @st.cache_data
 def load_data():
-    gap     = pd.read_csv(DATA_DIR / "scenario_gap_analysis.csv")
-    matrix  = pd.read_csv(DATA_DIR / "scenario_skill_matrix.csv")
-    calib   = pd.read_csv(DATA_DIR / "scenario_calibration.csv")
-    sources = pd.read_csv(DATA_DIR / "scenario_sources_raw.csv")
+    gap      = pd.read_csv(DATA_DIR / "scenario_gap_analysis.csv")
+    matrix   = pd.read_csv(DATA_DIR / "scenario_skill_matrix.csv")
+    calib    = pd.read_csv(DATA_DIR / "scenario_calibration.csv")
+    sources  = pd.read_csv(DATA_DIR / "scenario_sources_raw.csv")
     gap["gap_score"] = gap["gap_score"].clip(-1.0, 1.0)
     return gap, matrix, calib, sources
 
@@ -107,8 +71,8 @@ def load_optional(filename):
     return None
 
 gap_df, matrix_df, calib_df, sources_df = load_data()
-coeff_df    = load_optional("scenario_coefficients.csv")
-skill_wt_df = load_optional("scenario_skill_weights.csv")
+coeff_df     = load_optional("scenario_coefficients.csv")
+skill_wt_df  = load_optional("scenario_skill_weights.csv")
 
 # ── Constants ─────────────────────────────────────────────────────────────
 SCENARIO_LABELS = {
@@ -119,11 +83,8 @@ SCENARIO_LABELS = {
     "S5": "S5: Regional Hub & Geopolitical Pivot",
 }
 SCENARIO_COLORS = {
-    "S1": "#C0564A",
-    "S2": "#C49040",
-    "S3": "#5A8A64",
-    "S4": "#4A7A9B",
-    "S5": "#8A6A80",
+    "S1": "#2196F3", "S2": "#FF9800",
+    "S3": "#4CAF50", "S4": "#9C27B0", "S5": "#F44336"
 }
 SECTOR_LABELS = {
     "technology_digital":       "Technology & Digital",
@@ -135,16 +96,6 @@ SECTOR_LABELS = {
     "tourism_hospitality":      "Tourism & Hospitality",
     "cross_sector":             "Cross-Sector",
 }
-SECTOR_COLORS = {
-    "technology_digital":       "#4A7A9B",
-    "energy_lng":               "#C49040",
-    "healthcare":               "#5A8A64",
-    "education":                "#8A6A80",
-    "finance_banking":          "#C0564A",
-    "construction_real_estate": "#7A6A5A",
-    "tourism_hospitality":      "#4A8A8A",
-    "cross_sector":             "#9A9088",
-}
 
 ALL_SCENARIOS = ["S1", "S2", "S3", "S4", "S5"]
 
@@ -152,50 +103,40 @@ def img_path(filename):
     p = DATA_DIR / filename
     return p if p.exists() else None
 
+
 def first_existing_column(df, candidates):
     for c in candidates:
         if c in df.columns:
             return c
     return None
 
-def apply_chart_theme(fig, height=None):
+def apply_dark_theme(fig, height=None):
     fig.update_layout(
-        plot_bgcolor="#FFFFFF",
-        paper_bgcolor="#F5F2EE",
-        font=dict(color="#1A1410"),
-        title_font=dict(color="#1A1410"),
+        plot_bgcolor="#1a1a2e",
+        paper_bgcolor="#1a1a2e",
+        font=dict(color="#e8e4dc"),
     )
-    fig.update_xaxes(gridcolor="#E0D8D0", linecolor="#E0D8D0", tickcolor="#9A9088")
-    fig.update_yaxes(gridcolor="#E0D8D0", linecolor="#E0D8D0", tickcolor="#9A9088")
     if height is not None:
         fig.update_layout(height=height)
     return fig
 
-# ── Helper: card HTML ─────────────────────────────────────────────────────
-def card(content, extra_style=""):
-    return f'<div class="metric-card" style="{extra_style}">{content}</div>'
-
-def card_label(text):
-    return f'<div style="font-size:0.7rem;color:#9A9088;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">{text}</div>'
-
-def card_body(text):
-    return f'<div style="font-size:0.9rem;color:#1A1410;line-height:1.6;">{text}</div>'
-
-# ── Live coefficient dashboard ────────────────────────────────────────────
 def render_live_coeff_dashboard(df):
     if df is None or df.empty:
         st.warning("No scenario coefficient data found. Add `scenario_coefficients.csv` to render this section.")
         return
 
-    scenario_col  = first_existing_column(df, ["scenario", "scenario_id", "scenario_code"])
-    source_col    = first_existing_column(df, ["source_id", "source", "source_name", "publication"])
-    total_col     = first_existing_column(df, ["total_weighted", "weighted_score", "contribution", "total_score", "adjusted_weight"])
-    quality_col   = first_existing_column(df, ["quality_weight", "source_quality_weight", "quality"])
-    scenario_w_col= first_existing_column(df, ["scenario_weight", "scenario_coefficient", "scenario_coef", "coefficient"])
-    penalty_col   = first_existing_column(df, ["signal_count_penalty", "signal_penalty", "penalty", "count_penalty"])
+    scenario_col = first_existing_column(df, ["scenario", "scenario_id", "scenario_code"])
+    source_col = first_existing_column(df, ["source_id", "source", "source_name", "publication"])
+    total_col = first_existing_column(df, ["total_weighted", "weighted_score", "contribution", "total_score", "adjusted_weight"])
+    quality_col = first_existing_column(df, ["quality_weight", "source_quality_weight", "quality"])
+    scenario_w_col = first_existing_column(df, ["scenario_weight", "scenario_coefficient", "scenario_coef", "coefficient"])
+    penalty_col = first_existing_column(df, ["signal_count_penalty", "signal_penalty", "penalty", "count_penalty"])
 
     if scenario_col is None or total_col is None:
-        st.warning(f"Required columns missing. Available: {list(df.columns)}")
+        st.warning(
+            "Could not build the live coefficient dashboard because the required columns are missing. "
+            f"Available columns: {list(df.columns)}"
+        )
         st.dataframe(df, use_container_width=True, hide_index=True)
         return
 
@@ -206,7 +147,8 @@ def render_live_coeff_dashboard(df):
 
     summary = (
         work.groupby(scenario_col, as_index=False)[total_col]
-        .agg(["mean", "sum", "count"]).reset_index()
+        .agg(["mean", "sum", "count"])
+        .reset_index()
         .rename(columns={"mean": "avg_contribution", "sum": "total_contribution", "count": "n_sources"})
     )
     if scenario_col not in summary.columns:
@@ -214,52 +156,73 @@ def render_live_coeff_dashboard(df):
     summary["scenario_label"] = summary[scenario_col].map(SCENARIO_LABELS).fillna(summary[scenario_col])
 
     c1, c2 = st.columns(2)
+
     with c1:
         fig = px.bar(
             summary.sort_values("avg_contribution", ascending=False),
-            x="scenario_label", y="avg_contribution",
-            color=scenario_col, color_discrete_map=SCENARIO_COLORS,
+            x="scenario_label",
+            y="avg_contribution",
+            color=scenario_col,
+            color_discrete_map=SCENARIO_COLORS,
             labels={"scenario_label": "", "avg_contribution": "Average weighted contribution"},
             title="Average source contribution by scenario",
         )
-        apply_chart_theme(fig, 420)
+        apply_dark_theme(fig, 420)
         fig.update_layout(showlegend=False)
         st.plotly_chart(fig, use_container_width=True)
 
     with c2:
         top_sources = (
             work.groupby([scenario_col, source_col], as_index=False)[total_col]
-            .sum().sort_values(total_col, ascending=False).head(20)
+            .sum()
+            .sort_values(total_col, ascending=False)
+            .head(20)
         )
         top_sources["scenario_label"] = top_sources[scenario_col].map(SCENARIO_LABELS).fillna(top_sources[scenario_col])
         fig = px.bar(
             top_sources.sort_values(total_col),
-            x=total_col, y=source_col, color=scenario_col,
-            color_discrete_map=SCENARIO_COLORS, orientation="h",
+            x=total_col,
+            y=source_col,
+            color=scenario_col,
+            color_discrete_map=SCENARIO_COLORS,
+            orientation="h",
             labels={total_col: "Total weighted contribution", source_col: ""},
             title="Top contributing sources across scenarios",
             hover_data=["scenario_label"],
         )
-        apply_chart_theme(fig, 420)
+        apply_dark_theme(fig, 420)
         st.plotly_chart(fig, use_container_width=True)
 
     metric_candidates = [c for c in [quality_col, scenario_w_col, penalty_col, total_col] if c is not None]
     if len(metric_candidates) >= 2:
-        metric_map = work.groupby(scenario_col)[metric_candidates].mean(numeric_only=True).round(3)
+        metric_map = (
+            work.groupby(scenario_col)[metric_candidates]
+            .mean(numeric_only=True)
+            .round(3)
+        )
         metric_map.index = metric_map.index.map(lambda x: SCENARIO_LABELS.get(x, x))
-        fig = px.imshow(metric_map.T, color_continuous_scale="RdPu", text_auto=".2f",
-                        aspect="auto", title="Coefficient mechanics by scenario (average values)")
-        apply_chart_theme(fig, 420)
+        fig = px.imshow(
+            metric_map.T,
+            color_continuous_scale="Reds",
+            text_auto=".2f",
+            aspect="auto",
+            title="Coefficient mechanics by scenario (average values)",
+        )
+        apply_dark_theme(fig, 420)
         st.plotly_chart(fig, use_container_width=True)
 
     st.markdown('<div class="section-header">Detailed coefficient table</div>', unsafe_allow_html=True)
     scenario_options = ["All"] + list(work[scenario_col].dropna().astype(str).unique())
-    selected = st.selectbox("Scenario detail", scenario_options,
-                            format_func=lambda x: "All" if x == "All" else SCENARIO_LABELS.get(x, x),
-                            key="live_coeff_scenario")
+    selected = st.selectbox(
+        "Scenario detail",
+        scenario_options,
+        format_func=lambda x: "All" if x == "All" else SCENARIO_LABELS.get(x, x),
+        key="live_coeff_scenario",
+    )
     detail = work if selected == "All" else work[work[scenario_col].astype(str) == selected]
     sort_col = total_col if total_col in detail.columns else detail.columns[0]
-    st.dataframe(detail.sort_values(sort_col, ascending=False), use_container_width=True, hide_index=True)
+    detail = detail.sort_values(sort_col, ascending=False)
+    st.dataframe(detail, use_container_width=True, hide_index=True)
 
 def render_live_skill_weight_dashboard(df):
     if df is None or df.empty:
@@ -267,12 +230,15 @@ def render_live_skill_weight_dashboard(df):
         return
 
     scenario_col = first_existing_column(df, ["scenario", "scenario_id", "scenario_code"])
-    skill_col    = first_existing_column(df, ["skill_category", "skill", "skill_name"])
-    sector_col   = first_existing_column(df, ["sector", "industry_sector", "sector_name"])
-    weight_col   = first_existing_column(df, ["normalized_weight", "weight", "adjusted_weight", "score"])
+    skill_col = first_existing_column(df, ["skill_category", "skill", "skill_name"])
+    sector_col = first_existing_column(df, ["sector", "industry_sector", "sector_name"])
+    weight_col = first_existing_column(df, ["normalized_weight", "weight", "adjusted_weight", "score"])
 
     if scenario_col is None or skill_col is None or weight_col is None:
-        st.warning(f"Required columns missing. Available: {list(df.columns)}")
+        st.warning(
+            "Could not build the live skill-weight dashboard because the required columns are missing. "
+            f"Available columns: {list(df.columns)}"
+        )
         st.dataframe(df, use_container_width=True, hide_index=True)
         return
 
@@ -282,9 +248,15 @@ def render_live_skill_weight_dashboard(df):
         sector_col = "sector_fallback"
 
     work["scenario_label"] = work[scenario_col].map(SCENARIO_LABELS).fillna(work[scenario_col])
-    work["sector_label"]   = work[sector_col].map(lambda x: SECTOR_LABELS.get(x, x))
+    work["sector_label"] = work[sector_col].map(lambda x: SECTOR_LABELS.get(x, x))
 
-    pivot = work.pivot_table(index=skill_col, columns=scenario_col, values=weight_col, aggfunc="mean").fillna(0)
+    pivot = work.pivot_table(
+        index=skill_col,
+        columns=scenario_col,
+        values=weight_col,
+        aggfunc="mean"
+    ).fillna(0)
+
     scenario_order = [s for s in ALL_SCENARIOS if s in pivot.columns] + [c for c in pivot.columns if c not in ALL_SCENARIOS]
     pivot = pivot[scenario_order]
     pivot["avg_weight"] = pivot.mean(axis=1)
@@ -293,23 +265,46 @@ def render_live_skill_weight_dashboard(df):
     heat.columns = [SCENARIO_LABELS.get(c, c) for c in heat.columns]
 
     bar_df = top_universal[["avg_weight"]].reset_index().sort_values("avg_weight")
-    fig_bar = px.bar(bar_df, x="avg_weight", y=skill_col, orientation="h",
-                     labels={"avg_weight": "Average normalized weight", skill_col: ""},
-                     title="Most consistently important skills across scenarios")
-    apply_chart_theme(fig_bar, 560)
+    fig_bar = px.bar(
+        bar_df,
+        x="avg_weight",
+        y=skill_col,
+        orientation="h",
+        labels={"avg_weight": "Average normalized weight", skill_col: ""},
+        title="Most consistently important skills across scenarios",
+    )
+    fig_bar.update_layout(
+        font=dict(size=13),
+        title_font=dict(size=15),
+        yaxis=dict(tickfont=dict(size=12)),
+        xaxis=dict(tickfont=dict(size=12)),
+    )
+    apply_dark_theme(fig_bar, 560)
     st.plotly_chart(fig_bar, use_container_width=True)
 
-    fig_heat = px.imshow(heat, color_continuous_scale="RdPu",
-                         zmin=0, zmax=max(1.0, float(heat.to_numpy().max()) if heat.size else 1.0),
-                         text_auto=".2f", aspect="auto",
-                         title="Cross-scenario skill importance matrix")
+    fig_heat = px.imshow(
+        heat,
+        color_continuous_scale="Purples",
+        zmin=0,
+        zmax=max(1.0, float(heat.to_numpy().max()) if heat.size else 1.0),
+        text_auto=".2f",
+        aspect="auto",
+        title="Cross-scenario skill importance matrix",
+    )
+    fig_heat.update_layout(
+        font=dict(size=13),
+        title_font=dict(size=15),
+        xaxis=dict(tickfont=dict(size=12), tickangle=-30),
+        yaxis=dict(tickfont=dict(size=12)),
+        coloraxis_colorbar=dict(tickfont=dict(size=11)),
+    )
     fig_heat.update_traces(textfont=dict(size=12))
-    apply_chart_theme(fig_heat, 560)
+    apply_dark_theme(fig_heat, 560)
     st.plotly_chart(fig_heat, use_container_width=True)
 
 # ── Sidebar ───────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown('<div style="font-family:\'DM Serif Display\',serif;font-size:1.3rem;color:#1A1410;padding:8px 0;">⛵ Qatar 2030<br>Labor Market Intelligence</div>', unsafe_allow_html=True)
+    st.markdown('<div style="font-family:\'DM Serif Display\',serif;font-size:1.3rem;color:#f0ece4;padding:8px 0;">🇶🇦 Qatar 2030<br>Labor Market Intelligence</div>', unsafe_allow_html=True)
     st.markdown("---")
     st.markdown("### Filters")
 
@@ -322,8 +317,8 @@ with st.sidebar:
         "Sectors", options=all_sectors, default=all_sectors,
         format_func=lambda x: SECTOR_LABELS.get(x, x)
     )
-    qat_filter  = st.selectbox("Qatarization Relevance", ["All", "high", "medium", "low"])
-    time_filter = st.selectbox("Time Horizon", ["All", "near_term", "medium_term", "both"])
+    qat_filter  = st.selectbox("Qatarization Relevance", ["All","high","medium","low"])
+    time_filter = st.selectbox("Time Horizon", ["All","near_term","medium_term","both"])
 
     st.markdown("---")
     st.markdown("**Data sources**")
@@ -341,13 +336,14 @@ def apply_filters(df):
     if time_filter != "All": d = d[d["time_horizon"] == time_filter]
     return d
 
-gap_f    = apply_filters(gap_df)
-matrix_f = matrix_df[matrix_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
-sources_f= sources_df[sources_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
+gap_f     = apply_filters(gap_df)
+matrix_f  = matrix_df[matrix_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
+sources_f = sources_df[sources_df["scenario"].isin(selected_scenarios or ALL_SCENARIOS)]
 
 # ── Header ────────────────────────────────────────────────────────────────
 st.markdown("# Qatar 2030 Labor Market Intelligence")
 st.markdown("*Strategic Skill Demand Scenarios — Evidence-based workforce gap analysis for Manara & QNV 2030*")
+
 st.markdown("---")
 
 # ── KPI row ───────────────────────────────────────────────────────────────
@@ -362,7 +358,7 @@ with k3:
     st.markdown(f'<div class="metric-card"><div class="metric-value">{len(hq)}</div><div class="metric-label">High Qatarization Priority</div></div>', unsafe_allow_html=True)
 with k4:
     avg = top_gap["gap_score"].mean() if len(top_gap) > 0 else 0
-    st.markdown(f'<div class="metric-card"><div class="metric-value">{avg:.2f}</div><div class="metric-label">Avg Gap Score</div><div style="font-size:0.72rem;color:#9A9088;margin-top:6px;">(0 = aligned · 1 = fully under-supplied)</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-value">{avg:.2f}</div><div class="metric-label">Avg Gap Score</div><div style="font-size:0.72rem;color:#6a6458;margin-top:6px;">(0 = aligned · 1 = fully under-supplied)</div></div>', unsafe_allow_html=True)
 with k5:
     st.markdown(f'<div class="metric-card"><div class="metric-value">41</div><div class="metric-label">Sources Analysed</div></div>', unsafe_allow_html=True)
 
@@ -387,21 +383,23 @@ tab_exec, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
 # TAB EXEC — EXECUTIVE SUMMARY
 # ════════════════════════════════════════════════════════════════════
 with tab_exec:
+
     st.markdown("## Executive Summary")
     st.caption("Auto-generated from your current filter selection. Adjust sidebar filters to explore different cuts.")
 
+    # ── Headline sentence ─────────────────────────────────────────
     gap_pos = gap_f[gap_f["gap_score"] > 0]
     if len(gap_pos) > 0:
-        top_sector_key   = gap_pos.groupby("sector")["gap_score"].mean().idxmax()
+        top_sector_key = gap_pos.groupby("sector")["gap_score"].mean().idxmax()
         top_sector_label = SECTOR_LABELS.get(top_sector_key, top_sector_key)
         top_sector_score = gap_pos.groupby("sector")["gap_score"].mean().max()
-        top_skill_row    = gap_pos.nlargest(1, "gap_score").iloc[0]
-        top_skill_name   = top_skill_row["skill_category"]
-        top_skill_score  = top_skill_row["gap_score"]
+        top_skill_row = gap_pos.nlargest(1, "gap_score").iloc[0]
+        top_skill_name = top_skill_row["skill_category"]
+        top_skill_score = top_skill_row["gap_score"]
         top_skill_scenario = SCENARIO_LABELS.get(top_skill_row["scenario"], top_skill_row["scenario"])
 
-        n_high_qat  = len(gap_pos[gap_pos["qatarization_relevance"] == "high"])
-        pct_high_qat= int(round(100 * n_high_qat / len(gap_pos))) if len(gap_pos) > 0 else 0
+        n_high_qat = len(gap_pos[gap_pos["qatarization_relevance"] == "high"])
+        pct_high_qat = int(round(100 * n_high_qat / len(gap_pos))) if len(gap_pos) > 0 else 0
 
         safe_bet_skills = (
             gap_pos.groupby("skill_category")["scenario"].nunique()
@@ -411,11 +409,11 @@ with tab_exec:
         n_safe_bets = len(safe_bet_skills)
 
         st.markdown(f"""
-<div style="background:#FFFFFF;border-left:4px solid #8B2635;border-radius:0 12px 12px 0;padding:20px 28px;margin-bottom:24px;line-height:2;border:1px solid #E0D8D0;border-left:4px solid #8B2635;">
-<span style="font-size:1.05rem;color:#1A1410;">
+<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:12px;padding:20px 28px;margin-bottom:24px;line-height:2;">
+<span style="font-size:1.05rem;color:#e8e4dc;">
 📍 <b>{top_sector_label}</b> faces the largest average strategic skill gap (<b>{top_sector_score:.2f}</b>).<br>
 🎯 The single most under-supplied skill is <b>{top_skill_name}</b> (gap score: <b>{top_skill_score:.2f}</b>, most critical in <b>{top_skill_scenario}</b>).<br>
-⛵ <b>{pct_high_qat}%</b> of identified gaps are high Qatarization priority — national talent development, not just general hiring.<br>
+🇶🇦 <b>{pct_high_qat}%</b> of identified gaps are high Qatarization priority — national talent development, not just general hiring.<br>
 ✅ <b>{n_safe_bets}</b> skills are flagged as gaps in 4 or more scenarios — the safest Manara programme investment bets.
 </span>
 </div>
@@ -425,6 +423,7 @@ with tab_exec:
 
     st.markdown("---")
 
+    # ── Row 1: Sector ranking + Qatarization donut ───────────────
     col_left, col_right = st.columns([3, 2])
 
     with col_left:
@@ -436,18 +435,19 @@ with tab_exec:
         )
         sector_avg["sector_label"] = sector_avg["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
         fig_sector = px.bar(
-            sector_avg, x="gap_score", y="sector_label", orientation="h",
+            sector_avg,
+            x="gap_score", y="sector_label", orientation="h",
             color="gap_score", color_continuous_scale="Reds",
             labels={"gap_score": "Avg Gap Score", "sector_label": ""},
             text=sector_avg["gap_score"].map(lambda v: f"{v:.2f}"),
         )
-        fig_sector.update_traces(textposition="outside", textfont=dict(color="#1A1410", size=12))
+        fig_sector.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=12))
         fig_sector.update_layout(
-            coloraxis_showscale=False,
+            height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+            font=dict(color="#e8e4dc"), coloraxis_showscale=False,
             yaxis=dict(autorange="reversed"),
             xaxis=dict(range=[0, sector_avg["gap_score"].max() * 1.25])
         )
-        apply_chart_theme(fig_sector, 380)
         st.plotly_chart(fig_sector, use_container_width=True)
 
     with col_right:
@@ -458,21 +458,22 @@ with tab_exec:
         fig_qat = px.pie(
             qat_split, values="count", names="relevance", hole=0.6,
             color="relevance",
-            color_discrete_map={"high": "#8B2635", "medium": "#C49040", "low": "#4A7A9B"},
+            color_discrete_map={"high": "#c0392b", "medium": "#D4A017", "low": "#4C78A8"},
         )
-        fig_qat.update_traces(textinfo="percent+label", textfont=dict(size=13, color="#1A1410"))
+        fig_qat.update_traces(textinfo="percent+label", textfont=dict(size=13))
         fig_qat.update_layout(
-            showlegend=False,
+            height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+            font=dict(color="#e8e4dc"), showlegend=False,
             annotations=[dict(
                 text=f"<b>{pct_high_qat}%</b><br>High", x=0.5, y=0.5,
-                font=dict(size=16, color="#8B2635"), showarrow=False
+                font=dict(size=16, color="#e8513a"), showarrow=False
             )]
         )
-        apply_chart_theme(fig_qat, 380)
         st.plotly_chart(fig_qat, use_container_width=True)
 
     st.markdown("---")
 
+    # ── Row 2: Safe-bet consensus chart ──────────────────────────
     st.markdown('<div class="section-header">🛡️ "Safe Bet" Interventions — Skills Flagged Across Multiple Scenarios</div>', unsafe_allow_html=True)
     st.caption("Skills appearing as gaps in 4–5 scenarios are robust to uncertainty. Manara should prioritise these regardless of which future materialises.")
 
@@ -484,29 +485,33 @@ with tab_exec:
         .head(20)
     )
     consensus["label"] = consensus["skill_category"].str[:40]
+    consensus["color"] = consensus["n_scenarios"].map(
+        lambda n: "#c0392b" if n == 5 else ("#e8513a" if n == 4 else ("#D4A017" if n == 3 else "#4C78A8"))
+    )
     fig_con = px.bar(
         consensus.sort_values("n_scenarios"),
         x="n_scenarios", y="label", orientation="h",
         color="n_scenarios",
-        color_continuous_scale=[[0, "#4A7A9B"], [0.5, "#C49040"], [0.75, "#C0564A"], [1.0, "#8B2635"]],
+        color_continuous_scale=[[0, "#4C78A8"], [0.5, "#D4A017"], [0.75, "#e8513a"], [1.0, "#c0392b"]],
         labels={"n_scenarios": "Scenarios flagging as gap (of 5)", "label": ""},
         hover_data={"avg_gap": ":.2f", "n_scenarios": True},
         text=consensus.sort_values("n_scenarios")["n_scenarios"].map(lambda n: f"{n}/5 scenarios"),
     )
-    fig_con.update_traces(textposition="outside", textfont=dict(color="#1A1410", size=11))
-    fig_con.add_vline(x=4, line_dash="dash", line_color="#9A9088", line_width=1,
-                      annotation_text="4+ scenario threshold", annotation_font_color="#9A9088",
+    fig_con.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=11))
+    fig_con.add_vline(x=4, line_dash="dash", line_color="#aaa", line_width=1,
+                      annotation_text="4+ scenario threshold", annotation_font_color="#aaa",
                       annotation_position="top right")
     fig_con.update_layout(
-        coloraxis_showscale=False,
+        height=480, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+        font=dict(color="#e8e4dc"), coloraxis_showscale=False,
         yaxis=dict(autorange="reversed"),
         xaxis=dict(range=[0, 6.5], dtick=1)
     )
-    apply_chart_theme(fig_con, 480)
     st.plotly_chart(fig_con, use_container_width=True)
 
     st.markdown("---")
 
+    # ── Row 3: Top 5 action cards ─────────────────────────────────
     st.markdown('<div class="section-header">🎯 Top Skills to Act On — High Qatarization Priority</div>', unsafe_allow_html=True)
     st.caption("Top skills by gap score where Qatarization relevance is high. These are the clearest Manara programme design signals.")
 
@@ -523,19 +528,19 @@ with tab_exec:
         cols = st.columns(len(top5))
         for i, (_, row) in enumerate(top5.iterrows()):
             with cols[i]:
+                scenario_short = row["scenario"]
                 sector_short = SECTOR_LABELS.get(row["sector"], row["sector"])
                 horizon = row.get("time_horizon", "—").replace("_", " ")
                 st.markdown(f'''
-<div class="metric-card" style="min-height:180px;">
-    <div style="font-size:0.65rem;color:#9A9088;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">#{i+1} Priority</div>
-    <div style="font-size:0.95rem;font-weight:600;color:#1A1410;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
-    <div style="font-size:1.4rem;font-weight:700;color:#8B2635;margin-bottom:8px;">{row["gap_score"]:.2f}</div>
-    <div style="font-size:0.72rem;color:#5A5248;">
+<div class="metric-card" style="height:180px;">
+    <div style="font-size:0.65rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">#{i+1} Priority</div>
+    <div style="font-size:0.95rem;font-weight:600;color:#f0ece4;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
+    <div style="font-size:1.4rem;font-weight:700;color:#e8513a;margin-bottom:8px;">{row["gap_score"]:.2f}</div>
+    <div style="font-size:0.72rem;color:#a09a8e;">
         📂 {sector_short}<br>
-        🏷️ {row["scenario"]} · {horizon}
+        🏷️ {scenario_short} · {horizon}
     </div>
 </div>''', unsafe_allow_html=True)
-
 # ════════════════════════════════════════════════════════════════════
 # TAB 0 — GUIDE & DEFINITIONS
 # ════════════════════════════════════════════════════════════════════
@@ -552,106 +557,127 @@ with tab0:
     st.markdown("### 🧭 How to Use This Dashboard")
     col_h1, col_h2, col_h3 = st.columns(3)
     with col_h1:
-        st.markdown(card(
-            "<b style='color:#1A1410;'>Step 1 — Select Scenarios</b><br><br>"
-            "<span style='color:#5A5248;'>Use the sidebar to choose which futures to analyse. Select all 5 for a complete picture, or isolate one to focus. "
-            "<b>S1 Diversification</b> is the baseline QNV case and a good starting point.</span>"
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+<b>Step 1 — Select Scenarios</b><br><br>
+Use the sidebar to choose which futures to analyse. Select all 5 for a complete picture, or isolate one to focus.
+<b>S1 Diversification</b> is the baseline QNV case and a good starting point.
+</div>''', unsafe_allow_html=True)
     with col_h2:
-        st.markdown(card(
-            "<b style='color:#1A1410;'>Step 2 — Apply Filters</b><br><br>"
-            "<span style='color:#5A5248;'>Narrow by sector (energy, healthcare, tech etc.) or Qatarization relevance. "
-            "Select <b>High</b> to focus on skills where Qatari nationals are the explicit policy priority.</span>"
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+<b>Step 2 — Apply Filters</b><br><br>
+Narrow by sector (energy, healthcare, tech etc.) or Qatarization relevance.
+Select <b>High</b> to focus on skills where Qatari nationals are the explicit policy priority.
+</div>''', unsafe_allow_html=True)
     with col_h3:
-        st.markdown(card(
-            "<b style='color:#1A1410;'>Step 3 — Navigate Tabs</b><br><br>"
-            "<span style='color:#5A5248;'>Each tab answers a different question. Start with <b>Skill Gap Analysis</b> for headline findings, "
-            "then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector detail.</span>"
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+<b>Step 3 — Navigate Tabs</b><br><br>
+Each tab answers a different question. Start with <b>Skill Gap Analysis</b> for headline findings,
+then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector detail.
+</div>''', unsafe_allow_html=True)
 
     st.markdown("---")
     st.markdown("### 📖 Key Definitions")
 
+    # Row 1 — Core Concepts
     st.markdown("#### 📐 Core Concepts")
     r1a, r1b, r1c = st.columns(3)
     with r1a:
-        st.markdown(card(
-            card_label("🔍 Skill Gap") +
-            card_body("The difference between what Qatar's strategic documents predict will be needed by 2030 "
-                      "and what employers are <i>actually</i> hiring for today.<br><br>"
-                      "<span style='color:#8B2635;font-weight:600;'>Large positive gap</span> = strategically critical but market hasn't caught up → Manara should intervene.")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🔍 Skill Gap</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            The difference between what Qatar's strategic documents predict will be needed by 2030
+            and what employers are <i>actually</i> hiring for today.<br><br>
+            <span style="color:#e8513a;font-weight:600;">Large positive gap</span> = strategically critical but market hasn't caught up → Manara should intervene.
+            </div>
+        </div>''', unsafe_allow_html=True)
     with r1b:
-        st.markdown(card(
-            card_label("📊 Gap Score (±1.0 scale)") +
-            card_body("<b>Gap Score</b> = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br><br>"
-                      "<span style='color:#5A8A64;'>● Positive</span> Strategy expects more → intervene<br>"
-                      "<span style='color:#9A9088;'>● Near zero</span> Market & strategy aligned<br>"
-                      "<span style='color:#C0564A;'>● Negative</span> Market over-supplies this skill")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📊 Gap Score (±1.0 scale)</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            <b>Gap Score</b> = Calibration Score (41 sources) minus Posting Frequency (5,067 job postings).<br><br>
+            <span style="color:#4CAF50;">● Positive</span> Strategy expects more → intervene<br>
+            <span style="color:#aaa;">● Near zero</span> Market & strategy aligned<br>
+            <span style="color:#e8513a;">● Negative</span> Market over-supplies this skill
+            </div>
+        </div>''', unsafe_allow_html=True)
     with r1c:
-        st.markdown(card(
-            card_label("⚖️ Calibration Score") +
-            card_body("How strongly the 41 sources signal demand for a skill <b>(0–1)</b>.<br><br>"
-                      "Built from:<br>Source credibility × Scenario alignment × Signal volume<br><br>"
-                      "Higher = more sources agree this skill will be needed.")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">⚖️ Calibration Score</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            How strongly the 41 sources signal demand for a skill <b>(0–1)</b>.<br><br>
+            Built from:<br>
+            Source credibility × Scenario alignment × Signal volume<br><br>
+            Higher = more sources agree this skill will be needed.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
     st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
+    # Row 2 — Scenarios & Policy
     st.markdown("#### 🎭 Scenarios & Policy")
     r2a, r2b = st.columns(2)
     with r2a:
-        st.markdown(card(
-            card_label("🎭 The 5 Scenarios") +
-            card_body("Plausible futures for Qatar's economy by 2030:<br>"
-                      "<span style='color:#C0564A;'>■</span> <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>"
-                      "<span style='color:#C49040;'>■</span> <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>"
-                      "<span style='color:#5A8A64;'>■</span> <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>"
-                      "<span style='color:#4A7A9B;'>■</span> <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>"
-                      "<span style='color:#8A6A80;'>■</span> <b>S5</b> Regional Hub — Qatar as services and diplomacy centre")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎭 The 5 Scenarios</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+            Plausible futures for Qatar's economy by 2030:<br>
+            <span style="color:#2196F3;">■</span> <b>S1</b> Diversification Acceleration — QNV on track, all sectors grow<br>
+            <span style="color:#FF9800;">■</span> <b>S2</b> Hydrocarbon Dominance — LNG expansion, slower diversification<br>
+            <span style="color:#4CAF50;">■</span> <b>S3</b> Green Transition Pressure — Decarbonization accelerates<br>
+            <span style="color:#9C27B0;">■</span> <b>S4</b> Knowledge Economy Leap — Qatar as R&D and AI hub<br>
+            <span style="color:#F44336;">■</span> <b>S5</b> Regional Hub — Qatar as services and diplomacy centre
+            </div>
+        </div>''', unsafe_allow_html=True)
     with r2b:
-        st.markdown(card(
-            card_label("⛵ Qatarization Priority") +
-            card_body("Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>"
-                      "<span style='color:#8B2635;font-weight:600;'>High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br>"
-                      "<span style='color:#C49040;font-weight:600;'>Medium</span> = Relevant but secondary priority.<br>"
-                      "<span style='color:#4A7A9B;font-weight:600;'>Low</span> = General workforce need, not Qatari-specific.")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🇶🇦 Qatarization Priority</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>
+            <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br>
+            <span style="color:#D4A017;font-weight:600;">Medium</span> = Relevant but secondary priority.<br>
+            <span style="color:#4C78A8;font-weight:600;">Low</span> = General workforce need, not Qatari-specific.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
     st.markdown("<div style='margin-top:12px'></div>", unsafe_allow_html=True)
 
+    # Row 3 — Technical / Model
     st.markdown("#### 🛠️ Technical & Model")
     r3a, r3b, r3c = st.columns(3)
     with r3a:
-        st.markdown(card(
-            card_label("🎯 Signal Count Penalty") +
-            card_body("A <b>square-root balancing factor</b> for scenarios with fewer contributing sources.<br><br>"
-                      "Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🎯 Signal Count Penalty</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            A <b>square-root balancing factor</b> for scenarios with fewer contributing sources.<br><br>
+            Prevents a low-signal scenario from dominating. Ensures all 5 scenarios are fairly compared.
+            </div>
+        </div>''', unsafe_allow_html=True)
     with r3b:
-        st.markdown(card(
-            card_label("📈 Demand Direction Arrows") +
-            card_body("<span style='color:#5A8A64;'>↑↑</span> Strong increase (gap ≥ 0.6) — urgent<br>"
-                      "<span style='color:#5A8A64;'>↑</span>  Moderate increase (0.2–0.6)<br>"
-                      "<span style='color:#9A9088;'>→</span>  Stable / aligned (−0.2–0.2)<br>"
-                      "<span style='color:#C49040;'>↓</span>  Moderate decrease<br>"
-                      "<span style='color:#9A9088;'>—</span>  No signal for this combination")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">📈 Demand Direction Arrows</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.8;">
+            <span style="color:#4CAF50;">↑↑</span> Strong increase (gap ≥ 0.6) — urgent<br>
+            <span style="color:#8BC34A;">↑</span>  Moderate increase (0.2–0.6)<br>
+            <span style="color:#aaa;">→</span>  Stable / aligned (−0.2–0.2)<br>
+            <span style="color:#FF9800;">↓</span>  Moderate decrease<br>
+            <span style="color:#aaa;">—</span>  No signal for this combination
+            </div>
+        </div>''', unsafe_allow_html=True)
     with r3c:
-        st.markdown(card(
-            card_label("🏭 Sector Classification") +
-            card_body("Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>"
-                      "Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br>"
-                      "Unmatched jobs → labelled <b>cross_sector</b>.")
-        ), unsafe_allow_html=True)
+        st.markdown('''<div class="metric-card">
+            <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🏭 Sector Classification</div>
+            <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
+            Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>
+            Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br>
+            Unmatched jobs → labelled <b>cross_sector</b>.
+            </div>
+        </div>''', unsafe_allow_html=True)
 
     st.markdown("---")
-    st.markdown(f'<div style="text-align:center;color:#9A9088;font-size:0.85rem;padding:8px 0;">'
-                f'Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capstone 2025 · '
-                f'41 authoritative sources · 5,067 Qatar job postings · 5 scenarios</div>', unsafe_allow_html=True)
+    st.markdown('''<div style="text-align:center;color:#888;font-size:0.85rem;padding:8px 0;">
+Built for the <b>Qatar Foundation Manara Programme</b> · CMU Tepper MSBA Capstone 2025 ·
+41 authoritative sources · 5,067 Qatar job postings · 5 scenarios
+</div>''', unsafe_allow_html=True)
 
 # ════════════════════════════════════════════════════════════════════
 # TAB 1 — SKILL GAP ANALYSIS
@@ -665,53 +691,56 @@ with tab1:
     with col_l:
         top_gaps = gap_f[gap_f["gap_score"] > 0].nlargest(20, "gap_score").copy()
         top_gaps["label"] = (
-            top_gaps["sector"].map(lambda x: SECTOR_LABELS.get(x, x)).str[:12]
+            top_gaps["sector"].map(lambda x: SECTOR_LABELS.get(x,x)).str[:12]
             + " | " + top_gaps["skill_category"].str[:28]
         )
         fig = px.bar(
             top_gaps, x="gap_score", y="label", color="scenario",
             color_discrete_map=SCENARIO_COLORS, orientation="h",
-            labels={"gap_score": "Gap Score", "label": "", "scenario": "Scenario"},
+            labels={"gap_score":"Gap Score","label":"","scenario":"Scenario"},
             title="Top 20 Strategic Skill Gaps — All 5 Scenarios",
-            hover_data=["skill_category", "sector", "qatarization_relevance", "time_horizon"]
+            hover_data=["skill_category","sector","qatarization_relevance","time_horizon"]
         )
-        fig.update_layout(yaxis=dict(autorange="reversed"),
+        fig.update_layout(height=520, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                          font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"),
                           legend=dict(orientation="h", yanchor="bottom", y=1.02))
-        fig.add_vline(x=0, line_dash="dash", line_color="#E0D8D0", line_width=1)
-        apply_chart_theme(fig, 520)
+        fig.add_vline(x=0, line_dash="dash", line_color="#555", line_width=1)
         st.plotly_chart(fig, use_container_width=True)
 
     with col_r:
         qat_c = top_gaps["qatarization_relevance"].value_counts().reset_index()
-        qat_c.columns = ["relevance", "count"]
+        qat_c.columns = ["relevance","count"]
         fig_d = px.pie(qat_c, values="count", names="relevance", hole=0.55,
                        color="relevance",
-                       color_discrete_map={"high": "#8B2635", "medium": "#C49040", "low": "#4A7A9B"},
+                       color_discrete_map={"high":"#8B0000","medium":"#D4A017","low":"#4C78A8"},
                        title="Qatarization Relevance")
-        apply_chart_theme(fig_d, 260)
+        fig_d.update_layout(height=260, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                            font=dict(color="#e8e4dc"))
         st.plotly_chart(fig_d, use_container_width=True)
 
         th_c = top_gaps["time_horizon"].value_counts().reset_index()
-        th_c.columns = ["horizon", "count"]
+        th_c.columns = ["horizon","count"]
         fig_th = px.bar(th_c, x="count", y="horizon", orientation="h",
                         color="horizon", title="Time Horizon",
-                        color_discrete_sequence=["#8B2635", "#C49040", "#4A7A9B"])
-        fig_th.update_layout(showlegend=False)
-        apply_chart_theme(fig_th, 200)
+                        color_discrete_sequence=["#8B0000","#D4A017","#4C78A8"])
+        fig_th.update_layout(height=200, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                             font=dict(color="#e8e4dc"), showlegend=False)
         st.plotly_chart(fig_th, use_container_width=True)
 
+    # Heatmap
     st.markdown('<div class="section-header">Skill Gap Heatmap: Scenario × Skill Category</div>', unsafe_allow_html=True)
     pivot = gap_f.pivot_table(index="skill_category", columns="scenario",
-                               values="gap_score", aggfunc="mean").fillna(0).clip(-1, 1)
+                               values="gap_score", aggfunc="mean").fillna(0).clip(-1,1)
     sc_order = [s for s in ALL_SCENARIOS if s in pivot.columns]
     pivot = pivot[sc_order]
     pivot = pivot.loc[pivot.abs().max(axis=1).nlargest(20).index]
-    pivot.columns = [SCENARIO_LABELS.get(c, c) for c in pivot.columns]
+    pivot.columns = [SCENARIO_LABELS.get(c,c) for c in pivot.columns]
 
     fig_h = px.imshow(pivot, color_continuous_scale="RdYlGn", zmin=-1, zmax=1,
                       text_auto=".2f", aspect="auto",
                       title="Skill Gap Heatmap (green=under-supplied, red=over-supplied)")
-    apply_chart_theme(fig_h, 600)
+    fig_h.update_layout(height=600, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                        font=dict(color="#e8e4dc"))
     st.plotly_chart(fig_h, use_container_width=True)
 
     p = img_path("scenario_analysis_charts.png")
@@ -733,11 +762,11 @@ with tab2:
 
     st.markdown('<div class="section-header">Interactive Version</div>', unsafe_allow_html=True)
     pivot_ind = gap_f.pivot_table(index="sector", columns="scenario",
-                                   values="gap_score", aggfunc="mean").fillna(0).clip(-1, 1)
+                                   values="gap_score", aggfunc="mean").fillna(0).clip(-1,1)
     sc_order = [s for s in ALL_SCENARIOS if s in pivot_ind.columns]
     pivot_ind = pivot_ind[sc_order]
-    pivot_ind.index   = [SECTOR_LABELS.get(i, i) for i in pivot_ind.index]
-    pivot_ind.columns = [SCENARIO_LABELS.get(c, c) for c in pivot_ind.columns]
+    pivot_ind.index = [SECTOR_LABELS.get(i,i) for i in pivot_ind.index]
+    pivot_ind.columns = [SCENARIO_LABELS.get(c,c) for c in pivot_ind.columns]
     pivot_ind = pivot_ind.loc[pivot_ind.mean(axis=1).sort_values(ascending=False).index]
 
     def arrow(v):
@@ -754,7 +783,8 @@ with tab2:
         colorscale="RdYlGn", zmin=-1, zmax=1,
         colorbar=dict(title="Gap Score"),
     ))
-    apply_chart_theme(fig_ind, 480)
+    fig_ind.update_layout(height=480, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                          font=dict(color="#e8e4dc", size=12))
     st.plotly_chart(fig_ind, use_container_width=True)
 
     p2 = img_path("qatarization_priority_gaps.png")
@@ -777,7 +807,7 @@ with tab3:
     st.markdown('<div class="section-header">Interactive Demand by Sector & Scenario</div>', unsafe_allow_html=True)
     pivot2 = matrix_f.pivot_table(index="sector", columns="scenario",
                                    values="normalized_score", aggfunc="mean").fillna(0).reset_index()
-    pivot2["sector"] = pivot2["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+    pivot2["sector"] = pivot2["sector"].map(lambda x: SECTOR_LABELS.get(x,x))
     sc_cols = [s for s in ALL_SCENARIOS if s in pivot2.columns]
     pivot2_m = pivot2.melt(id_vars="sector", value_vars=sc_cols,
                             var_name="scenario", value_name="Demand Score")
@@ -786,9 +816,9 @@ with tab3:
                   barmode="group",
                   color_discrete_map={SCENARIO_LABELS[s]: SCENARIO_COLORS[s] for s in ALL_SCENARIOS},
                   title="Strategic Skill Demand by Sector & Scenario")
-    fig2.update_layout(xaxis_tickangle=-30,
+    fig2.update_layout(height=400, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                       font=dict(color="#e8e4dc"), xaxis_tickangle=-30,
                        legend=dict(orientation="h", yanchor="bottom", y=1.02))
-    apply_chart_theme(fig2, 400)
     st.plotly_chart(fig2, use_container_width=True)
 
     col_a, col_b = st.columns(2)
@@ -798,24 +828,23 @@ with tab3:
         top_m = matrix_f[matrix_f["scenario"] == sel].nlargest(15, "normalized_score")
         fig3 = px.bar(top_m, x="normalized_score", y="skill_category",
                       color="sector", orientation="h",
-                      color_discrete_map={k: SECTOR_COLORS.get(k, "#9A9088") for k in top_m["sector"].unique()},
-                      labels={"normalized_score": "Demand Score", "skill_category": ""},
+                      labels={"normalized_score":"Demand Score","skill_category":""},
                       title=f"Top Skills — {SCENARIO_LABELS[sel]}")
-        fig3.update_layout(yaxis=dict(autorange="reversed"))
-        apply_chart_theme(fig3, 450)
+        fig3.update_layout(height=450, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                           font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"))
         st.plotly_chart(fig3, use_container_width=True)
 
     with col_b:
         st.markdown('<div class="section-header">Qatarization Priority Gaps</div>', unsafe_allow_html=True)
-        qat_g = gap_f[(gap_f["qatarization_relevance"] == "high") & (gap_f["gap_score"] > 0)].nlargest(15, "gap_score")
+        qat_g = gap_f[(gap_f["qatarization_relevance"]=="high") & (gap_f["gap_score"]>0)].nlargest(15,"gap_score")
         qat_g["label"] = qat_g["skill_category"].str[:32]
         fig4 = px.bar(qat_g, x="gap_score", y="label", color="scenario",
                       color_discrete_map=SCENARIO_COLORS, orientation="h",
-                      labels={"gap_score": "Gap Score", "label": ""},
+                      labels={"gap_score":"Gap Score","label":""},
                       title="High Qatarization Priority Gaps")
-        fig4.update_layout(yaxis=dict(autorange="reversed"),
+        fig4.update_layout(height=450, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                           font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"),
                            legend=dict(orientation="h", yanchor="bottom", y=1.02))
-        apply_chart_theme(fig4, 450)
         st.plotly_chart(fig4, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -833,33 +862,33 @@ with tab4:
     with col1:
         st.markdown("**Demand Score**")
         st.markdown("""
-- Strong increase: **+2.0**
-- Moderate increase: **+1.0**
-- Stable: **0.0**
-- Moderate decrease: **-1.0**
-- Strong decrease: **-2.0**
+        - Strong increase: **+2.0**
+        - Moderate increase: **+1.0**
+        - Stable: **0.0**
+        - Moderate decrease: **-1.0**
+        - Strong decrease: **-2.0**
         """)
     with col2:
         st.markdown("**Quality Weight**")
         st.markdown("""
-- High (IMF, WB, QNV, ILO): **1.5×**
-- Medium (sector strategies): **1.0×**
-- Low (knowledge fallback): **0.5×**
+        - High (IMF, WB, QNV, ILO): **1.5×**
+        - Medium (sector strategies): **1.0×**
+        - Low (knowledge fallback): **0.5×**
         """)
     with col3:
         st.markdown("**Signal-Count Penalty**")
         st.markdown("""
-Applied after normalization:
-- `sqrt(scenario_signals / max_signals)`
-- Balances scenarios with fewer sources
-- S1 (most signals) = **1.0×**
-- S2/S4/S5 (fewer) = **< 1.0×**
+        Applied after normalization:
+        - `sqrt(scenario_signals / max_signals)`
+        - Balances scenarios with fewer sources
+        - S1 (most signals) = **1.0×**
+        - S2/S4/S5 (fewer) = **< 1.0×**
         """)
 
     if coeff_df is not None:
         st.markdown('<div class="section-header">Source Contribution Table</div>', unsafe_allow_html=True)
         sc_sel = st.selectbox("Filter by scenario", ["All"] + ALL_SCENARIOS,
-                              format_func=lambda x: "All" if x == "All" else SCENARIO_LABELS[x],
+                              format_func=lambda x: "All" if x=="All" else SCENARIO_LABELS[x],
                               key="coeff_sc")
         df_show = coeff_df if sc_sel == "All" else coeff_df[coeff_df["scenario"] == sc_sel]
 
@@ -867,12 +896,12 @@ Applied after normalization:
             df_show.nlargest(30, "total_weighted"),
             x="total_weighted", y="source_id", color="scenario",
             color_discrete_map=SCENARIO_COLORS, orientation="h",
-            labels={"total_weighted": "Total Weighted Score", "source_id": "Source"},
+            labels={"total_weighted":"Total Weighted Score","source_id":"Source"},
             title="Source Contributions (top 30)"
         )
-        fig_c.update_layout(yaxis=dict(autorange="reversed"),
+        fig_c.update_layout(height=500, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                            font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"),
                             legend=dict(orientation="h", yanchor="bottom", y=1.02))
-        apply_chart_theme(fig_c, 500)
         st.plotly_chart(fig_c, use_container_width=True)
         st.dataframe(df_show, use_container_width=True, hide_index=True)
 
@@ -895,20 +924,29 @@ with tab5:
         with col_sw2:
             top_n = st.slider("Top N skills", 10, 30, 15)
 
-        sw_data = skill_wt_df[skill_wt_df["scenario"] == sc_sw].nlargest(top_n, "normalized_weight").copy()
-        sw_data["sector_label"] = sw_data["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+        sw_data = skill_wt_df[skill_wt_df["scenario"] == sc_sw].nlargest(top_n, "normalized_weight")
+
+        SECTOR_COLORS = {
+            "technology_digital":"#1976D2","energy_lng":"#F57C00",
+            "healthcare":"#388E3C","education":"#7B1FA2",
+            "finance_banking":"#C62828","construction_real_estate":"#5D4037",
+            "tourism_hospitality":"#00838F","cross_sector":"#757575",
+        }
+        sw_data["sector_label"] = sw_data["sector"].map(lambda x: SECTOR_LABELS.get(x,x))
+        sw_data["color"] = sw_data["sector"].map(lambda x: SECTOR_COLORS.get(x,"#757575"))
 
         fig_sw = px.bar(
             sw_data.sort_values("normalized_weight"),
             x="normalized_weight", y="skill_category",
             color="sector_label", orientation="h",
-            color_discrete_map={SECTOR_LABELS.get(k, k): v for k, v in SECTOR_COLORS.items()},
-            labels={"normalized_weight": "Normalized Weight (0–1)", "skill_category": "", "sector_label": "Sector"},
+            color_discrete_map={SECTOR_LABELS.get(k,k): v for k,v in SECTOR_COLORS.items()},
+            labels={"normalized_weight":"Normalized Weight (0–1)","skill_category":"","sector_label":"Sector"},
             title=f"Skill Weights — {SCENARIO_LABELS[sc_sw]}"
         )
-        fig_sw.add_vline(x=0.6, line_dash="dash", line_color="#9A9088", line_width=1)
-        fig_sw.update_layout(legend=dict(orientation="h", yanchor="bottom", y=1.02))
-        apply_chart_theme(fig_sw, 500)
+        fig_sw.add_vline(x=0.6, line_dash="dash", line_color="#aaa", line_width=1)
+        fig_sw.update_layout(height=500, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                             font=dict(color="#e8e4dc"),
+                             legend=dict(orientation="h", yanchor="bottom", y=1.02))
         st.plotly_chart(fig_sw, use_container_width=True)
 
         st.markdown('<div class="section-header">Skill × Scenario Weight Matrix</div>', unsafe_allow_html=True)
@@ -918,14 +956,15 @@ with tab5:
         ).fillna(0).round(2)
         sc_order = [s for s in ALL_SCENARIOS if s in sw_pivot.columns]
         sw_pivot = sw_pivot[sc_order]
-        sw_pivot.columns = [SCENARIO_LABELS.get(c, c) for c in sw_pivot.columns]
+        sw_pivot.columns = [SCENARIO_LABELS.get(c,c) for c in sw_pivot.columns]
         sw_pivot["Max"] = sw_pivot.max(axis=1)
         sw_pivot = sw_pivot.sort_values("Max", ascending=False).drop(columns="Max").head(25)
 
-        fig_swh = px.imshow(sw_pivot, color_continuous_scale="RdPu",
+        fig_swh = px.imshow(sw_pivot, color_continuous_scale="Purples",
                             zmin=0, zmax=1, text_auto=".2f", aspect="auto",
                             title="Skill Weight Matrix — all 5 scenarios")
-        apply_chart_theme(fig_swh, 600)
+        fig_swh.update_layout(height=600, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                              font=dict(color="#e8e4dc"))
         st.plotly_chart(fig_swh, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -937,35 +976,36 @@ with tab6:
 
     col_s1, col_s2 = st.columns(2)
     with col_s1:
-        qual_c = sources_f.groupby(["source_id", "data_quality"]).size().reset_index(name="signals")
+        qual_c = sources_f.groupby(["source_id","data_quality"]).size().reset_index(name="signals")
         qual_c = qual_c.sort_values("signals", ascending=False).head(15)
         fig_q = px.bar(qual_c, x="signals", y="source_id", color="data_quality",
                        orientation="h", title="Signals per Source by Quality",
-                       color_discrete_map={"high": "#5A8A64", "medium": "#C49040", "low": "#C0564A"})
-        fig_q.update_layout(yaxis=dict(autorange="reversed"))
-        apply_chart_theme(fig_q, 420)
+                       color_discrete_map={"high":"#2ecc71","medium":"#f39c12","low":"#e74c3c"})
+        fig_q.update_layout(height=420, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                            font=dict(color="#e8e4dc"), yaxis=dict(autorange="reversed"))
         st.plotly_chart(fig_q, use_container_width=True)
 
     with col_s2:
         sec_sig = sources_f.groupby("sector").size().reset_index(name="signals")
-        sec_sig["sector_label"] = sec_sig["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+        sec_sig["sector_label"] = sec_sig["sector"].map(lambda x: SECTOR_LABELS.get(x,x))
         fig_ss = px.pie(sec_sig, values="signals", names="sector_label", hole=0.4,
                         title="Signal Distribution by Sector",
-                        color_discrete_sequence=list(SECTOR_COLORS.values()))
-        apply_chart_theme(fig_ss, 420)
+                        color_discrete_sequence=px.colors.qualitative.Set2)
+        fig_ss.update_layout(height=420, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                             font=dict(color="#e8e4dc"))
         st.plotly_chart(fig_ss, use_container_width=True)
 
     st.markdown('<div class="section-header">Source Detail</div>', unsafe_allow_html=True)
     src_sum = sources_df.groupby(
-        ["source_id", "source_title", "source_publisher", "source_year", "data_quality"]
+        ["source_id","source_title","source_publisher","source_year","data_quality"]
     ).agg(
-        signals=("skill_category", "count"),
+        signals=("skill_category","count"),
         sectors=("sector", lambda x: ", ".join(sorted(set(x)))),
         scenarios=("scenario", lambda x: ", ".join(sorted(set(x))))
     ).reset_index().sort_values("signals", ascending=False)
 
     st.dataframe(
-        src_sum[["source_id", "source_title", "source_publisher", "source_year", "data_quality", "signals", "sectors", "scenarios"]],
+        src_sum[["source_id","source_title","source_publisher","source_year","data_quality","signals","sectors","scenarios"]],
         use_container_width=True, hide_index=True,
         column_config={
             "source_id":        st.column_config.TextColumn("ID", width="small"),
@@ -981,17 +1021,14 @@ with tab6:
 
     st.markdown('<div class="section-header">Demand Direction Breakdown</div>', unsafe_allow_html=True)
     dir_c = sources_f["demand_direction"].value_counts().reset_index()
-    dir_c.columns = ["direction", "count"]
+    dir_c.columns = ["direction","count"]
     fig_dir = px.bar(dir_c, x="direction", y="count", color="direction",
                      color_discrete_map={
-                         "strong_increase":   "#5A8A64",
-                         "moderate_increase": "#9ABF9E",
-                         "stable":            "#9A9088",
-                         "moderate_decrease": "#C49040",
-                         "strong_decrease":   "#C0564A"
+                         "strong_increase":"#2ecc71","moderate_increase":"#a8d8a8",
+                         "stable":"#95a5a6","moderate_decrease":"#f39c12","strong_decrease":"#e74c3c"
                      }, title="Skill Signals by Demand Direction")
-    fig_dir.update_layout(showlegend=False)
-    apply_chart_theme(fig_dir, 320)
+    fig_dir.update_layout(height=320, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                          font=dict(color="#e8e4dc"), showlegend=False)
     st.plotly_chart(fig_dir, use_container_width=True)
 
 # ════════════════════════════════════════════════════════════════════
@@ -1002,7 +1039,7 @@ with tab7:
     st.info("📌 **What this tab shows:** Search, filter, and download any underlying dataset for custom analysis or reporting. Switch between Gap Analysis, Skill Matrix, Calibration, Sources, Coefficients, and Skill Weights.")
 
     dataset = st.radio("Select dataset",
-        ["Gap Analysis", "Skill Matrix", "Calibration", "Source Signals", "Coefficients", "Skill Weights"],
+        ["Gap Analysis","Skill Matrix","Calibration","Source Signals","Coefficients","Skill Weights"],
         horizontal=True)
 
     dataset_map = {
@@ -1026,12 +1063,12 @@ with tab7:
         st.dataframe(df_show, use_container_width=True, hide_index=True)
         csv = df_show.to_csv(index=False).encode("utf-8")
         st.download_button(f"⬇ Download {dataset} CSV", csv,
-                           f"qatar_{dataset.lower().replace(' ', '_')}.csv", "text/csv")
+                           f"qatar_{dataset.lower().replace(' ','_')}.csv", "text/csv")
 
 # ── Footer ────────────────────────────────────────────────────────────────
 st.markdown("---")
 st.markdown(
-    "<div style='text-align:center;color:#9A9088;font-size:0.8rem;'>"
+    "<div style='text-align:center;color:#555;font-size:0.8rem;'>"
     "Qatar 2030 Labor Market Intelligence · CMU Tepper MSBA Capstone · "
     "5 Scenarios · 41 Sources · Claude API"
     "</div>",
