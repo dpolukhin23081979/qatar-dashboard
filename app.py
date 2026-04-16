@@ -360,7 +360,7 @@ with k4:
     avg = top_gap["gap_score"].mean() if len(top_gap) > 0 else 0
     st.markdown(f'<div class="metric-card"><div class="metric-value">{avg:.2f}</div><div class="metric-label">Avg Gap Score</div><div style="font-size:0.72rem;color:#6a6458;margin-top:6px;">(0 = aligned · 1 = fully under-supplied)</div></div>', unsafe_allow_html=True)
 with k5:
-    st.markdown(f'<div class="metric-card"><div class="metric-value">41*</div><div class="metric-label">Sources Analysed</div></div>', unsafe_allow_html=True)
+    st.markdown(f'<div class="metric-card"><div class="metric-value">41</div><div class="metric-label">Sources Analysed</div></div>', unsafe_allow_html=True)
 
 st.markdown("---")
 
