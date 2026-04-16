@@ -16,6 +16,16 @@ st.set_page_config(
 # ── Custom CSS ────────────────────────────────────────────────────────────
 st.markdown("""
 <style>
+div[data-baseweb="select"] { background-color: #FFFFFF !important; color: #1A1410 !important; }
+div[data-baseweb="select"] * { color: #1A1410 !important; }
+div[data-baseweb="popover"] { background-color: #FFFFFF !important; }
+div[data-baseweb="popover"] li { color: #1A1410 !important; }
+div[data-baseweb="popover"] li:hover { background-color: #F5F2EE !important; }
+div[data-testid="stSlider"] * { color: #1A1410 !important; }
+div[data-testid="stRadio"] * { color: #1A1410 !important; }
+div[data-testid="stMultiSelect"] { background-color: #FFFFFF !important; }
+div[data-testid="stMultiSelect"] * { color: #1A1410 !important; }
+input { background-color: #FFFFFF !important; color: #1A1410 !important; }
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: #1A1410; }
