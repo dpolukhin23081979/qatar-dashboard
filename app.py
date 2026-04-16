@@ -470,7 +470,7 @@ then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector de
             <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🇶🇦 Qatarization Priority</div>
             <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
             Qatar's policy to increase employment of Qatari nationals per <b>QNV 2030 Human Development</b> pillar.<br><br>
-            <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br><br>
+            <span style="color:#e8513a;font-weight:600;">High</span> = Strategic documents explicitly flag developing Qatari talent here → Most critical for Manara programme design.<br>
             <span style="color:#D4A017;font-weight:600;">Medium</span> = Relevant but secondary priority.<br>
             <span style="color:#4C78A8;font-weight:600;">Low</span> = General workforce need, not Qatari-specific.
             </div>
