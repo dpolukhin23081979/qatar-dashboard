@@ -26,6 +26,14 @@ div[data-testid="stRadio"] * { color: #1A1410 !important; }
 div[data-testid="stMultiSelect"] { background-color: #FFFFFF !important; }
 div[data-testid="stMultiSelect"] * { color: #1A1410 !important; }
 input { background-color: #FFFFFF !important; color: #1A1410 !important; }
+div[data-baseweb="tag"] { background-color: #EDE8E2 !important; color: #1A1410 !important; }
+div[data-baseweb="tag"] span { color: #1A1410 !important; }
+div[data-baseweb="tag"] svg { fill: #1A1410 !important; }
+div[data-baseweb="select"] > div { background-color: #FFFFFF !important; color: #1A1410 !important; border-color: #E0D8D0 !important; }
+div[data-baseweb="select"] span { color: #1A1410 !important; }
+ul[data-baseweb="menu"] { background-color: #FFFFFF !important; }
+ul[data-baseweb="menu"] li { color: #1A1410 !important; }
+ul[data-baseweb="menu"] li:hover { background-color: #F5F2EE !important; }
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: #1A1410; }
@@ -423,8 +431,8 @@ with tab_exec:
         n_safe_bets = len(safe_bet_skills)
 
         st.markdown(f"""
-<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:12px;padding:20px 28px;margin-bottom:24px;line-height:2;">
-<span style="font-size:1.05rem;color:#e8e4dc;">
+<div style="background:#FFFFFF;border-left:4px solid #8B2635;border-radius:12px;padding:20px 28px;margin-bottom:24px;line-height:2;">
+<span style="font-size:1.05rem;color:#1A1410;;">
 📍 <b>{top_sector_label}</b> faces the largest average strategic skill gap (<b>{top_sector_score:.2f}</b>).<br>
 🎯 The single most under-supplied skill is <b>{top_skill_name}</b> (gap score: <b>{top_skill_score:.2f}</b>, most critical in <b>{top_skill_scenario}</b>).<br>
 🇶🇦 <b>{pct_high_qat}%</b> of identified gaps are high Qatarization priority — national talent development, not just general hiring.<br>
