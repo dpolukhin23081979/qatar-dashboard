@@ -383,7 +383,6 @@ tab_exec, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
 # TAB EXEC — EXECUTIVE SUMMARY
 # ════════════════════════════════════════════════════════════════════
 with tab_exec:
-    render_kpi_bar()
 
     st.markdown("## Executive Summary")
     st.caption("Auto-generated from your current filter selection. Adjust sidebar filters to explore different cuts.")
