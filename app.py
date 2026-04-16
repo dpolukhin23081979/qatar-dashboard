@@ -523,9 +523,25 @@ with tab_exec:
         .head(5)
     )
 
-    if len(top5) == 0:
-        st.info("No high Qa
-
+   if len(top5) == 0:
+        st.info("No high Qatarization priority gaps found for current filters.")
+    else:
+        cols = st.columns(len(top5))
+        for i, (_, row) in enumerate(top5.iterrows()):
+            with cols[i]:
+                scenario_short = row["scenario"]
+                sector_short = SECTOR_LABELS.get(row["sector"], row["sector"])
+                horizon = row.get("time_horizon", "—").replace("_", " ")
+                st.markdown(f'''
+<div class="metric-card" style="height:180px;">
+    <div style="font-size:0.65rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">#{i+1} Priority</div>
+    <div style="font-size:0.95rem;font-weight:600;color:#f0ece4;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
+    <div style="font-size:1.4rem;font-weight:700;color:#e8513a;margin-bottom:8px;">{row["gap_score"]:.2f}</div>
+    <div style="font-size:0.72rem;color:#a09a8e;">
+        📂 {sector_short}<br>
+        🏷️ {scenario_short} · {horizon}
+    </div>
+</div>''', unsafe_allow_html=True)
 # ════════════════════════════════════════════════════════════════════
 # TAB 0 — GUIDE & DEFINITIONS
 # ════════════════════════════════════════════════════════════════════
