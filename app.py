@@ -505,7 +505,7 @@ then drill into <b>Industry Matrix</b> and <b>Strategic Demand</b> for sector de
             <div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">🏭 Sector Classification</div>
             <div style="font-size:0.9rem;color:#e8e4dc;line-height:1.6;">
             Each job posting is assigned to one of <b>8 sectors</b> using a 5-layer classifier:<br><br>
-            Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br><br>
+            Industry tags → LinkedIn industry → Job function → Job title → SOC codes<br>
             Unmatched jobs → labelled <b>cross_sector</b>.
             </div>
         </div>''', unsafe_allow_html=True)
