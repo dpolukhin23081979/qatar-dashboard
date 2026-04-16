@@ -322,7 +322,7 @@ with st.sidebar:
 
     st.markdown("---")
     st.markdown("**Data sources**")
-    st.markdown(f"- {sources_df['source_id'].nunique()} publications")
+    st.markdown(f" 41 publications")
     st.markdown(f"- {len(sources_df)} skill signals")
     st.markdown(f"- {gap_df['skill_category'].nunique()} skill categories")
     st.markdown(f"- 5 scenarios · Horizon 2030")
