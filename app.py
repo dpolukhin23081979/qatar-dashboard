@@ -74,9 +74,9 @@ def load_optional(filename):
 
 @st.cache_data
 def load_historical():
-    csv_path = DATA_DIR / "historical_skilllasign_0406_2.csv"
-    zip_path = DATA_DIR / "historical_skilllasign_0406_2.zip"
-    csv_name = "historical_skilllasign_0406_2.csv"
+    csv_path = DATA_DIR / "historical_skillasign_0406_2.csv"
+    zip_path = DATA_DIR / "historical_skillasign_0406_2.zip"
+    csv_name = "historical_skillasign_0406_2.csv"
 
     if not csv_path.exists():
         if not zip_path.exists():
