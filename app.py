@@ -1,5 +1,3 @@
-import ast
-import json as _json
 import streamlit as st
 import pandas as pd
 import plotly.express as px
@@ -54,7 +52,7 @@ hr { border-color: #2a2a3e; }
 """, unsafe_allow_html=True)
 
 # ── Data loading ──────────────────────────────────────────────────────────
-DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path("data")
 
 @st.cache_data
 def load_data():
@@ -72,59 +70,9 @@ def load_optional(filename):
         return pd.read_csv(path)
     return None
 
-@st.cache_data
-def load_historical():
-    csv_path = DATA_DIR / "historical_skillasign_0406_2.csv"
-    zip_path = DATA_DIR / "historical_skillasign_0406_2.zip"
-    csv_name = "historical_skillasign_0406_2.csv"
-
-    if not csv_path.exists():
-        if not zip_path.exists():
-            return None
-
-        import zipfile
-        import shutil
-
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
-
-        with zipfile.ZipFile(zip_path, "r") as z:
-            target_member = None
-            for member in z.namelist():
-                if Path(member).name == csv_name:
-                    target_member = member
-                    break
-
-            if target_member is None:
-                return None
-
-            with z.open(target_member) as src, open(csv_path, "wb") as dst:
-                shutil.copyfileobj(src, dst)
-
-    raw = pd.read_csv(csv_path, low_memory=False)
-    raw["posted_datetime"] = pd.to_datetime(raw["posted_datetime"], utc=True, errors="coerce")
-    raw["year"] = raw["posted_datetime"].dt.year
-
-    def parse_onet(s):
-        try:
-            return ast.literal_eval(s) if isinstance(s, str) else []
-        except:
-            return []
-
-    def parse_soft(s):
-        try:
-            obj = _json.loads(s) if isinstance(s, str) else {}
-            return obj.get("soft_skills", [])
-        except:
-            return []
-
-    raw["skills_list"] = raw["skills_onet"].apply(parse_onet)
-    raw["soft_list"] = raw["skills_llm_json"].apply(parse_soft)
-    return raw
-    
 gap_df, matrix_df, calib_df, sources_df = load_data()
 coeff_df     = load_optional("scenario_coefficients.csv")
 skill_wt_df  = load_optional("scenario_skill_weights.csv")
-hist_df      = load_historical()
 
 # ── Constants ─────────────────────────────────────────────────────────────
 SCENARIO_LABELS = {
@@ -419,7 +367,7 @@ st.markdown("---")
 # ════════════════════════════════════════════════════════════════════
 # TABS
 # ════════════════════════════════════════════════════════════════════
-tab_exec, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab_hist = st.tabs([
+tab_exec, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7 = st.tabs([
     "🏆 Executive Summary",
     "🗺️ Guide & Definitions",
     "📊 Skill Gap Analysis",
@@ -429,7 +377,6 @@ tab_exec, tab0, tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab_hist = st.tabs([
     "🧠 Skill Weights",
     "📚 Source Evidence",
     "📋 Data Explorer",
-    "📈 Skill Shift 2019→2024",
 ])
 
 # ════════════════════════════════════════════════════════════════════
@@ -594,7 +541,6 @@ with tab_exec:
         🏷️ {scenario_short} · {horizon}
     </div>
 </div>''', unsafe_allow_html=True)
-
 # ════════════════════════════════════════════════════════════════════
 # TAB 0 — GUIDE & DEFINITIONS
 # ════════════════════════════════════════════════════════════════════
@@ -1118,378 +1064,6 @@ with tab7:
         csv = df_show.to_csv(index=False).encode("utf-8")
         st.download_button(f"⬇ Download {dataset} CSV", csv,
                            f"qatar_{dataset.lower().replace(' ','_')}.csv", "text/csv")
-
-# ════════════════════════════════════════════════════════════════════
-# TAB HIST — SKILL SHIFT 2019 → 2024
-# ════════════════════════════════════════════════════════════════════
-with tab_hist:
-
-    st.markdown("## Skill Shift 2019 → 2024")
-    st.markdown(
-        "Qatar's job market didn't stand still while the strategy documents were being written. "
-        "This tab uses **5,067 actual job postings** — spanning 2019 and 2024 — to show how skill "
-        "demand has already shifted across industries. "
-        "Read it alongside the **Skill Gap** and **Strategic Demand** tabs: "
-        "the gap between what the market is already moving toward and where strategy wants it to go "
-        "is exactly where Manara should focus."
-    )
-    st.caption("Source: Qatar job postings dataset · O*NET skill taxonomy · 2019 vs 2024 cohorts only (2023 has 1 observation and is excluded).")
-
-    if hist_df is None:
-        st.error("Historical data file not found. Place `historical_skillasign_0406_2.csv` in your /data folder.")
-        st.stop()
-
-    # Only 2019 and 2024 have meaningful sample sizes
-    hdf2 = hist_df[hist_df["year"].isin([2019, 2024])].copy()
-    hdf2 = hdf2[hdf2["industry_cluster"] != "Other"]   # tiny n=2 bucket
-
-    INDUSTRY_MAP = {
-        "Tech & Professional Services":      "Tech & Professional Services",
-        "Industrial, Energy & Construction": "Industrial, Energy & Construction",
-        "Logistics & Infrastructure":        "Logistics & Infrastructure",
-        "Public, Health & Education":        "Public, Health & Education",
-        "Consumer, Retail & Hospitality":    "Consumer, Retail & Hospitality",
-    }
-    INDUSTRY_COLORS_HIST = {
-        "Tech & Professional Services":      "#2196F3",
-        "Industrial, Energy & Construction": "#FF9800",
-        "Logistics & Infrastructure":        "#4CAF50",
-        "Public, Health & Education":        "#9C27B0",
-        "Consumer, Retail & Hospitality":    "#F44336",
-    }
-
-    hist_totals = (
-        hdf2.groupby(["year", "industry_cluster"])
-        .size().reset_index(name="total_jobs")
-    )
-
-    hist_exp = hdf2.explode("skills_list").rename(columns={"skills_list": "skill"})
-    hist_exp = hist_exp[hist_exp["skill"].notna() & (hist_exp["skill"] != "")]
-    skill_counts = (
-        hist_exp.groupby(["year", "industry_cluster", "skill"])
-        .size().reset_index(name="count")
-        .merge(hist_totals, on=["year", "industry_cluster"])
-    )
-    skill_counts["share"] = skill_counts["count"] / skill_counts["total_jobs"]
-
-    pivot_all = (
-        skill_counts
-        .pivot_table(index=["industry_cluster", "skill"], columns="year", values="share", fill_value=0)
-        .reset_index()
-    )
-    pivot_all.columns.name = None
-    pivot_all["shift"] = pivot_all.get(2024, 0) - pivot_all.get(2019, 0)
-    pivot_all["pct_shift"] = (pivot_all["shift"] * 100).round(1)
-
-    # ── KPI row ───────────────────────────────────────────────────
-    k1, k2, k3, k4 = st.columns(4)
-    n19 = int(hdf2[hdf2["year"] == 2019].shape[0])
-    n24 = int(hdf2[hdf2["year"] == 2024].shape[0])
-    top_riser  = pivot_all[pivot_all["industry_cluster"].isin(INDUSTRY_MAP)].nlargest(1, "shift").iloc[0]
-    top_faller = pivot_all[pivot_all["industry_cluster"].isin(INDUSTRY_MAP)].nsmallest(1, "shift").iloc[0]
-
-    with k1:
-        st.markdown(f'<div class="metric-card"><div class="metric-value">{n19:,}</div><div class="metric-label">Postings — 2019 cohort</div></div>', unsafe_allow_html=True)
-    with k2:
-        st.markdown(f'<div class="metric-card"><div class="metric-value">{n24:,}</div><div class="metric-label">Postings — 2024 cohort</div></div>', unsafe_allow_html=True)
-    with k3:
-        st.markdown(
-            f'<div class="metric-card"><div class="metric-value" style="font-size:1.3rem;color:#4CAF50;">↑ {top_riser["skill"][:20]}</div>'
-            f'<div class="metric-label">Fastest rising skill (+{top_riser["pct_shift"]:.0f}pp in {top_riser["industry_cluster"][:18]})</div></div>',
-            unsafe_allow_html=True
-        )
-    with k4:
-        st.markdown(
-            f'<div class="metric-card"><div class="metric-value" style="font-size:1.3rem;color:#e8513a;">↓ {top_faller["skill"][:20]}</div>'
-            f'<div class="metric-label">Largest decline ({top_faller["pct_shift"]:.0f}pp in {top_faller["industry_cluster"][:18]})</div></div>',
-            unsafe_allow_html=True
-        )
-
-    st.markdown("---")
-
-    # ── CHART 1: Job posting volume 2019 vs 2024 ─────────────────
-    st.markdown('<div class="section-header">📦 Industry Posting Volume — 2019 vs 2024</div>', unsafe_allow_html=True)
-    st.caption(
-        "How many postings each industry contributed in each cohort. "
-        "Tech & Professional Services dominates both years — but every sector grew substantially, "
-        "reflecting Qatar's accelerating diversification."
-    )
-
-    vol = hist_totals[hist_totals["industry_cluster"].isin(INDUSTRY_MAP)].copy()
-    fig_vol = go.Figure()
-    for yr, opacity in [(2019, 0.5), (2024, 1.0)]:
-        d = vol[vol["year"] == yr].sort_values("total_jobs", ascending=False)
-        fig_vol.add_trace(go.Bar(
-            x=d["industry_cluster"], y=d["total_jobs"],
-            name=str(yr),
-            marker_color=[INDUSTRY_COLORS_HIST.get(c, "#888") for c in d["industry_cluster"]],
-            opacity=opacity,
-            text=d["total_jobs"].map(lambda v: f"{v:,}"),
-            textposition="outside",
-        ))
-    fig_vol.update_layout(
-        barmode="group", height=380,
-        plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-        font=dict(color="#e8e4dc"),
-        xaxis=dict(tickangle=-20),
-        legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        yaxis_title="Job Postings",
-    )
-    st.plotly_chart(fig_vol, use_container_width=True)
-
-    st.markdown("---")
-
-    # ── CHART 2: Skill share shift by industry ────────────────────
-    st.markdown('<div class="section-header">📐 Skill Share Shift by Industry — Top Movers 2019 → 2024</div>', unsafe_allow_html=True)
-    st.caption(
-        "For each industry, the top 8 skills with the largest absolute change in posting-share "
-        "(skill occurrences ÷ total jobs in that industry+year). "
-        "Bars to the right = skill is more commonly demanded in 2024; left = less common. "
-        "This is the market catching up — or diverging from — the QNV 2030 strategy signals."
-    )
-
-    selected_industry = st.selectbox(
-        "Select industry",
-        options=list(INDUSTRY_MAP.keys()),
-        key="hist_industry_sel"
-    )
-
-    ind_pivot = pivot_all[pivot_all["industry_cluster"] == selected_industry].copy()
-    ind_pivot = ind_pivot.reindex(columns=["industry_cluster", "skill", 2019, 2024, "shift", "pct_shift"])
-    ind_top = ind_pivot.nlargest(8, "shift")
-    ind_bot = ind_pivot.nsmallest(4, "shift")
-    ind_show = pd.concat([ind_top, ind_bot]).drop_duplicates("skill").sort_values("shift")
-
-    bar_colors = [INDUSTRY_COLORS_HIST[selected_industry] if v >= 0 else "#c0392b" for v in ind_show["shift"]]
-    fig_shift = go.Figure(go.Bar(
-        x=ind_show["pct_shift"],
-        y=ind_show["skill"],
-        orientation="h",
-        marker_color=bar_colors,
-        text=ind_show["pct_shift"].map(lambda v: f"{v:+.1f}pp"),
-        textposition="outside",
-        textfont=dict(color="#e8e4dc", size=11),
-    ))
-    fig_shift.add_vline(x=0, line_color="#555", line_width=1.5)
-    fig_shift.update_layout(
-        height=420, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-        font=dict(color="#e8e4dc"),
-        xaxis_title="Change in skill share (percentage points)",
-        yaxis=dict(autorange="reversed"),
-        title=f"Skill share shift — {selected_industry}",
-    )
-    st.plotly_chart(fig_shift, use_container_width=True)
-
-    col_comp, col_emerg = st.columns(2)
-
-    with col_comp:
-        top10_skills = ind_pivot.nlargest(10, 2024)["skill"].tolist()
-        comp_data = ind_pivot[ind_pivot["skill"].isin(top10_skills)].sort_values(2024, ascending=True)
-        fig_comp = go.Figure()
-        fig_comp.add_trace(go.Bar(
-            x=(comp_data[2019] * 100).round(1), y=comp_data["skill"],
-            name="2019", orientation="h",
-            marker_color="#555577", opacity=0.7,
-            text=(comp_data[2019] * 100).round(1).map(lambda v: f"{v:.0f}%"),
-            textposition="inside",
-        ))
-        fig_comp.add_trace(go.Bar(
-            x=(comp_data[2024] * 100).round(1), y=comp_data["skill"],
-            name="2024", orientation="h",
-            marker_color=INDUSTRY_COLORS_HIST[selected_industry],
-            text=(comp_data[2024] * 100).round(1).map(lambda v: f"{v:.0f}%"),
-            textposition="inside",
-        ))
-        fig_comp.update_layout(
-            barmode="overlay", height=360,
-            plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-            font=dict(color="#e8e4dc"),
-            xaxis_title="% of postings mentioning skill",
-            title="Top 10 skills — 2019 vs 2024 share",
-            legend=dict(orientation="h", yanchor="bottom", y=1.02),
-        )
-        st.plotly_chart(fig_comp, use_container_width=True)
-
-    with col_emerg:
-        emerging = ind_pivot[
-            (ind_pivot.get(2019, pd.Series(dtype=float)) < 0.05) &
-            (ind_pivot[2024] > 0.1)
-        ].copy().sort_values(2024, ascending=False).head(10)
-
-        st.markdown(
-            '<div style="background:#1a1a2e;border-left:4px solid #4CAF50;border-radius:10px;padding:16px 20px;margin-top:4px;">'
-            '<div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">🌱 Emerging skills in this industry</div>'
-            '<div style="font-size:0.8rem;color:#a09a8e;margin-bottom:12px;">Skills cited in >10% of 2024 postings but <5% in 2019 — genuinely new demand, not just volume growth.</div>',
-            unsafe_allow_html=True
-        )
-        if len(emerging) == 0:
-            st.markdown(
-                '<div style="color:#8a8070;font-size:0.85rem;">No sharply emerging skills for this industry — '
-                'existing skills deepened rather than new ones appearing.</div>',
-                unsafe_allow_html=True
-            )
-        else:
-            for _, row in emerging.iterrows():
-                pct_24 = row[2024] * 100
-                pct_19 = row.get(2019, 0) * 100
-                st.markdown(
-                    f'<div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #2a2a3e;">'
-                    f'<span style="color:#e8e4dc;font-size:0.88rem;">{row["skill"]}</span>'
-                    f'<span style="color:#4CAF50;font-weight:600;font-size:0.88rem;">{pct_24:.0f}% '
-                    f'<span style="color:#555;font-size:0.75rem;">(was {pct_19:.0f}%)</span></span>'
-                    f'</div>',
-                    unsafe_allow_html=True
-                )
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    st.markdown("---")
-
-    # ── CHART 3: Cross-industry heatmap ──────────────────────────
-    st.markdown('<div class="section-header">🌐 Cross-Industry Skill Shift Heatmap — Where Did Each Skill Move?</div>', unsafe_allow_html=True)
-    st.caption(
-        "Each cell = change in skill share (pp) for that industry between 2019 and 2024. "
-        "Green = skill becoming more demanded; Red = pulling back. "
-        "Skills rising consistently across all industries are the safest Manara training bets — "
-        "market momentum is already aligned with strategy."
-    )
-
-    top_skills_overall = (
-        skill_counts[skill_counts["year"] == 2024]
-        .groupby("skill")["share"].mean()
-        .nlargest(18).index.tolist()
-    )
-
-    heat_data = pivot_all[
-        pivot_all["skill"].isin(top_skills_overall) &
-        pivot_all["industry_cluster"].isin(INDUSTRY_MAP)
-    ].pivot(index="skill", columns="industry_cluster", values="pct_shift").fillna(0)
-
-    short_names = {
-        "Tech & Professional Services":      "Tech & Prof.",
-        "Industrial, Energy & Construction": "Industrial & Energy",
-        "Logistics & Infrastructure":        "Logistics & Infra.",
-        "Public, Health & Education":        "Public & Health",
-        "Consumer, Retail & Hospitality":    "Consumer & Retail",
-    }
-    heat_data = heat_data.rename(columns=short_names)
-    heat_data = heat_data.loc[heat_data.abs().sum(axis=1).sort_values(ascending=False).index]
-
-    fig_heat = px.imshow(
-        heat_data,
-        color_continuous_scale="RdYlGn",
-        zmin=-25, zmax=25,
-        text_auto=".1f",
-        aspect="auto",
-        title="Skill share shift (pp) by industry — 2019 → 2024",
-    )
-    fig_heat.update_traces(textfont=dict(size=11))
-    fig_heat.update_layout(
-        height=560, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-        font=dict(color="#e8e4dc"),
-        xaxis=dict(tickangle=-20, tickfont=dict(size=11)),
-        yaxis=dict(tickfont=dict(size=11)),
-        coloraxis_colorbar=dict(title="pp shift", tickfont=dict(size=10)),
-    )
-    st.plotly_chart(fig_heat, use_container_width=True)
-
-    st.markdown("---")
-
-    # ── CHART 4: Manara bridge — market vs strategy ───────────────
-    st.markdown('<div class="section-header">🔭 Connecting to Qatar 2030 Strategy — What the Market Is Already Signalling</div>', unsafe_allow_html=True)
-    st.caption(
-        "Skills rising fastest in the market (bottom-up signal) vs. skills with the highest gap scores "
-        "in the scenario analysis (top-down signal). Skills confirmed by both are the highest-confidence "
-        "Manara investments — the market is already moving there and strategy says it's not enough."
-    )
-
-    overall_shift = (
-        pivot_all[pivot_all["industry_cluster"].isin(INDUSTRY_MAP)]
-        .groupby("skill")["shift"].mean()
-        .reset_index()
-        .sort_values("shift", ascending=False)
-    )
-    top_rising_mkt = overall_shift.head(15)["skill"].tolist()
-
-    top_gap_strat = (
-        gap_df[gap_df["gap_score"] > 0]
-        .groupby("skill_category")["gap_score"].mean()
-        .nlargest(30).index.tolist()
-    )
-
-    top_rising_lower = {s.lower(): s for s in top_rising_mkt}
-    top_gap_lower    = {s.lower(): s for s in top_gap_strat}
-    overlap_keys     = set(top_rising_lower) & set(top_gap_lower)
-
-    col_m1, col_m2, col_m3 = st.columns([2, 1, 2])
-
-    with col_m1:
-        st.markdown(
-            '<div style="background:#1a1a2e;border-left:4px solid #2196F3;border-radius:10px;padding:16px 20px;">'
-            '<div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">📈 Market rising fastest</div>'
-            '<div style="font-size:0.78rem;color:#a09a8e;margin-bottom:10px;">Top 15 by avg share shift across industries</div>',
-            unsafe_allow_html=True
-        )
-        for sk in top_rising_mkt:
-            highlight = sk.lower() in overlap_keys
-            color = "#f0ece4" if highlight else "#8a8070"
-            badge = (' <span style="background:#2196F3;color:#fff;border-radius:4px;'
-                     'padding:1px 5px;font-size:0.68rem;">✓ Both</span>') if highlight else ""
-            st.markdown(
-                f'<div style="padding:5px 0;border-bottom:1px solid #2a2a3e;color:{color};font-size:0.85rem;">{sk}{badge}</div>',
-                unsafe_allow_html=True
-            )
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    with col_m2:
-        n_overlap = len(overlap_keys)
-        st.markdown(
-            f'<div style="background:#1a1a2e;border:2px solid #c0392b;border-radius:12px;padding:20px;'
-            f'text-align:center;margin-top:30px;">'
-            f'<div style="font-size:2.5rem;font-weight:700;color:#e8513a;">{n_overlap}</div>'
-            f'<div style="font-size:0.75rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">'
-            f'Skills confirmed<br>by both signals</div>'
-            f'<div style="font-size:0.72rem;color:#555;margin-top:12px;">'
-            f'Market momentum + Strategy gap = highest confidence Manara intervention</div>'
-            f'</div>',
-            unsafe_allow_html=True
-        )
-
-    with col_m3:
-        st.markdown(
-            '<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:10px;padding:16px 20px;">'
-            '<div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">🎯 Strategy gaps (top 15)</div>'
-            '<div style="font-size:0.78rem;color:#a09a8e;margin-bottom:10px;">Highest avg gap score from scenario analysis</div>',
-            unsafe_allow_html=True
-        )
-        for sk in top_gap_strat[:15]:
-            highlight = sk.lower() in overlap_keys
-            color = "#f0ece4" if highlight else "#8a8070"
-            badge = (' <span style="background:#c0392b;color:#fff;border-radius:4px;'
-                     'padding:1px 5px;font-size:0.68rem;">✓ Both</span>') if highlight else ""
-            st.markdown(
-                f'<div style="padding:5px 0;border-bottom:1px solid #2a2a3e;color:{color};font-size:0.85rem;">{sk}{badge}</div>',
-                unsafe_allow_html=True
-            )
-        st.markdown('</div>', unsafe_allow_html=True)
-
-    if overlap_keys:
-        st.markdown(
-            f'<div style="background:#1a1a2e;border:1px solid #2a2a3e;border-radius:10px;padding:16px 24px;margin-top:16px;">'
-            f'<span style="color:#e8513a;font-weight:600;">🎯 Confirmed by both market momentum and strategy gap analysis: </span>'
-            f'<span style="color:#e8e4dc;">{", ".join(sorted(overlap_keys, key=str.lower))}</span><br>'
-            f'<span style="color:#8a8070;font-size:0.78rem;">These skills are already rising in hiring AND flagged as under-supplied in QNV 2030 strategy. '
-            f'Manara programmes targeting them face the least risk of misalignment.</span>'
-            f'</div>',
-            unsafe_allow_html=True
-        )
-
-    st.markdown("---")
-    st.markdown(
-        '<div style="text-align:center;color:#555;font-size:0.8rem;">'
-        'Historical Skill Shift Analysis · Qatar job postings · O*NET taxonomy · 2019 vs 2024 cohorts'
-        '</div>',
-        unsafe_allow_html=True
-    )
 
 # ── Footer ────────────────────────────────────────────────────────────────
 st.markdown("---")
