@@ -1125,11 +1125,11 @@ with tab7:
 with tab_hist:
 
     st.markdown("## Additional Historic Insights from the US Market: Skill Shift 2019 → 2024")
-   st.markdown(
+    st.markdown(
     "This section provides a **reference view of how skills have evolved in the U.S. job market (2019–2024)**. "
     "It is included as a directional benchmark to help interpret potential skill shifts — **not as a direct representation of Qatar’s labor market**. "
     "While structural differences exist, the patterns highlight how demand can evolve over time, offering useful context for Manara’s prioritization."
-)
+    )
     st.caption("TBD")
 
     if hist_df is None:
