@@ -1,11 +1,47 @@
 import zipfile
 from pathlib import Path
+import shutil
 
-_zip = Path("data/historical_skillasign_0406_2.zip")
-_csv = Path("data/historical_skillasign_0406_2.csv")
-if _zip.exists() and not _csv.exists():
-    with zipfile.ZipFile(_zip) as z:
-        z.extractall(Path("data"))
+DATA_DIR = Path("data")
+ZIP_PATH = DATA_DIR / "historical_skilllasign_0406_2.zip"
+CSV_PATH = DATA_DIR / "historical_skilllasign_0406_2.csv"
+CSV_NAME = "historical_skilllasign_0406_2.csv"
+
+def ensure_historical_csv():
+    if CSV_PATH.exists():
+        return CSV_PATH
+
+    if not ZIP_PATH.exists():
+        raise FileNotFoundError(
+            f"Neither {CSV_PATH.name} nor {ZIP_PATH.name} was found in {DATA_DIR}"
+        )
+
+    with zipfile.ZipFile(ZIP_PATH, "r") as z:
+        members = z.namelist()
+
+        # Try exact filename first, even if inside a subfolder
+        target_member = None
+        for m in members:
+            if Path(m).name == CSV_NAME:
+                target_member = m
+                break
+
+        if target_member is None:
+            raise FileNotFoundError(
+                f"{CSV_NAME} not found inside {ZIP_PATH.name}. "
+                f"Archive contains: {members[:10]}"
+            )
+
+        with z.open(target_member) as src, open(CSV_PATH, "wb") as dst:
+            shutil.copyfileobj(src, dst)
+
+    if not CSV_PATH.exists():
+        raise FileNotFoundError(f"Failed to extract {CSV_NAME} from {ZIP_PATH.name}")
+
+    return CSV_PATH
+
+historical_csv = ensure_historical_csv()
+df_historical = pd.read_csv(historical_csv)
         
 import ast
 import json as _json
