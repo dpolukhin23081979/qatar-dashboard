@@ -79,11 +79,6 @@ except Exception as e:
 
 coeff_df     = load_optional("scenario_coefficients.csv")
 skill_wt_df  = load_optional("scenario_skill_weights.csv")
-st.write("DATA_DIR:", DATA_DIR)
-if DATA_DIR.exists():
-    st.write("Files:", [p.name for p in DATA_DIR.iterdir()])
-else:
-    st.error("DATA_DIR does not exist")
 
 # ── Constants ─────────────────────────────────────────────────────────────
 SCENARIO_LABELS = {
