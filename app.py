@@ -1124,13 +1124,16 @@ with tab7:
 # ════════════════════════════════════════════════════════════════════
 with tab_hist:
 
-    st.markdown("## Additional Historic Insights from the US Market: Skill Shift 2019 → 2024")
-   st.markdown(
-    "This section provides a **reference view of how skills have evolved in the U.S. job market (2019–2024)**. "
-    "It is included as a directional benchmark to help interpret potential skill shifts — **not as a direct representation of Qatar’s labor market**. "
-    "While structural differences exist, the patterns highlight how demand can evolve over time, offering useful context for Manara’s prioritization."
-)
-    st.caption("TBD")
+    st.markdown("## Skill Shift 2019 → 2024")
+    st.markdown(
+        "Qatar's job market didn't stand still while the strategy documents were being written. "
+        "This tab uses **5,067 actual job postings** — spanning 2019 and 2024 — to show how skill "
+        "demand has already shifted across industries. "
+        "Read it alongside the **Skill Gap** and **Strategic Demand** tabs: "
+        "the gap between what the market is already moving toward and where strategy wants it to go "
+        "is exactly where Manara should focus."
+    )
+    st.caption("Source: Qatar job postings dataset · O*NET skill taxonomy · 2019 vs 2024 cohorts only (2023 has 1 observation and is excluded).")
 
     if hist_df is None:
         st.error("Historical data file not found. Place `historical_skillasign_0406_2.csv` in your /data folder.")
@@ -1390,6 +1393,103 @@ with tab_hist:
     st.plotly_chart(fig_heat, use_container_width=True)
 
     st.markdown("---")
+
+    # ── CHART 4: Manara bridge — market vs strategy ───────────────
+    st.markdown('<div class="section-header">🔭 Connecting to Qatar 2030 Strategy — What the Market Is Already Signalling</div>', unsafe_allow_html=True)
+    st.caption(
+        "Skills rising fastest in the market (bottom-up signal) vs. skills with the highest gap scores "
+        "in the scenario analysis (top-down signal). Skills confirmed by both are the highest-confidence "
+        "Manara investments — the market is already moving there and strategy says it's not enough."
+    )
+
+    overall_shift = (
+        pivot_all[pivot_all["industry_cluster"].isin(INDUSTRY_MAP)]
+        .groupby("skill")["shift"].mean()
+        .reset_index()
+        .sort_values("shift", ascending=False)
+    )
+    top_rising_mkt = overall_shift.head(15)["skill"].tolist()
+
+    top_gap_strat = (
+        gap_df[gap_df["gap_score"] > 0]
+        .groupby("skill_category")["gap_score"].mean()
+        .nlargest(30).index.tolist()
+    )
+
+    top_rising_lower = {s.lower(): s for s in top_rising_mkt}
+    top_gap_lower    = {s.lower(): s for s in top_gap_strat}
+    overlap_keys     = set(top_rising_lower) & set(top_gap_lower)
+
+    col_m1, col_m2, col_m3 = st.columns([2, 1, 2])
+
+    with col_m1:
+        st.markdown(
+            '<div style="background:#1a1a2e;border-left:4px solid #2196F3;border-radius:10px;padding:16px 20px;">'
+            '<div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">📈 Market rising fastest</div>'
+            '<div style="font-size:0.78rem;color:#a09a8e;margin-bottom:10px;">Top 15 by avg share shift across industries</div>',
+            unsafe_allow_html=True
+        )
+        for sk in top_rising_mkt:
+            highlight = sk.lower() in overlap_keys
+            color = "#f0ece4" if highlight else "#8a8070"
+            badge = (' <span style="background:#2196F3;color:#fff;border-radius:4px;'
+                     'padding:1px 5px;font-size:0.68rem;">✓ Both</span>') if highlight else ""
+            st.markdown(
+                f'<div style="padding:5px 0;border-bottom:1px solid #2a2a3e;color:{color};font-size:0.85rem;">{sk}{badge}</div>',
+                unsafe_allow_html=True
+            )
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    with col_m2:
+        n_overlap = len(overlap_keys)
+        st.markdown(
+            f'<div style="background:#1a1a2e;border:2px solid #c0392b;border-radius:12px;padding:20px;'
+            f'text-align:center;margin-top:30px;">'
+            f'<div style="font-size:2.5rem;font-weight:700;color:#e8513a;">{n_overlap}</div>'
+            f'<div style="font-size:0.75rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px;">'
+            f'Skills confirmed<br>by both signals</div>'
+            f'<div style="font-size:0.72rem;color:#555;margin-top:12px;">'
+            f'Market momentum + Strategy gap = highest confidence Manara intervention</div>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
+    with col_m3:
+        st.markdown(
+            '<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:10px;padding:16px 20px;">'
+            '<div style="font-size:0.7rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">🎯 Strategy gaps (top 15)</div>'
+            '<div style="font-size:0.78rem;color:#a09a8e;margin-bottom:10px;">Highest avg gap score from scenario analysis</div>',
+            unsafe_allow_html=True
+        )
+        for sk in top_gap_strat[:15]:
+            highlight = sk.lower() in overlap_keys
+            color = "#f0ece4" if highlight else "#8a8070"
+            badge = (' <span style="background:#c0392b;color:#fff;border-radius:4px;'
+                     'padding:1px 5px;font-size:0.68rem;">✓ Both</span>') if highlight else ""
+            st.markdown(
+                f'<div style="padding:5px 0;border-bottom:1px solid #2a2a3e;color:{color};font-size:0.85rem;">{sk}{badge}</div>',
+                unsafe_allow_html=True
+            )
+        st.markdown('</div>', unsafe_allow_html=True)
+
+    if overlap_keys:
+        st.markdown(
+            f'<div style="background:#1a1a2e;border:1px solid #2a2a3e;border-radius:10px;padding:16px 24px;margin-top:16px;">'
+            f'<span style="color:#e8513a;font-weight:600;">🎯 Confirmed by both market momentum and strategy gap analysis: </span>'
+            f'<span style="color:#e8e4dc;">{", ".join(sorted(overlap_keys, key=str.lower))}</span><br>'
+            f'<span style="color:#8a8070;font-size:0.78rem;">These skills are already rising in hiring AND flagged as under-supplied in QNV 2030 strategy. '
+            f'Manara programmes targeting them face the least risk of misalignment.</span>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
+
+    st.markdown("---")
+    st.markdown(
+        '<div style="text-align:center;color:#555;font-size:0.8rem;">'
+        'Historical Skill Shift Analysis · Qatar job postings · O*NET taxonomy · 2019 vs 2024 cohorts'
+        '</div>',
+        unsafe_allow_html=True
+    )
 
 # ── Footer ────────────────────────────────────────────────────────────────
 st.markdown("---")
