@@ -21,6 +21,7 @@ to identify where strategic ambitions and actual hiring diverge.
 ---
 
 ## Repository Structure
+```
 qatar-dashboard/
 │
 ├── app.py                              # Dashboard application — all logic in one file
@@ -29,16 +30,15 @@ qatar-dashboard/
 │   └── config.toml                     # Visual theme — colors, background, font
 │
 └── data/
-    ├── scenario_gap_analysis.csv           # Primary input — 224 skill gaps
-    ├── scenario_skill_matrix.csv           # Scenario x sector x skill demand matrix
-    ├── scenario_calibration.csv            # Calibration lookup table
-    ├── scenario_sources_raw.csv            # Full signal audit trail — 321 signals, 41 sources
-    ├── scenario_coefficients.csv           # Source contributions per scenario
-    ├── scenario_skill_weights.csv          # Normalized skill weights per scenario
-    ├── sector_function_distribution.csv    # Sector to job function mapping reference
-    └── historical_skillasign_0406_2.zip    # U.S. historical benchmark dataset
-
----
+    ├── scenario_gap_analysis.csv       # Primary input — 224 skill gaps
+    ├── scenario_skill_matrix.csv       # Scenario x sector x skill demand matrix
+    ├── scenario_calibration.csv        # Calibration lookup table
+    ├── scenario_sources_raw.csv        # Full signal audit trail — 321 signals, 41 sources
+    ├── scenario_coefficients.csv       # Source contributions per scenario
+    ├── scenario_skill_weights.csv      # Normalized skill weights per scenario
+    ├── sector_function_distribution.csv  # Sector to job function mapping reference
+    └── historical_skillasign_0406_2.zip  # U.S. historical benchmark dataset
+```
 
 ## Updating the Data
 
