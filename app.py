@@ -60,6 +60,7 @@ import zipfile
 if (DATA_DIR / "historical_skillasign_0406_2.zip").exists() and not (DATA_DIR / "historical_skillasign_0406_2.csv").exists():
     with zipfile.ZipFile(DATA_DIR / "historical_skillasign_0406_2.zip") as z:
         z.extractall(DATA_DIR)
+        
 @st.cache_data
 def load_data():
     gap      = pd.read_csv(DATA_DIR / "scenario_gap_analysis.csv")
