@@ -14,42 +14,7 @@ st.set_page_config(
 )
 
 # ── Custom CSS ────────────────────────────────────────────────────────────
-st.markdown("""
-<style>
-@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=DM+Sans:wght@300;400;500;600&display=swap');
 
-html, body, [class*="css"] { font-family: 'DM Sans', sans-serif; color: #e8e4dc; }
-h1, h2, h3 { font-family: 'DM Serif Display', serif; color: #f0ece4 !important; }
-.main { background-color: #0d0d14; }
-.stApp { background-color: #0d0d14; }
-section[data-testid="stMain"] { background-color: #0d0d14; }
-div[data-testid="stTabs"] { background-color: #0d0d14; }
-button[data-baseweb="tab"] { color: #a09a8e !important; }
-button[data-baseweb="tab"][aria-selected="true"] { color: #f0ece4 !important; border-bottom-color: #c0392b !important; }
-
-.metric-card {
-    background: #1a1a2e; border-radius: 12px; padding: 20px 24px;
-    border-left: 4px solid #c0392b; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
-    margin-bottom: 8px;
-}
-.metric-value { font-size: 2rem; font-weight: 600; color: #e8513a; line-height: 1; }
-.metric-label { font-size: 0.8rem; color: #8a8070; text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
-
-.section-header {
-    font-family: 'DM Serif Display', serif; font-size: 1.4rem;
-    color: #f0ece4 !important; border-bottom: 2px solid #c0392b;
-    padding-bottom: 8px; margin: 24px 0 16px 0;
-}
-
-div[data-testid="stSidebarContent"] { background-color: #0a0a12; color: #e8e4dc; }
-div[data-testid="stSidebarContent"] label { color: #e8e4dc !important; }
-div[data-testid="stSidebarContent"] p { color: #a09a8e !important; }
-div[data-testid="stMarkdownContainer"] p { color: #e8e4dc; }
-div[data-testid="stCaptionContainer"] p { color: #8a8070 !important; }
-div[data-testid="stDownloadButton"] button { background-color: #c0392b; color: white; border: none; }
-hr { border-color: #2a2a3e; }
-</style>
-""", unsafe_allow_html=True)
 
 # ── Data loading ──────────────────────────────────────────────────────────
 DATA_DIR = Path("data")
