@@ -1,3 +1,12 @@
+import zipfile
+from pathlib import Path
+
+_zip = Path("data/historical_skillasign_0406_2.zip")
+_csv = Path("data/historical_skillasign_0406_2.csv")
+if _zip.exists() and not _csv.exists():
+    with zipfile.ZipFile(_zip) as z:
+        z.extractall(Path("data"))
+        
 import ast
 import json as _json
 import streamlit as st
