@@ -1,3 +1,16 @@
+from pathlib import Path
+import streamlit as st
+
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+
+st.write("DATA_DIR:", DATA_DIR)
+
+if DATA_DIR.exists():
+    st.write("Files in data:", [p.name for p in DATA_DIR.iterdir()])
+else:
+    st.error("DATA_DIR does not exist")
+    
 import streamlit as st
 import pandas as pd
 import plotly.express as px
