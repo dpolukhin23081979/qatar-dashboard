@@ -1129,13 +1129,11 @@ with tab_hist:
     st.markdown(
         "This section provides a **reference view of how skills evolved in the U.S. job market (2019-2024)**. "
         "It is included as directional context for Qatar, rather than as a direct representation of Qatar's labor market. "
-        "The charts below are based on the historical dataset alone and should be read as an external benchmark to help interpret possible skill shifts."
-    )
+        "The charts below are based on the historical dataset alone and should be read as an external benchmark to help interpret possible skill shifts.")
 
     st.caption(
         "Source: U.S. historical job postings dataset and O*NET skill taxonomy. "
-        "This section is intended as contextual reference for Qatar."
-    )
+        "This section is intended as contextual reference for Qatar.")
 
     if hist_df is None:
         st.error("Historical data file not found. Place `historical_skillasign_0406_2.csv` in your /data folder.")
