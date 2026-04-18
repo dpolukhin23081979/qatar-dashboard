@@ -1,17 +1,4 @@
-from pathlib import Path
-import streamlit as st
-
-BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = BASE_DIR / "data"
-
-st.write("DATA_DIR:", DATA_DIR)
-
-if DATA_DIR.exists():
-    st.write("Files in data:", [p.name for p in DATA_DIR.iterdir()])
-else:
-    st.error("DATA_DIR does not exist")
-    
-import streamlit as st
+ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import plotly.graph_objects as go
@@ -83,7 +70,13 @@ def load_optional(filename):
         return pd.read_csv(path)
     return None
 
-gap_df, matrix_df, calib_df, sources_df = load_data()
+try:
+    gap_df, matrix_df, calib_df, sources_df = load_data()
+except Exception as e:
+    st.error("❌ Core data files missing or failed to load")
+    st.exception(e)
+    st.stop()
+
 coeff_df     = load_optional("scenario_coefficients.csv")
 skill_wt_df  = load_optional("scenario_skill_weights.csv")
 
