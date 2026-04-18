@@ -82,23 +82,52 @@ def load_historical():
         if not zip_path.exists():
             return None
 
-        import zipfile
-        import shutil
+        import zipfile, shutil
 
-        DATA_DIR.mkdir(parents=True, exist_ok=True)
+        try:
+            with zipfile.ZipFile(zip_path, "r") as z:
+                members = z.namelist()
+                target_member = next(
+                    (m for m in members if Path(m).name == csv_name), None
+                )
+                if target_member is None:
+                    st.error(f"CSV not found inside zip. Contents: {members}")
+                    return None
 
-        with zipfile.ZipFile(zip_path, "r") as z:
-            target_member = None
-            for member in z.namelist():
-                if Path(member).name == csv_name:
-                    target_member = member
-                    break
+                with z.open(target_member) as src:
+                    data = src.read()
 
-            if target_member is None:
-                return None
+            # Write outside the zip context to ensure full flush
+            with open(csv_path, "wb") as dst:
+                dst.write(data)
 
-            with z.open(target_member) as src, open(csv_path, "wb") as dst:
-                shutil.copyfileobj(src, dst)
+        except Exception as e:
+            st.error(f"Failed to extract zip: {e}")
+            return None
+
+    if not csv_path.exists():
+        return None
+
+    raw = pd.read_csv(csv_path, low_memory=False)
+    raw["posted_datetime"] = pd.to_datetime(raw["posted_datetime"], utc=True, errors="coerce")
+    raw["year"] = raw["posted_datetime"].dt.year
+
+    def parse_onet(s):
+        try:
+            return ast.literal_eval(s) if isinstance(s, str) else []
+        except:
+            return []
+
+    def parse_soft(s):
+        try:
+            obj = _json.loads(s) if isinstance(s, str) else {}
+            return obj.get("soft_skills", [])
+        except:
+            return []
+
+    raw["skills_list"] = raw["skills_onet"].apply(parse_onet)
+    raw["soft_list"] = raw["skills_llm_json"].apply(parse_soft)
+    return raw
 
     raw = pd.read_csv(csv_path, low_memory=False)
     raw["posted_datetime"] = pd.to_datetime(raw["posted_datetime"], utc=True, errors="coerce")
