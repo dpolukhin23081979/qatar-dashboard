@@ -54,8 +54,8 @@ hr { border-color: #2a2a3e; }
 """, unsafe_allow_html=True)
 
 # ── Data loading ──────────────────────────────────────────────────────────
-DATA_DIR = Path("data")
-        
+DATA_DIR = Path(__file__).resolve().parent / "data"
+
 @st.cache_data
 def load_data():
     gap      = pd.read_csv(DATA_DIR / "scenario_gap_analysis.csv")
@@ -74,27 +74,53 @@ def load_optional(filename):
 
 @st.cache_data
 def load_historical():
-    path = DATA_DIR / "historical_skillasign_0406_2.csv"
-    if not path.exists():
-        return None
-    raw = pd.read_csv(path, low_memory=False)
+    csv_path = DATA_DIR / "historical_skilllasign_0406_2.csv"
+    zip_path = DATA_DIR / "historical_skilllasign_0406_2.zip"
+    csv_name = "historical_skilllasign_0406_2.csv"
+
+    if not csv_path.exists():
+        if not zip_path.exists():
+            return None
+
+        import zipfile
+        import shutil
+
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
+
+        with zipfile.ZipFile(zip_path, "r") as z:
+            target_member = None
+            for member in z.namelist():
+                if Path(member).name == csv_name:
+                    target_member = member
+                    break
+
+            if target_member is None:
+                return None
+
+            with z.open(target_member) as src, open(csv_path, "wb") as dst:
+                shutil.copyfileobj(src, dst)
+
+    raw = pd.read_csv(csv_path, low_memory=False)
     raw["posted_datetime"] = pd.to_datetime(raw["posted_datetime"], utc=True, errors="coerce")
     raw["year"] = raw["posted_datetime"].dt.year
 
     def parse_onet(s):
-        try: return ast.literal_eval(s) if isinstance(s, str) else []
-        except: return []
+        try:
+            return ast.literal_eval(s) if isinstance(s, str) else []
+        except:
+            return []
 
     def parse_soft(s):
         try:
             obj = _json.loads(s) if isinstance(s, str) else {}
             return obj.get("soft_skills", [])
-        except: return []
+        except:
+            return []
 
     raw["skills_list"] = raw["skills_onet"].apply(parse_onet)
-    raw["soft_list"]   = raw["skills_llm_json"].apply(parse_soft)
+    raw["soft_list"] = raw["skills_llm_json"].apply(parse_soft)
     return raw
-
+    
 gap_df, matrix_df, calib_df, sources_df = load_data()
 coeff_df     = load_optional("scenario_coefficients.csv")
 skill_wt_df  = load_optional("scenario_skill_weights.csv")
