@@ -1124,16 +1124,13 @@ with tab7:
 # ════════════════════════════════════════════════════════════════════
 with tab_hist:
 
-    st.markdown("## Skill Shift 2019 -> 2024")
-
-    st.markdown(
-        "This section provides a **reference view of how skills evolved in the U.S. job market (2019-2024)**. "
-        "It is included as directional context for Qatar, rather than as a direct representation of Qatar's labor market. "
-        "The charts below are based on the historical dataset alone and should be read as an external benchmark to help interpret possible skill shifts.")
-
-    st.caption(
-        "Source: U.S. historical job postings dataset and O*NET skill taxonomy. "
-        "This section is intended as contextual reference for Qatar.")
+    st.markdown("## Additional Historic Insights from the US Market: Skill Shift 2019 → 2024")
+   st.markdown(
+    "This section provides a **reference view of how skills have evolved in the U.S. job market (2019–2024)**. "
+    "It is included as a directional benchmark to help interpret potential skill shifts — **not as a direct representation of Qatar’s labor market**. "
+    "While structural differences exist, the patterns highlight how demand can evolve over time, offering useful context for Manara’s prioritization."
+)
+    st.caption("TBD")
 
     if hist_df is None:
         st.error("Historical data file not found. Place `historical_skillasign_0406_2.csv` in your /data folder.")
