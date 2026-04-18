@@ -1,8 +1,11 @@
 import zipfile
 from pathlib import Path
 import shutil
+import pandas as pd
 
-DATA_DIR = Path("data")
+BASE_DIR = Path(__file__).resolve().parent
+DATA_DIR = BASE_DIR / "data"
+
 ZIP_PATH = DATA_DIR / "historical_skilllasign_0406_2.zip"
 CSV_PATH = DATA_DIR / "historical_skilllasign_0406_2.csv"
 CSV_NAME = "historical_skilllasign_0406_2.csv"
@@ -12,14 +15,15 @@ def ensure_historical_csv():
         return CSV_PATH
 
     if not ZIP_PATH.exists():
+        available = [p.name for p in DATA_DIR.glob("*")] if DATA_DIR.exists() else []
         raise FileNotFoundError(
-            f"Neither {CSV_PATH.name} nor {ZIP_PATH.name} was found in {DATA_DIR}"
+            f"Neither {CSV_PATH.name} nor {ZIP_PATH.name} was found in {DATA_DIR}. "
+            f"Available files: {available}"
         )
 
     with zipfile.ZipFile(ZIP_PATH, "r") as z:
         members = z.namelist()
 
-        # Try exact filename first, even if inside a subfolder
         target_member = None
         for m in members:
             if Path(m).name == CSV_NAME:
@@ -29,14 +33,12 @@ def ensure_historical_csv():
         if target_member is None:
             raise FileNotFoundError(
                 f"{CSV_NAME} not found inside {ZIP_PATH.name}. "
-                f"Archive contains: {members[:10]}"
+                f"Archive members: {members[:20]}"
             )
 
+        DATA_DIR.mkdir(parents=True, exist_ok=True)
         with z.open(target_member) as src, open(CSV_PATH, "wb") as dst:
             shutil.copyfileobj(src, dst)
-
-    if not CSV_PATH.exists():
-        raise FileNotFoundError(f"Failed to extract {CSV_NAME} from {ZIP_PATH.name}")
 
     return CSV_PATH
 
