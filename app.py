@@ -393,39 +393,94 @@ with tab_exec:
     st.markdown("## Executive Summary")
     st.caption("Auto-generated from your current filter selection. Adjust sidebar filters to explore different cuts.")
 
-    # ── Headline sentence ─────────────────────────────────────────
+    # ── Pre-compute all summary statistics ───────────────────────
     gap_pos = gap_f[gap_f["gap_score"] > 0]
+    gap_surplus = gap_f[gap_f["gap_score"] <= 0]
+
     if len(gap_pos) > 0:
-        top_sector_key = gap_pos.groupby("sector")["gap_score"].mean().idxmax()
+        # Scenario with biggest overall gap
+        scenario_avg_gap = gap_pos.groupby("scenario")["gap_score"].mean()
+        worst_scenario_key = scenario_avg_gap.idxmax()
+        worst_scenario_label = SCENARIO_LABELS.get(worst_scenario_key, worst_scenario_key)
+        worst_scenario_score = scenario_avg_gap.max()
+
+        # Sector with biggest gap + across how many scenarios
+        sector_stats = (
+            gap_pos.groupby("sector")
+            .agg(avg_gap=("gap_score", "mean"), n_scenarios=("scenario", "nunique"))
+            .reset_index()
+        )
+        top_sector_key = sector_stats.loc[sector_stats["avg_gap"].idxmax(), "sector"]
         top_sector_label = SECTOR_LABELS.get(top_sector_key, top_sector_key)
-        top_sector_score = gap_pos.groupby("sector")["gap_score"].mean().max()
+        top_sector_score = sector_stats["avg_gap"].max()
+        top_sector_n_scenarios = int(sector_stats.loc[sector_stats["avg_gap"].idxmax(), "n_scenarios"])
+
+        # Single biggest skill gap
         top_skill_row = gap_pos.nlargest(1, "gap_score").iloc[0]
         top_skill_name = top_skill_row["skill_category"]
         top_skill_score = top_skill_row["gap_score"]
         top_skill_scenario = SCENARIO_LABELS.get(top_skill_row["scenario"], top_skill_row["scenario"])
 
+        # Qatarization stats
         n_high_qat = len(gap_pos[gap_pos["qatarization_relevance"] == "high"])
         pct_high_qat = int(round(100 * n_high_qat / len(gap_pos))) if len(gap_pos) > 0 else 0
 
-        safe_bet_skills = (
+        # Top Qatarization high-priority skill
+        top_qat_skill_df = (
+            gap_pos[gap_pos["qatarization_relevance"] == "high"]
+            .sort_values("gap_score", ascending=False)
+            .drop_duplicates("skill_category")
+        )
+        top_qat_skill = top_qat_skill_df.iloc[0]["skill_category"] if len(top_qat_skill_df) > 0 else "—"
+        top_qat_skill_score = top_qat_skill_df.iloc[0]["gap_score"] if len(top_qat_skill_df) > 0 else 0
+
+        # Safe-bet skills (sufficient supply across scenarios)
+        skill_scenario_counts = (
             gap_pos.groupby("skill_category")["scenario"].nunique()
             .reset_index().rename(columns={"scenario": "n_scenarios"})
-            .query("n_scenarios >= 4")
         )
+        safe_bet_skills = skill_scenario_counts.query("n_scenarios >= 4")
         n_safe_bets = len(safe_bet_skills)
 
+        # Skills with sufficient supply (not a gap) across 3+ scenarios
+        if len(gap_surplus) > 0:
+            surplus_by_skill = (
+                gap_surplus.groupby("skill_category")["scenario"].nunique()
+                .reset_index().rename(columns={"scenario": "n_surplus_scenarios"})
+            )
+            well_supplied = surplus_by_skill.query("n_surplus_scenarios >= 3")
+            n_well_supplied = len(well_supplied)
+            top_well_supplied = well_supplied.sort_values("n_surplus_scenarios", ascending=False).iloc[0]["skill_category"] if n_well_supplied > 0 else "—"
+        else:
+            n_well_supplied = 0
+            top_well_supplied = "—"
+
+        # ── BLOCK 1: Scenario with biggest gap (prominent callout) ──
         st.markdown(f"""
-<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:12px;padding:20px 28px;margin-bottom:24px;line-height:2;">
-<span style="font-size:1.05rem;color:#e8e4dc;">
-📍 <b>{top_sector_label}</b> faces the largest average strategic skill gap (<b>{top_sector_score:.2f}</b>).<br>
+<div style="background:linear-gradient(135deg,#1a1a2e,#1f0d0d);border:1.5px solid #c0392b;border-radius:14px;padding:22px 30px;margin-bottom:20px;">
+<div style="font-size:0.72rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:8px;">⚠️ Scenario Driving Largest Skill Gaps</div>
+<div style="font-size:1.55rem;font-family:'DM Serif Display',serif;color:#e8513a;margin-bottom:6px;">{worst_scenario_label}</div>
+<div style="font-size:0.95rem;color:#e8e4dc;">Average gap score <b>{worst_scenario_score:.2f}</b> — the highest urgency planning horizon under current filters. This scenario concentrates the most under-supplied skills and should anchor near-term Manara programme design.</div>
+</div>
+""", unsafe_allow_html=True)
+
+        # ── BLOCK 2: Four key insight bullets ──────────────────────
+        st.markdown(f"""
+<div style="background:#1a1a2e;border-left:4px solid #c0392b;border-radius:12px;padding:20px 28px;margin-bottom:24px;line-height:2.1;">
+<span style="font-size:1.02rem;color:#e8e4dc;">
+📍 <b>{top_sector_label}</b> has the largest average sector skill gap (<b>{top_sector_score:.2f}</b>), persisting across <b>{top_sector_n_scenarios} of {len(selected_scenarios or ALL_SCENARIOS)} selected scenarios</b>.<br>
 🎯 The single most under-supplied skill is <b>{top_skill_name}</b> (gap score: <b>{top_skill_score:.2f}</b>, most critical in <b>{top_skill_scenario}</b>).<br>
-🇶🇦 <b>{pct_high_qat}%</b> of identified gaps are high Qatarization priority — national talent development, not just general hiring.<br>
-✅ <b>{n_safe_bets}</b> skills are flagged as gaps in 4 or more scenarios — the safest Manara programme investment bets.
+✅ <b>{n_well_supplied} skill{"s" if n_well_supplied != 1 else ""}</b> show sufficient supply across 3+ scenarios — low intervention risk; <b>{top_well_supplied}</b> leads this group.<br>
+🇶🇦 Top Qatarization priority skill: <b>{top_qat_skill}</b> (gap: <b>{top_qat_skill_score:.2f}</b>) — <b>{pct_high_qat}%</b> of all gaps are high national-talent-development priority.
 </span>
 </div>
 """, unsafe_allow_html=True)
     else:
         st.info("No positive skill gaps found for current filter selection.")
+        gap_pos = gap_f.head(0)  # empty frame for downstream safety
+        gap_surplus = gap_f
+        pct_high_qat = 0
+        n_well_supplied = 0
 
     st.markdown("---")
 
@@ -435,47 +490,49 @@ with tab_exec:
     with col_left:
         st.markdown('<div class="section-header">Sectors Ranked by Strategic Skill Gap</div>', unsafe_allow_html=True)
         st.caption("Average gap score across all selected scenarios. Larger = further behind strategic targets.")
-        sector_avg = (
-            gap_pos.groupby("sector")["gap_score"].mean()
-            .reset_index().sort_values("gap_score", ascending=False)
-        )
-        sector_avg["sector_label"] = sector_avg["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
-        fig_sector = px.bar(
-            sector_avg,
-            x="gap_score", y="sector_label", orientation="h",
-            color="gap_score", color_continuous_scale="Reds",
-            labels={"gap_score": "Avg Gap Score", "sector_label": ""},
-            text=sector_avg["gap_score"].map(lambda v: f"{v:.2f}"),
-        )
-        fig_sector.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=12))
-        fig_sector.update_layout(
-            height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-            font=dict(color="#e8e4dc"), coloraxis_showscale=False,
-            yaxis=dict(autorange="reversed"),
-            xaxis=dict(range=[0, sector_avg["gap_score"].max() * 1.25])
-        )
-        st.plotly_chart(fig_sector, use_container_width=True)
+        if len(gap_pos) > 0:
+            sector_avg = (
+                gap_pos.groupby("sector")["gap_score"].mean()
+                .reset_index().sort_values("gap_score", ascending=False)
+            )
+            sector_avg["sector_label"] = sector_avg["sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+            fig_sector = px.bar(
+                sector_avg,
+                x="gap_score", y="sector_label", orientation="h",
+                color="gap_score", color_continuous_scale="Reds",
+                labels={"gap_score": "Avg Gap Score", "sector_label": ""},
+                text=sector_avg["gap_score"].map(lambda v: f"{v:.2f}"),
+            )
+            fig_sector.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=12))
+            fig_sector.update_layout(
+                height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                font=dict(color="#e8e4dc"), coloraxis_showscale=False,
+                yaxis=dict(autorange="reversed"),
+                xaxis=dict(range=[0, sector_avg["gap_score"].max() * 1.25])
+            )
+            st.plotly_chart(fig_sector, use_container_width=True)
 
     with col_right:
         st.markdown('<div class="section-header">Qatarization Priority Split</div>', unsafe_allow_html=True)
         st.caption("Share of identified gaps by national talent development priority.")
-        qat_split = gap_pos["qatarization_relevance"].value_counts().reset_index()
-        qat_split.columns = ["relevance", "count"]
-        fig_qat = px.pie(
-            qat_split, values="count", names="relevance", hole=0.6,
-            color="relevance",
-            color_discrete_map={"high": "#c0392b", "medium": "#D4A017", "low": "#4C78A8"},
-        )
-        fig_qat.update_traces(textinfo="percent+label", textfont=dict(size=13))
-        fig_qat.update_layout(
-            height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-            font=dict(color="#e8e4dc"), showlegend=False,
-            annotations=[dict(
-                text=f"<b>{pct_high_qat}%</b><br>High", x=0.5, y=0.5,
-                font=dict(size=16, color="#e8513a"), showarrow=False
-            )]
-        )
-        st.plotly_chart(fig_qat, use_container_width=True)
+        if len(gap_pos) > 0:
+            qat_split = gap_pos["qatarization_relevance"].value_counts().reset_index()
+            qat_split.columns = ["relevance", "count"]
+            fig_qat = px.pie(
+                qat_split, values="count", names="relevance", hole=0.6,
+                color="relevance",
+                color_discrete_map={"high": "#c0392b", "medium": "#D4A017", "low": "#4C78A8"},
+            )
+            fig_qat.update_traces(textinfo="percent+label", textfont=dict(size=13))
+            fig_qat.update_layout(
+                height=380, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+                font=dict(color="#e8e4dc"), showlegend=False,
+                annotations=[dict(
+                    text=f"<b>{pct_high_qat}%</b><br>High", x=0.5, y=0.5,
+                    font=dict(size=16, color="#e8513a"), showarrow=False
+                )]
+            )
+            st.plotly_chart(fig_qat, use_container_width=True)
 
     st.markdown("---")
 
@@ -483,68 +540,129 @@ with tab_exec:
     st.markdown('<div class="section-header">🛡️ "Safe Bet" Interventions — Skills Flagged Across Multiple Scenarios</div>', unsafe_allow_html=True)
     st.caption("Skills appearing as gaps in 4–5 scenarios are robust to uncertainty. Manara should prioritise these regardless of which future materialises.")
 
-    consensus = (
-        gap_pos.groupby("skill_category")
-        .agg(n_scenarios=("scenario", "nunique"), avg_gap=("gap_score", "mean"))
-        .reset_index()
-        .sort_values(["n_scenarios", "avg_gap"], ascending=[False, False])
-        .head(20)
-    )
-    consensus["label"] = consensus["skill_category"].str[:40]
-    consensus["color"] = consensus["n_scenarios"].map(
-        lambda n: "#c0392b" if n == 5 else ("#e8513a" if n == 4 else ("#D4A017" if n == 3 else "#4C78A8"))
-    )
-    fig_con = px.bar(
-        consensus.sort_values("n_scenarios"),
-        x="n_scenarios", y="label", orientation="h",
-        color="n_scenarios",
-        color_continuous_scale=[[0, "#4C78A8"], [0.5, "#D4A017"], [0.75, "#e8513a"], [1.0, "#c0392b"]],
-        labels={"n_scenarios": "Scenarios flagging as gap (of 5)", "label": ""},
-        hover_data={"avg_gap": ":.2f", "n_scenarios": True},
-        text=consensus.sort_values("n_scenarios")["n_scenarios"].map(lambda n: f"{n}/5 scenarios"),
-    )
-    fig_con.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=11))
-    fig_con.add_vline(x=4, line_dash="dash", line_color="#aaa", line_width=1,
-                      annotation_text="4+ scenario threshold", annotation_font_color="#aaa",
-                      annotation_position="top right")
-    fig_con.update_layout(
-        height=480, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
-        font=dict(color="#e8e4dc"), coloraxis_showscale=False,
-        yaxis=dict(autorange="reversed"),
-        xaxis=dict(range=[0, 6.5], dtick=1)
-    )
-    st.plotly_chart(fig_con, use_container_width=True)
+    if len(gap_pos) > 0:
+        consensus = (
+            gap_pos.groupby("skill_category")
+            .agg(n_scenarios=("scenario", "nunique"), avg_gap=("gap_score", "mean"))
+            .reset_index()
+            .sort_values(["n_scenarios", "avg_gap"], ascending=[False, False])
+            .head(20)
+        )
+        consensus["label"] = consensus["skill_category"].str[:40]
+        fig_con = px.bar(
+            consensus.sort_values("n_scenarios"),
+            x="n_scenarios", y="label", orientation="h",
+            color="n_scenarios",
+            color_continuous_scale=[[0, "#4C78A8"], [0.5, "#D4A017"], [0.75, "#e8513a"], [1.0, "#c0392b"]],
+            labels={"n_scenarios": "Scenarios flagging as gap (of 5)", "label": ""},
+            hover_data={"avg_gap": ":.2f", "n_scenarios": True},
+            text=consensus.sort_values("n_scenarios")["n_scenarios"].map(lambda n: f"{n}/5 scenarios"),
+        )
+        fig_con.update_traces(textposition="outside", textfont=dict(color="#e8e4dc", size=11))
+        fig_con.add_vline(x=4, line_dash="dash", line_color="#aaa", line_width=1,
+                          annotation_text="4+ scenario threshold", annotation_font_color="#aaa",
+                          annotation_position="top right")
+        fig_con.update_layout(
+            height=480, plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+            font=dict(color="#e8e4dc"), coloraxis_showscale=False,
+            yaxis=dict(autorange="reversed"),
+            xaxis=dict(range=[0, 6.5], dtick=1)
+        )
+        st.plotly_chart(fig_con, use_container_width=True)
 
     st.markdown("---")
 
-    # ── Row 3: Top 5 action cards ─────────────────────────────────
+    # ── Row 3: Top Skills to Act On — chart + cards ───────────────
     st.markdown('<div class="section-header">🎯 Top Skills to Act On — High Qatarization Priority</div>', unsafe_allow_html=True)
     st.caption("Top skills by gap score where Qatarization relevance is high. These are the clearest Manara programme design signals.")
 
-    top5 = (
+    top_qat_all = (
         gap_pos[gap_pos["qatarization_relevance"] == "high"]
+        .groupby("skill_category")
+        .agg(
+            gap_score=("gap_score", "max"),
+            n_scenarios=("scenario", "nunique"),
+            top_sector=("sector", lambda x: x.value_counts().index[0]),
+            top_scenario=("scenario", lambda x: x.value_counts().index[0]),
+        )
+        .reset_index()
         .sort_values("gap_score", ascending=False)
-        .drop_duplicates("skill_category")
-        .head(5)
-    )
+        .head(12)
+    ) if len(gap_pos) > 0 else pd.DataFrame()
 
-    if len(top5) == 0:
+    if len(top_qat_all) == 0:
         st.info("No high Qatarization priority gaps found for current filters.")
     else:
+        # Priority chart with gap score + scenario count + sector
+        top_qat_all["sector_label"] = top_qat_all["top_sector"].map(lambda x: SECTOR_LABELS.get(x, x))
+        top_qat_all["skill_short"] = top_qat_all["skill_category"].str[:38]
+        top_qat_all["rank"] = range(1, len(top_qat_all) + 1)
+        top_qat_all["bar_label"] = top_qat_all.apply(
+            lambda r: f"#{int(r['rank'])}  gap {r['gap_score']:.2f} · {int(r['n_scenarios'])}/5 scenarios", axis=1
+        )
+
+        SECTOR_COLORS_MAP = {
+            "Technology & Digital": "#1976D2",
+            "Energy & LNG": "#F57C00",
+            "Healthcare": "#388E3C",
+            "Education": "#7B1FA2",
+            "Finance & Banking": "#C62828",
+            "Construction & Real Estate": "#5D4037",
+            "Tourism & Hospitality": "#00838F",
+            "Cross-Sector": "#757575",
+        }
+
+        fig_qat_chart = px.bar(
+            top_qat_all.sort_values("gap_score"),
+            x="gap_score",
+            y="skill_short",
+            color="sector_label",
+            color_discrete_map=SECTOR_COLORS_MAP,
+            orientation="h",
+            text="bar_label",
+            labels={"gap_score": "Max Gap Score (0–1)", "skill_short": "", "sector_label": "Sector"},
+            title="Priority Skills — High Qatarization Relevance · Ranked by Gap Score",
+            hover_data={"n_scenarios": True, "sector_label": True, "gap_score": ":.3f"},
+        )
+        fig_qat_chart.update_traces(
+            textposition="outside",
+            textfont=dict(color="#e8e4dc", size=10.5),
+            marker_line_width=0,
+        )
+        fig_qat_chart.update_layout(
+            height=520,
+            plot_bgcolor="#1a1a2e", paper_bgcolor="#1a1a2e",
+            font=dict(color="#e8e4dc"),
+            yaxis=dict(autorange="reversed"),
+            xaxis=dict(range=[0, top_qat_all["gap_score"].max() * 1.45]),
+            legend=dict(orientation="h", yanchor="bottom", y=1.02, font=dict(size=11)),
+            coloraxis_showscale=False,
+        )
+        st.plotly_chart(fig_qat_chart, use_container_width=True)
+
+        # Top 5 cards beneath the chart
+        top5 = (
+            gap_pos[gap_pos["qatarization_relevance"] == "high"]
+            .sort_values("gap_score", ascending=False)
+            .drop_duplicates("skill_category")
+            .head(5)
+        )
         cols = st.columns(len(top5))
         for i, (_, row) in enumerate(top5.iterrows()):
             with cols[i]:
                 scenario_short = row["scenario"]
                 sector_short = SECTOR_LABELS.get(row["sector"], row["sector"])
                 horizon = row.get("time_horizon", "—").replace("_", " ")
+                n_sc = int(gap_pos[gap_pos["skill_category"] == row["skill_category"]]["scenario"].nunique())
                 st.markdown(f'''
-<div class="metric-card" style="height:180px;">
+<div class="metric-card" style="height:200px;">
     <div style="font-size:0.65rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">#{i+1} Priority</div>
-    <div style="font-size:0.95rem;font-weight:600;color:#f0ece4;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
+    <div style="font-size:0.92rem;font-weight:600;color:#f0ece4;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
     <div style="font-size:1.4rem;font-weight:700;color:#e8513a;margin-bottom:8px;">{row["gap_score"]:.2f}</div>
     <div style="font-size:0.72rem;color:#a09a8e;">
         📂 {sector_short}<br>
-        🏷️ {scenario_short} · {horizon}
+        🏷️ {scenario_short} · {horizon}<br>
+        📊 Gap in {n_sc}/5 scenarios
     </div>
 </div>''', unsafe_allow_html=True)
 # ════════════════════════════════════════════════════════════════════
