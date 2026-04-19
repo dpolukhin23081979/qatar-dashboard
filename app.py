@@ -639,32 +639,6 @@ with tab_exec:
             coloraxis_showscale=False,
         )
         st.plotly_chart(fig_qat_chart, use_container_width=True)
-
-        # Top 5 cards beneath the chart
-        top5 = (
-            gap_pos[gap_pos["qatarization_relevance"] == "high"]
-            .sort_values("gap_score", ascending=False)
-            .drop_duplicates("skill_category")
-            .head(5)
-        )
-        cols = st.columns(len(top5))
-        for i, (_, row) in enumerate(top5.iterrows()):
-            with cols[i]:
-                scenario_short = row["scenario"]
-                sector_short = SECTOR_LABELS.get(row["sector"], row["sector"])
-                horizon = row.get("time_horizon", "—").replace("_", " ")
-                n_sc = int(gap_pos[gap_pos["skill_category"] == row["skill_category"]]["scenario"].nunique())
-                st.markdown(f'''
-<div class="metric-card" style="height:200px;">
-    <div style="font-size:0.65rem;color:#8a8070;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px;">#{i+1} Priority</div>
-    <div style="font-size:0.92rem;font-weight:600;color:#f0ece4;line-height:1.3;margin-bottom:10px;">{row["skill_category"]}</div>
-    <div style="font-size:1.4rem;font-weight:700;color:#e8513a;margin-bottom:8px;">{row["gap_score"]:.2f}</div>
-    <div style="font-size:0.72rem;color:#a09a8e;">
-        📂 {sector_short}<br>
-        🏷️ {scenario_short} · {horizon}<br>
-        📊 Gap in {n_sc}/5 scenarios
-    </div>
-</div>''', unsafe_allow_html=True)
 # ════════════════════════════════════════════════════════════════════
 # TAB 0 — GUIDE & DEFINITIONS
 # ════════════════════════════════════════════════════════════════════
