@@ -85,7 +85,7 @@ separately in `.streamlit/config.toml`.
 
 To incorporate new published sources or updated job postings, open 
 `Qatar_Scenario_Pipeline_v15.ipynb` in Google Colab. Full instructions are in 
-`Data_Documentation.docx` in the `Data & Model: Code and Files` folder.
+`Dashboard: Documentation and Instructions.docx` in the `Dashboard: Code and Files` folder.
 
 ---
 
@@ -120,6 +120,6 @@ Advised by Professor Ganesh Mani, PhD in Artificial Intelligence
 
 Full documentation is available in the project Google Drive folder:
 
-- `Dashboard_Documentation.docx` — deployment, data updates, and GitHub guide
-- `Data_Documentation.docx` — data collection, skill extraction, and pipeline guide
+- `Dashboard: Documentation and Instructions.docx` — deployment, data updates, and GitHub guide
+- `Data: Documentation and Instructions.docx` — data collection, skill extraction, and pipeline guide
 
